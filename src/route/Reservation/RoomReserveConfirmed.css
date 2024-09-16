@@ -1,0 +1,946 @@
+@media screen and (min-width : 1281px) {
+    .reserve_progress {
+        position: relative;
+
+        width: 200px;
+        height: 1px;
+        background: #3c00ff;
+        margin: 0 auto;
+        margin-top: 36px;
+    }
+
+    .reserve_progress_circle {
+        position: absolute;
+        top: -7px;
+
+        border-radius: 50%;
+        background: #3c00ff;
+        width: 14px;
+        height: 14px;
+
+    }
+
+    .reserve_progress p {
+        position: absolute;
+
+        font-size: 12px;
+        top: 20px;
+        color: #3c00ff;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .reserve_progress p:nth-of-type(1) {
+        left: -12%;
+    }
+
+    .reserve_progress p:nth-of-type(2) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .reserve_progress p:nth-of-type(3) {
+        right: -12%;
+    }
+
+    .reserve_progress_circle:nth-of-type(1) {
+        left: -7px;
+        top: -7px;
+        background: #fff;
+        border: 1px solid #3c00ff;
+
+    }
+
+    .reserve_progress_circle:nth-of-type(2) {
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border: 1px solid #3c00ff;
+    }
+
+    .reserve_progress_circle:nth-of-type(3) {
+        right: -14px;
+        top: -14px;
+        width: 28px;
+        height: 28px;
+
+
+    }
+
+    .pc .reserve_confirm_wrap {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0px 40px 40px;
+    }
+
+    .pc .reserve_confirm_wrap>p {
+        font-size: 16px;
+        text-align: center;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_confirm_wrap .reserve_box_gradient {
+        background: linear-gradient(-180deg, #3c00ff, #ff0090);
+        padding: 1px 1px 1px 0.99px;
+        margin-top: 48px;
+        border-radius: 6px;
+    }
+
+    .pc .reserve_confirm_box {
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-top: 0px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+        padding: 10px;
+    }
+
+    .pc .reserve_confirm_box>div>p {
+        font-size: 14px;
+        color: #7a51ff;
+    }
+
+    .pc .reserve_confirm_box>div {
+        border-bottom: 1px solid rgb(235, 235, 235);
+        padding: 20px 0px;
+    }
+
+    .pc .reserve_confirm_box>div>div>p {
+        color: #7a51ff;
+        font-size: 14px;
+    }
+
+    .reserve_title div:nth-of-type(2),
+    .reserve_check div:nth-of-type(2),
+    .reserve_confirm_totalpay div:nth-of-type(2) {
+        margin-top: 20px;
+    }
+
+    /* reserve_id */
+    .reserve_id_text {
+        display: flex;
+    }
+
+    .pc .reserve_id_text span {
+        font-size: 16px;
+    }
+
+    .reserve_id_text {
+        margin-top: 4px;
+    }
+
+    .pc .alert_box span {
+        font-size: 12px;
+        margin-top: 4px;
+        display: block;
+        background: linear-gradient(to bottom, transparent 50%, #efe9ff 51%);
+    }
+
+    .pc .reserve_confirm_box .reserve_id .mb_id_copy {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-left: 4px;
+    }
+
+    .pc .reserve_id>span {
+        display: block;
+        font-size: 16px;
+        margin-top: 10px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_id>div {
+        position: relative;
+    }
+
+    .pc .reserve_id .alert_box {
+        margin-top: 0px;
+        width: fit-content;
+    }
+
+
+
+    /* reserve_title */
+    .pc .reserve_title p {
+        color: #7a51ff;
+    }
+
+    .pc .reserve_title span {
+        display: block;
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
+    .pc .reserve_title div:last-child span {
+        font-size: 16px;
+    }
+
+    .mb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: calc(100% - 160px);
+        height: 80px;
+        z-index: 51;
+    }
+
+    .mb_confirm_top_nav p {
+        font-size: 14px;
+        line-height: 80px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .reserve_confirm_wrap .mb_undo_btn {
+        display: none;
+    }
+
+    /* reserve_check */
+    .pc .reserve_check p {}
+
+    .pc .reserve_check span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    /* reserve_room_price */
+    .pc .reserve_confirm_room_price div:nth-of-type(2) {
+        display: flex;
+    }
+
+    .pc .reserve_confirm_room_price div:nth-of-type(2)>p {
+        color: #0c0121;
+        font-size: 18px;
+        margin-right: 4px;
+    }
+
+    .pc .reserve_confirm_room_price div:nth-of-type(2) {
+        margin-top: 4px;
+    }
+
+    .pc .reserve_confirm_room_price div:nth-of-type(2)>span {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* reserve_total */
+    .pc .reserve_confirm_box>.reserve_confirm_totalpay {
+        border-bottom: none;
+    }
+
+    .pc .reserve_confirm_totalpay>.reserve_box_rent p {
+        color: #0c0121;
+    }
+
+    .pc .reserve_confirm_totalpay>.reserve_box_rent p:nth-of-type(2) {
+        margin-top: 10px;
+    }
+
+    .pc .reserve_confirm_totalpay span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    .tb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        z-index: 10;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .pc .reserve_confirm_wrap>p {
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width : 1280px) {
+    .reserve_progress {
+        position: relative;
+
+        width: 200px;
+        height: 1px;
+        background: #3c00ff;
+        margin: 0 auto;
+        margin-top: 36px;
+    }
+
+    .reserve_progress_circle {
+        position: absolute;
+        top: -7px;
+
+        border-radius: 50%;
+        background: #3c00ff;
+        width: 14px;
+        height: 14px;
+
+    }
+
+    .reserve_progress p {
+        position: absolute;
+
+        font-size: 12px;
+        top: 20px;
+        color: #3c00ff;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .reserve_progress p:nth-of-type(1) {
+        left: -12%;
+    }
+
+    .reserve_progress p:nth-of-type(2) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .reserve_progress p:nth-of-type(3) {
+        right: -12%;
+    }
+
+    .reserve_progress_circle:nth-of-type(1) {
+        left: -7px;
+        top: -7px;
+        background: #fff;
+        border: 1px solid #3c00ff;
+
+    }
+
+    .reserve_progress_circle:nth-of-type(2) {
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border: 1px solid #3c00ff;
+    }
+
+    .reserve_progress_circle:nth-of-type(3) {
+        right: -14px;
+        top: -14px;
+        width: 28px;
+        height: 28px;
+
+
+    }
+
+    .pc .reserve_confirm_wrap {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0px 40px 40px;
+    }
+
+    .pc .reserve_confirm_wrap>p {
+        font-size: 16px;
+        text-align: center;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_confirm_wrap .reserve_box_gradient {
+        background: linear-gradient(-180deg, #3c00ff, #ff0090);
+        padding: 1px 1px 1px 0.99px;
+        margin-top: 48px;
+        border-radius: 6px;
+    }
+
+    .pc .reserve_confirm_box {
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-top: 0px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+        padding: 10px;
+    }
+
+    .pc .reserve_confirm_box>div>p {
+        font-size: 14px;
+        color: #7a51ff;
+    }
+
+    .pc .reserve_confirm_box>div {
+        border-bottom: 1px solid rgb(235, 235, 235);
+        padding: 20px 0px;
+    }
+
+    .pc .reserve_confirm_box>div>div>p {
+        color: #7a51ff;
+        font-size: 14px;
+    }
+
+    .reserve_title div:nth-of-type(2),
+    .reserve_check div:nth-of-type(2),
+    .reserve_confirm_totalpay div:nth-of-type(2) {
+        margin-top: 20px;
+    }
+
+    /* reserve_id */
+    .reserve_id_text {
+        display: flex;
+    }
+
+    .pc .reserve_id_text span {
+        font-size: 16px;
+    }
+
+    .reserve_id_text {
+        margin-top: 4px;
+    }
+
+    .pc .alert_box span {
+        font-size: 12px;
+        margin-top: 4px;
+        display: block;
+        background: linear-gradient(to bottom, transparent 50%, #efe9ff 51%);
+    }
+
+    .pc .reserve_confirm_box .reserve_id .mb_id_copy {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-left: 4px;
+    }
+
+    .pc .reserve_id>span {
+        display: block;
+        font-size: 16px;
+        margin-top: 10px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_id>div {
+        position: relative;
+    }
+
+    .pc .reserve_id .alert_box {
+        margin-top: 0px;
+        width: fit-content;
+    }
+
+
+
+    /* reserve_title */
+    .pc .reserve_title p {
+        color: #7a51ff;
+    }
+
+    .pc .reserve_title span {
+        display: block;
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
+    .pc .reserve_title div:last-child span {
+        font-size: 16px;
+    }
+
+    .mb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: calc(100% - 160px);
+        height: 80px;
+        z-index: 51;
+    }
+
+    .mb_confirm_top_nav p {
+        font-size: 14px;
+        line-height: 80px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .reserve_confirm_wrap .mb_undo_btn {
+        display: none;
+    }
+
+    /* reserve_check */
+    .pc .reserve_check p {}
+
+    .pc .reserve_check span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    /* reserve_room_price */
+    .pc .reserve_confirm_room_price div:nth-of-type(2) {
+        display: flex;
+    }
+
+    .pc .reserve_confirm_room_price div:nth-of-type(2)>p {
+        color: #0c0121;
+        font-size: 18px;
+        margin-right: 4px;
+    }
+
+    .pc .reserve_confirm_room_price div:nth-of-type(2) {
+        margin-top: 4px;
+    }
+
+    .pc .reserve_confirm_room_price div:nth-of-type(2)>span {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* reserve_total */
+    .pc .reserve_confirm_box>.reserve_confirm_totalpay {
+        border-bottom: none;
+    }
+
+    .pc .reserve_confirm_totalpay>.reserve_box_rent p {
+        color: #0c0121;
+    }
+
+    .pc .reserve_confirm_totalpay>.reserve_box_rent p:nth-of-type(2) {
+        margin-top: 10px;
+    }
+
+    .pc .reserve_confirm_totalpay span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    .tb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        z-index: 10;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .pc .reserve_confirm_wrap>p {
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .tb .reserve_confirm_wrap {
+        margin-top: 0px;
+        padding: 0px 10px 40px;
+    }
+
+    .tb .reserve_confirm_wrap>p {
+        font-size: 16px;
+        text-align: center;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .tb .reserve_confirm_wrap .reserve_box_gradient {
+        background: linear-gradient(-180deg, #3c00ff, #ff0090);
+        padding: 1px 1px 1px 0.99px;
+        margin-top: 48px;
+        border-radius: 6px;
+    }
+
+    .tb .reserve_confirm_box {
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-top: 0px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+        padding: 10px;
+    }
+
+    .tb .reserve_confirm_box>div>p {
+        font-size: 14px;
+        color: #7a51ff;
+    }
+
+    .tb .reserve_confirm_box>div {
+        border-bottom: 1px solid rgb(235, 235, 235);
+        padding: 0px 0px 20px;
+    }
+
+    .tb .reserve_confirm_box>div>div {
+        margin-top: 20px;
+    }
+
+    .tb .reserve_confirm_box>div>div>p {
+        color: #7a51ff;
+        font-size: 14px;
+    }
+
+    /* reserve_id */
+    .tb .reserve_id {
+        margin-top: 10px;
+    }
+
+    .tb .reserve_id p {
+        flex: 1 0 100%;
+    }
+
+    .alert_box span {
+        font-size: 12px;
+        margin-top: 4px;
+        display: block;
+        background: linear-gradient(to bottom, transparent 50%, #efe9ff 51%);
+    }
+
+    .tb .reserve_confirm_box .reserve_id .mb_id_copy {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-left: 4px;
+    }
+
+    .tb .reserve_id>span {
+        display: block;
+        font-size: 16px;
+        margin-top: 10px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .tb .reserve_id>div {
+        position: relative;
+    }
+
+    .reserve_id_text span {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .tb .reserve_id .alert_box {
+        margin-top: 0px;
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+
+
+    .tb .reserve_id .alert_box div {
+        position: absolute;
+        bottom: 0;
+        background: #3c00ff0f;
+        width: 82%;
+        height: 12px;
+    }
+
+    .tb .reserve_id .alert_box span {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    /* reserve_title */
+    .tb .reserve_title p {
+        color: #7a51ff;
+    }
+
+    .tb .reserve_title span {
+        display: block;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .tb .reserve_title div:last-child span {
+        font-size: 16px;
+    }
+
+    .mb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: calc(100% - 160px);
+        height: 80px;
+        z-index: 51;
+    }
+
+    .mb_confirm_top_nav p {
+        font-size: 14px;
+        line-height: 80px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .reserve_confirm_wrap .mb_undo_btn {
+        display: none;
+    }
+
+    /* reserve_check */
+    .tb .reserve_check p {}
+
+    .tb .reserve_check span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    /* reserve_room_price */
+    .tb .reserve_confirm_room_price div:nth-of-type(2) {
+        display: flex;
+    }
+
+    .tb .reserve_confirm_room_price div:nth-of-type(2)>p {
+        color: #0c0121;
+        font-size: 18px;
+        margin-right: 4px;
+    }
+
+    .tb .reserve_confirm_room_price div:nth-of-type(2) {
+        margin-top: 4px;
+    }
+
+    .tb .reserve_confirm_room_price div:nth-of-type(2)>span {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* reserve_total */
+    .tb .reserve_confirm_box>.reserve_confirm_totalpay {
+        border-bottom: none;
+    }
+
+    .tb .reserve_confirm_totalpay>.reserve_box_rent p {
+        color: #0c0121;
+    }
+
+    .tb .reserve_confirm_totalpay>.reserve_box_rent p:nth-of-type(2) {
+        margin-top: 10px;
+    }
+
+    .tb .reserve_confirm_totalpay span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    .tb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        z-index: 10;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .tb .reserve_confirm_wrap>p {
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width : 480px) {
+    .mb .reserve_confirm_wrap {
+        margin-top: 40px;
+        padding: 10px 10px 200px;
+    }
+
+    .mb .reserve_confirm_wrap>p {
+        font-size: 16px;
+        text-align: center;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .mb .reserve_confirm_wrap .reserve_box_gradient {
+        background: linear-gradient(-180deg, #3c00ff, #ff0090);
+        padding: 1px 1px 1px 0.99px;
+        margin-top: 48px;
+        border-radius: 6px;
+    }
+
+    .alert_box span {
+        font-size: 12px;
+        margin-top: 4px;
+        display: block;
+        background: linear-gradient(to bottom, transparent 50%, #efe9ff 51%);
+    }
+
+    .mb .reserve_confirm_box {
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-top: 0px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+        padding: 10px;
+    }
+
+    .mb .reserve_confirm_box>div>p {
+        font-size: 14px;
+        color: #7a51ff;
+    }
+
+    .mb .reserve_confirm_box>div {
+        border-bottom: 1px solid rgb(235, 235, 235);
+        padding: 0px 0px 20px;
+    }
+
+    .mb .reserve_confirm_box>div>div {
+        margin-top: 20px;
+    }
+
+    .mb .reserve_confirm_box>div>div>p {
+        color: #7a51ff;
+        font-size: 14px;
+    }
+
+    /* reserve_id */
+    .mb .reserve_id {
+        margin-top: 10px;
+    }
+
+    .mb .reserve_id p {
+        flex: 1 0 100%;
+    }
+
+    .mb .reserve_confirm_box .reserve_id .mb_id_copy {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-left: 4px;
+    }
+
+    .mb .reserve_id>span {
+        display: block;
+        font-size: 16px;
+        margin-top: 10px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .mb .reserve_id>div {
+        position: relative;
+    }
+
+    .mb .reserve_id .alert_box {
+        margin-top: 0px;
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+
+    .reserve_id_text span {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .mb .reserve_id .alert_box div {
+        position: absolute;
+        bottom: 0;
+        background: #3c00ff0f;
+        width: 82%;
+        height: 12px;
+    }
+
+    .mb .reserve_id .alert_box span {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    /* reserve_title */
+    .mb .reserve_title p {
+        color: #7a51ff;
+    }
+
+    .mb .reserve_title span {
+        display: block;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .mb .reserve_title div:last-child span {
+        font-size: 16px;
+    }
+
+    .mb_confirm_top_nav p {
+        font-size: 12px;
+        line-height: 60px;
+        text-align: center;
+        color: #0c0121;
+    }
+
+    /* reserve_check */
+    .mb .reserve_check p {}
+
+    .mb .reserve_check span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    /* reserve_room_price */
+    .mb .reserve_confirm_room_price div:nth-of-type(2) {
+        display: flex;
+    }
+
+    .mb .reserve_confirm_room_price div:nth-of-type(2)>p {
+        color: #0c0121;
+        font-size: 18px;
+        margin-right: 4px;
+    }
+
+    .mb .reserve_confirm_room_price div:nth-of-type(2) {
+        margin-top: 4px;
+    }
+
+    .mb .reserve_confirm_room_price div:nth-of-type(2)>span {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* reserve_total */
+    .mb .reserve_confirm_box>.reserve_confirm_totalpay {
+        border-bottom: none;
+    }
+
+    .mb .reserve_confirm_totalpay>.reserve_box_rent p {
+        color: #0c0121;
+    }
+
+    .mb .reserve_confirm_totalpay>.reserve_box_rent p:nth-of-type(2) {
+        margin-top: 10px;
+    }
+
+    .mb .reserve_confirm_totalpay span {
+        margin-top: 4px;
+        display: block;
+    }
+
+    .mb_confirm_top_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: none;
+
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        z-index: 10;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .reserve_confirm_wrap .mb_undo_btn {
+        display: block;
+        top: 8px;
+    }
+
+    .mb .reserve_confirm_wrap>p {
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}

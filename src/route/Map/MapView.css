@@ -1,0 +1,254 @@
+.map_wrap {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 120px);
+    z-index: 1;
+}
+
+.hotel_marker {
+    width: auto;
+    height: 36px;
+    background: #5900ff;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 5px #19191924;
+    padding: 4px 10px;
+    border-radius: 6px;
+    position: relative;
+    text-align: center;
+    transition: .2s;
+}
+
+.hotel_marker:hover {
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #5900FF;
+}
+
+.hotel_marker:hover>p {
+    color: #5900FF;
+}
+
+.hotel_marker>p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.hotel_map_box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -210px;
+    width: 360px;
+    height: 200px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px #19191924;
+    display: flex;
+    text-align: left;
+    z-index: 10;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div {
+    display: flex;
+    text-align: left;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div p {
+    width: auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-word;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+}
+
+.hotel_map_grade {
+    width: 80px;
+    height: 16px;
+    min-width: 80px;
+    display: flex;
+}
+
+.hotel_map_grade div {
+    flex: 0 0 20%;
+}
+
+.hotel_map_box>div:nth-of-type(1) {
+    flex: 0 0 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.hotel_map_box>div:nth-of-type(2) {
+    flex: 0 0 70%;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(2)>p {
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 5px;
+    color: #7e7495;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(2) div {
+    width: auto;
+    display: flex;
+    border-radius: 10px 0px 10px 10px;
+    background: linear-gradient(90deg, #0b59ff, #5900FF);
+    padding: 4px;
+    width: 72px;
+    margin-top: 10px;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(2) div p {
+    font-size: 16px;
+    flex: 0 0 40%;
+    color: #fff;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(2) div span {
+    font-size: 16px;
+    flex: 1 0 50%;
+    color: #DEA6FF;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(3) {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: right;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(3) p {
+    font-size: 20px;
+    font-family: 'nanumbarungothicbold';
+    flex: 1 0 100%;
+}
+
+.hotel_map_box>div:nth-of-type(2)>div:nth-of-type(3) span {
+    font-size: 12px;
+    color: #7e7495;
+    flex: 1 0 100%;
+}
+
+.triangle {
+    position: absolute;
+    top: -5px;
+    /* 외부 테두리 두께 */
+    left: 50%;
+    transform: translateX(-50%);
+    /* 외부 테두리 두께의 절반 */
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 5px solid #5900FF;
+    /* 삼각형 색상 */
+    transition: .2s;
+}
+
+.outer_triangle {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    /* 바깥 삼각형 */
+    border-right: 5px solid transparent;
+    border-top: 5px solid #5900FF;
+    /* 외부 테두리 색상 */
+    transition: .2s;
+}
+
+.hotel_marker:hover .triangle {
+    border-top: 5px solid #ffffff;
+}
+
+.hotel_marker:hover .outer_triangle {
+    border-top: 5px solid #5900FF;
+}
+
+.hover_on {
+    background: #fff;
+    border: 1px solid #5900FF;
+}
+
+.hover_on>p {
+    color: #5900FF;
+}
+
+.hover_on .triangle {
+    border-top: 5px solid #ffffff;
+}
+
+.hover_on .outer_triangle {
+    border-top: 5px solid #5900FF;
+}
+@media screen and (min-width : 1281px) {
+    .map_wrap {
+        top: 0;
+        height: 100%;
+    }
+}
+@media screen and (max-width : 1280px) {
+    .map_wrap {
+        top: 0;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .map_wrap {
+        position: absolute;
+        top: 0px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: calc(100vh - 80px);
+        z-index: 1;
+    }
+
+    .mb .hotel_marker:active {
+        background: #fff;
+        border: 1px solid #5900FF;
+    }
+
+    .hotel_marker:active>p {
+        color: #5900FF;
+    }
+}
+
+@media (max-width: 480px) {
+    .map_wrap {
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .mb .hotel_marker:active {
+        background: #fff;
+        border: 1px solid #5900FF;
+    }
+
+    .hotel_marker:active>p {
+        color: #5900FF;
+    }
+}

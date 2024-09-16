@@ -1,0 +1,848 @@
+/** 모바일 가로, 타블렛 세로 */
+.topHeader {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    background: #5900FF;
+    z-index: 50;
+    padding: 0px 20px;
+    top: 0;
+    box-shadow: none;
+}
+
+.header_wrap {
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header_logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header_logo:hover {
+    cursor: pointer;
+}
+
+.header_logo img {
+    width: 220px;
+    /* height: 40px; */
+    margin-top: 6px;
+}
+
+.header_right {
+    position: absolute;
+    right: 0px;
+    display: flex;
+}
+
+.header_lang {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    float: left;
+    border-radius: 4px;
+}
+
+.nav_box {
+    width: 40px;
+}
+
+.nav_on_box {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    background: #fff;
+    height: 130px;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #0000004d;
+    z-index: 20;
+}
+
+.nav_box:hover {
+    cursor: pointer;
+}
+
+.nav_box button {
+    width: 100%;
+}
+
+.header_login,
+.header_logout {
+    height: 40px;
+    float: right;
+    border-radius: 4px;
+    background: #5900ff;
+    border: none;
+    color: #fff;
+    transition: .2s;
+}
+
+.header_login:hover,
+.header_logout:hover {
+    background: #6d1fff;
+}
+
+.header_login:active,
+.header_logout:active {
+    background: #4a00d3;
+}
+
+.guest_reserve {
+    height: 40px;
+    float: right;
+    border-radius: 4px;
+    border: 1.5px solid #5900ff;
+    background: none;
+    color: #5900FF;
+    margin-top: 10px;
+    transition: .2s;
+}
+
+.guest_reserve:hover {
+    background: #f1edf4;
+}
+
+.guest_reserve:active {
+    background: #5900FF;
+    color: #fff;
+    border: none;
+}
+
+.header_logout {
+    width: 40px;
+}
+
+.header_logout img {
+    width: 86px;
+    height: 40px;
+}
+
+.header_logout p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #fff;
+    right: 10px;
+    font-family: 'pretendard-regular';
+}
+
+.header_login:hover {
+    cursor: pointer;
+}
+
+.header_login p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #fff;
+    right: 10px;
+    font-family: 'pretendard-regular';
+}
+
+.topHeader .nav_svg {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    display: block;
+    background: rgba(0, 0, 0, .6);
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.topHeader .nav_svg rect {
+    fill: none;
+}
+
+.topHeader .nav_svg path {
+    fill: none;
+    stroke: #191919;
+}
+
+.mb_undo_btn svg {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    display: block;
+    background: none;
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.mb_undo_btn .cls-1 {
+    fill: none;
+}
+
+.mb_undo_btn .cls-2 {
+    fill: none;
+    stroke: #191919;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: .2s;
+}
+
+.onFixed svg {
+    background: none;
+}
+
+.onFixed .cls-2 {
+    stroke: #191919;
+}
+
+@media screen and (min-width: 1281px) {
+
+    /** 데스크탑 */
+    .header_wrap {
+        width: 1000px;
+    }
+
+    .header_right {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .topHeader .nav_svg path {
+        fill: none;
+        stroke: #ffffff;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+
+    /** 타블렛 가로, 노트북 */
+    .topHeader {
+        padding: 0px 40px;
+    }
+
+    .header_right {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .topHeader .nav_svg path {
+        stroke: #fff;
+    }
+
+    .detail_header {
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /** 모바일 가로, 타블렛 세로 */
+    .topHeader {
+        position: fixed;
+        top: 0;
+        bottom: auto;
+        width: 100%;
+        height: 80px;
+        text-align: center;
+        padding: 0px;
+    }
+
+    .header_wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .header_logo {
+        display: block;
+        padding: 10px;
+        left: 0px;
+    }
+
+    .header_logo img {
+        display: block;
+        margin: 0 auto;
+        width: 48px;
+        height: 48px;
+        background: red;
+    }
+
+    .header_logo span,
+    .header_right span {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .header_right {
+        width: 48px;
+        height: 48px;
+        padding: 10px;
+        right: 10px;
+    }
+
+
+    .header_right svg {
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+        display: block;
+        transition: .2s;
+    }
+
+    .topHeader .nav_svg path {
+        fill: none;
+        stroke: #ffffff;
+    }
+
+    .nav_on_box {
+        position: fixed;
+        left: 0;
+        top: 0px;
+
+        width: 100%;
+        height: 100vh;
+        border-radius: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding: 10px;
+        z-index: 51;
+    }
+
+    .header_login,
+    .header_logout {
+        flex: 1 0 100%;
+        height: 60px;
+        border-radius: 4px;
+        border: none;
+        float: none;
+        margin-top: 20px;
+    }
+
+    .guest_reserve {
+        flex: 1 0 100%;
+        height: 52px;
+        border-radius: 4px;
+        background: none;
+        margin-top: 10px;
+        float: none;
+    }
+
+    .nav_on_box>p {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .mb_nav_event_wrap {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 8px;
+    }
+
+    .mb_nav_event {
+        display: flex;
+        margin-left: 12px;
+    }
+
+    .mb_nav_event:nth-of-type(1) {
+        margin-left: 0;
+    }
+
+    .mb_nav_icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 4px;
+        background: red;
+    }
+
+    .mb_nav_event span {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .nav_close_btn {
+        width: 42px;
+        height: 42px;
+        border: none;
+        margin-top: 9px;
+        background: none;
+    }
+
+    .nav .header_right {
+        position: absolute;
+        top: 20px;
+        transform: none;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        padding: 0px;
+        display: block;
+    }
+
+    .nav .nav_box {
+        margin: 0 auto;
+        width: 42px;
+        height: 42px;
+        padding: 4px;
+    }
+
+    .mb_undo_btn {
+        position: fixed;
+        width: 42px;
+        height: 42px;
+        background: none;
+        border: none;
+        top: 10px;
+        left: 10px;
+    }
+
+    /* 페이지 별 스타일링 */
+    .search_header,
+    .detail_header,
+    .reserve_header {
+        border-top: none;
+    }
+
+    /* 홈  home*/
+
+    /* 검색 search */
+    .search_header {
+        right: 0;
+        background: transparent;
+        width: 80px;
+    }
+
+    .search_header .header_logo {
+        display: none;
+    }
+
+    .search_header .header_right {
+        width: 48px;
+        height: 48px;
+    }
+
+    .search_header .nav_svg path {
+        fill: none;
+        stroke: #191919;
+    }
+
+    /* 디테일 detail */
+    .detail_header {
+        background: transparent;
+        right: 0;
+        width: 80px;
+    }
+
+    .detail_header .header_logo {
+        display: none;
+    }
+
+    .detail_header .header_right {
+        position: absolute;
+
+        width: 48px;
+        height: 48px;
+        padding: 4px;
+        display: block;
+    }
+
+    .detail_header .nav_box {
+        position: fixed;
+        top: 20px;
+        z-index: 10;
+
+        width: 42px;
+        height: 42px;
+        margin-top: 0px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, .6);
+        transition: .2s;
+    }
+
+    .detail_header svg {
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        display: block;
+        margin-top: 0px;
+    }
+
+    .detail_header .nav_svg path {
+        fill: none;
+        stroke: #ffffff;
+        transition: .2s;
+    }
+
+    /* 예약 reserve */
+    .reserve_header {
+        right: 0;
+        background: transparent;
+        width: 80px;
+    }
+
+    .reserve_header .header_logo {
+        display: none;
+    }
+
+    .reserve_header .nav_svg path {
+        stroke: #191919;
+    }
+
+    /* 예약 확인 confirm */
+    .confirm_header {
+        position: fixed;
+        width: 100%;
+        height: 80px;
+        top: 0;
+        right: 0;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    }
+
+    .confirm_header .nav_box {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .confirm_header .header_logo {
+        display: block;
+    }
+
+    .confirm_header .header_right {
+        position: absolute;
+        top: 26px;
+        width: 48px;
+        height: 48px;
+        padding: 4px 0px 0px;
+        flex: 1 0 50%;
+        display: block;
+        transform: none;
+    }
+
+    .confirm_header svg {
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .topHeader {
+        position: fixed;
+        top: auto;
+        bottom: 0px;
+        width: 100%;
+        height: 80px;
+        z-index: 50;
+        background: #fff;
+        text-align: center;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, .2);
+        border-top: 1px solid rgb(235, 235, 235);
+        padding: 0px;
+    }
+
+    .topHeader .nav_svg path {
+        fill: none;
+        stroke: #191919;
+    }
+
+    .header_wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    .header_logo {
+        position: static;
+        transform: none;
+        padding: 4px 20px 20px 20px;
+        flex: 1 0 50%;
+        transition: .2s;
+    }
+
+    .header_logo img {
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        background: none;
+    }
+
+    .header_logo span,
+    .header_right span {
+        font-size: 12px;
+        line-height: 24px;
+        display: block;
+    }
+
+    .header_right svg {
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        display: block;
+        margin-top: 2px;
+        transition: .2s;
+    }
+
+    .header_right {
+        position: static;
+        padding: 4px 20px 20px 20px;
+        flex: 1 0 50%;
+        display: block;
+        transition: .2s;
+    }
+
+    .nav_box {
+        margin: 0 auto;
+        height: 24px;
+        padding: 0px;
+    }
+
+    .header_logo:active,
+    .header_right:active {
+        background: #dfdfdf;
+    }
+
+    .nav_on_box {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #ffffff;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #ffffff4d;
+        z-index: 51;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding: 20px;
+    }
+
+    .header_login,
+    .header_logout {
+        flex: 1 0 100%;
+        height: 52px;
+        border-radius: 4px;
+        background: #5900ff;
+        border: none;
+        color: #fff;
+        transition: .2s;
+        float: none;
+        margin-top: 20px;
+    }
+
+    .guest_reserve {
+        flex: 1 0 100%;
+        height: 52px;
+        border-radius: 4px;
+        border: 1.5px solid #5900ff;
+        background: none;
+        color: #5900FF;
+        margin-top: 10px;
+        transition: .2s;
+        float: none;
+    }
+
+    .nav_on_box>p {
+        font-family: 'nanumbarungothicbold';
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .mb_nav_event_wrap {
+        display: flex;
+        margin-top: 8px;
+    }
+
+    .mb_nav_event {
+        display: flex;
+        margin-left: 12px;
+    }
+
+    .mb_nav_icon {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-right: 4px;
+    }
+
+    .mb_nav_event span {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .nav_close_btn {
+        width: 40px;
+        height: 40px;
+        background: red;
+        border: none;
+    }
+
+    .nav {
+        position: fixed;
+        bottom: auto;
+        top: 10px;
+        right: 10px;
+        width: 42px;
+        height: 42px;
+        z-index: 15;
+        background: #fff;
+        text-align: center;
+        box-shadow: none;
+        padding: 0px;
+    }
+
+    .nav .header_logo {
+        display: none;
+    }
+
+    .nav .header_right {
+        position: static;
+        padding: 0px;
+        flex: 1 0 100%;
+        display: block;
+        transition: .2s;
+        top: 0;
+    }
+
+    .nav .nav_box {
+        margin: 0 auto;
+        width: 28px;
+        height: 28px;
+        margin-top: 8px;
+        background-repeat: no-repeat;
+        padding: 0;
+    }
+
+    .mb_undo_btn {
+        position: fixed;
+        width: 42px;
+        height: 42px;
+        background: none;
+        border: none;
+        top: 10px;
+        left: 10px;
+    }
+
+    /* 페이지 별 스타일링 */
+    .search_header,
+    .detail_header,
+    .reserve_header {
+        border-top: none;
+    }
+
+    /* 홈  home*/
+    .home_header svg {
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        display: block;
+        transition: .2s;
+    }
+
+    .home_header .header_right {
+        transform: none;
+    }
+
+    .home_header rect {
+        fill: none;
+    }
+
+    .home_header path {
+        fill: none;
+        stroke: #191919;
+    }
+
+    /* 디테일 detail */
+    .detail_header {
+        background: none;
+    }
+
+    .detail_header .header_wrap {
+        display: block;
+    }
+
+    .detail_header .header_right {
+        position: fixed;
+        top: 19px;
+        right: 10px;
+        padding: 0px;
+        width: 42px;
+        height: 42px;
+        transition: .2s;
+        background: none;
+    }
+
+    .detail_header .nav_box {
+        position: static;
+        width: 42px;
+        height: 42px;
+        border: none;
+        background: rgba(0, 0, 0, .6);
+        border-radius: 50%;
+        margin-top: 0px;
+        transition: .2s;
+        padding-top: 5px;
+    }
+
+    .detail_header svg {
+        width: 28px;
+        height: 28px;
+        margin: 0 auto;
+        display: block;
+        margin-top: 0px;
+        transition: .2s;
+    }
+
+    .detail_header .nav_svg path {
+        stroke: #fff;
+    }
+
+    /* 예약 확인 confirm */
+    .confirm_header {
+        position: fixed;
+        width: 100%;
+        height: 80px;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        border-top: 1px solid rgb(235, 235, 235);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    }
+
+    .confirm_header .nav_box {
+        width: 40px;
+        margin: 0 auto;
+        height: 24px;
+    }
+
+    .confirm_header .header_logo {
+        display: block;
+    }
+
+    .confirm_header .header_right {
+        position: static;
+        padding: 4px 0px 0px;
+        flex: 1 0 50%;
+        display: block;
+        transition: .2s;
+    }
+
+    .confirm_header svg {
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        display: block;
+        transition: .2s;
+    }
+}

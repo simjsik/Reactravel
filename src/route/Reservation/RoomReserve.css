@@ -1,0 +1,2170 @@
+/* main */
+.reserve_wrap {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.reserve_room_title_wrap {
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px #1919191d;
+
+    background: #fff;
+}
+
+.reserve_room_title p {
+    font-size: 20px;
+    font-family: 'nanumbarungothicbold';
+}
+
+.reserve_room_title {
+    display: flex;
+}
+
+.reserve_room_img_box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hotel_history {
+    display: flex;
+    margin-top: 4px;
+}
+
+.hotel_history>div {
+    display: flex;
+}
+
+.hotel_history_icon {
+    width: 18px;
+    height: 18px;
+    /* background-image: url("https://github.com/simjsik/savefile/assets/39624384/3ed517cf-52af-4c78-be11-b7a28e2f2f58"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 4px;
+}
+
+.hotel_history>div {
+    margin-right: 4px;
+}
+
+.hotel_history>div:last-child {
+    margin-right: 0px;
+}
+
+.reserve_room_img_box {
+    margin-top: 10px;
+    overflow: hidden;
+    height: 794px;
+}
+
+.reserve_room_img_box>div {
+    position: relative;
+    flex: 0 0 32%;
+    overflow: hidden;
+    height: 254px;
+    margin-right: 8px;
+    margin-top: 8px;
+    border-radius: 6px;
+}
+
+.reserve_room_img_box>div:nth-of-type(3),
+.reserve_room_img_box>div:last-child {
+    margin-right: 0px;
+}
+
+.reserve_room_img_box>div img {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: .5s;
+}
+
+.reserve_room_img_box>div img:hover {
+    scale: 1.05;
+}
+
+
+
+.reserve_box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px #1919191d;
+}
+
+.reserve_wrap>.onFixed {
+    position: fixed;
+    top: 20px;
+    right: 351px;
+}
+
+.reserve_price {
+    padding: 10px 10px;
+}
+
+.reserve_price>p {
+    font-size: 12px;
+}
+
+.reserve_box_price {
+    margin-top: 4px;
+    display: flex;
+    padding: 0px;
+    background: #fff;
+}
+
+.reserve_box_price p {
+    margin-right: 4px;
+    font-size: 20px;
+    font-family: 'nanumbarungothicbold';
+}
+
+.reserve_box_price span {
+    line-height: 24px;
+}
+
+.reserve_rent {
+    padding: 20px 20px 10px 20px;
+    background: #fff;
+}
+
+.reserve_rent>p {
+    font-size: 16px;
+}
+
+.reserve_rent>div {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reserve_rent>div p {}
+
+.reserve_box_circle_wrap {
+    width: 100%;
+    background: #fff;
+    position: relative;
+}
+
+.reserve_box_circle {
+    background: rgb(248, 250, 254);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    border-radius: 20px;
+}
+
+.reserve_box_circle:last-child {
+    right: -10px;
+    left: auto;
+}
+
+.reserve_totalpay {
+    border-top: 1px dashed rgb(216, 223, 232);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px;
+    background: #fff;
+}
+
+
+.reserve_totalpay span {
+    font-family: 'nanumbarungothicbold';
+    font-size: 18px;
+}
+
+.reserve_btn_wrap {
+    background: #fff;
+}
+
+.reserve_btn_wrap p {
+    font-size: 12px;
+    line-height: 32px;
+    margin-left: 20px;
+    color: #ff0505;
+}
+
+.reserve_btn_wrap button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 0px 0px 6px 6px;
+    background: #5900FF;
+    color: #fff;
+    font-size: 16px;
+}
+
+.reserve_btn_wrap button:hover {
+    background: #662fff;
+}
+
+.reserve_btn_wrap button:active {
+    background: #4600c9;
+}
+
+.reserve_room_info_wrap {
+    width: 800px;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #1919191d;
+    background: #fff;
+}
+
+.reserve_room_info {
+    padding-top: 20px;
+    border-top: 1px solid rgb(235, 235, 235);
+}
+
+.reserve_room_info_wrap>p {
+    font-size: 18px;
+    font-family: 'nanumbarungothicbold';
+}
+
+.reserve_room_info_cont {
+    margin-top: 20px;
+}
+
+.reserve_room_info>div {
+    padding: 10px 10px 30px 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.reserve_room_bed_img {
+    width: 84%;
+    height: 148px;
+    display: flex;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.reserve_room_bed_img img {
+    width: 100%;
+    height: 100%;
+    transition: .2s;
+}
+
+.reserve_room_bed_img>div:hover img {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.reserve_room_bed {
+    margin-right: 10px;
+    max-width: 148px;
+    flex: 0 0 25%;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.reserve_room_bed_img>div:last-child {
+    margin-right: 0px;
+}
+
+.reserve_room_icon .reserve_room_bed_img img {
+    width: 100%;
+    flex: 1 0 30%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+}
+
+.reserve_room_photo_icon {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #191919b4;
+    width: 42px;
+    border-radius: 4px 4px 6px 4px;
+    padding: 4px 8px;
+    text-align: right;
+}
+
+.reserve_room_photo_icon div {
+    width: 14px;
+    height: 14px;
+    background-image: url("https://github.com/user-attachments/assets/2583799b-7e06-4917-9b81-4a771a42b375");
+    margin-right: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reserve_room_photo_icon span {
+    color: #fff;
+    font-size: 12px;
+    font-family: 'nanumbarungothicbold';
+    line-height: 15px;
+}
+
+.reserve_room_info_detail {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reserve_room_info_detail>div {
+    margin-top: 20px;
+    display: flex;
+    flex: 1 0 50%;
+}
+
+.reserve_room_icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reserve_room_info_detail>div:nth-of-type(1)>div {
+    width: 24px;
+}
+
+.reserve_room_photo_wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 50;
+}
+
+.reserve_room_photo_bg {
+    width: 100%;
+    height: 100%;
+}
+
+.reserve_room_photo_cont {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 720px;
+}
+
+.reserve_room_photo_view {
+    width: 100%;
+    height: 540px;
+    position: relative;
+    display: flex;
+}
+
+.photo_prev,
+.photo_next {
+    flex: 0 0 10%;
+    width: 40px;
+    height: 100%;
+    position: relative;
+    transition: .2s;
+}
+
+.photo_prev:hover,
+.photo_next:hover {
+    background: #ffffff0f;
+    cursor: pointer;
+}
+
+.photo_prev>div,
+.photo_next>div {
+    width: 40px;
+    height: 60px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.photo_next>div {
+    right: 0;
+}
+
+.photo_prev {
+    margin-right: 20px;
+}
+
+.photo_next {
+    margin-left: 20px;
+}
+
+.reserve_room_photo_view>div:nth-of-type(2) {
+    flex: 1 0 66%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.reserve_room_photo_view div img {
+    height: 100%;
+}
+
+.reserve_room_photo_box {
+    width: 100%;
+    height: 118px;
+    display: flex;
+    position: absolute;
+    bottom: 30px;
+}
+
+.reserve_room_photo_box>div {
+    border-radius: 6px;
+    margin-right: 8px;
+    overflow: hidden;
+}
+
+.reserve_room_photo_box>div:last-child {
+    margin-right: 0px;
+}
+
+.reserve_room_photo_box>div:hover img {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.reserve_room_photo_wrap img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: .2s;
+}
+
+.reserve_room_photo_wrap span {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+}
+
+.reserve_room_bed_title {
+    margin-top: 10px;
+}
+
+.resever_room_icon {
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 6px;
+}
+
+.reserve_room_info_detail>div:nth-of-type(1) .resever_room_icon {
+    width: 24px;
+}
+
+.reserve_detail {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(235, 235, 235);
+}
+
+.reserve_detail>div {
+    padding: 10px 10px 30px 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.reserve_detail_box {
+    margin-top: 10px;
+}
+
+.reserve_detail_more {
+    width: 18px;
+    height: 18px;
+}
+
+.reserve_detail_more_icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reserve_detail_box>div:nth-of-type(1) {
+    display: flex;
+}
+
+.reserve_detail_box>div:nth-of-type(1) p {
+    margin-right: 6px;
+}
+
+.reserve_detail_box>div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    padding: 0px 10px 10px;
+}
+
+.reserve_detail_box>div:last-child>div {
+    display: flex;
+    flex: 1 0 50%;
+    margin-top: 10px
+}
+
+.room_service_wrap {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgb(235, 235, 235);
+}
+
+.room_service_wrap>div {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+.room_service_wrap>div>div {
+    display: flex;
+    margin-right: 10px;
+}
+
+.reserve_ok_icon,
+.reserve_no_icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.room_location {
+    width: 800px;
+    padding: 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px #1919191d;
+    background: #fff;
+}
+
+.room_location_box {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.room_location_box>.map_wrap {
+    margin-top: 10px;
+    top: 0px;
+    height: 390px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.reserve_confirm_bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #19191996;
+    z-index: 15;
+}
+
+
+.reserve_confirm {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 200px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.reserve_confirm_btn {
+    width: 100%;
+    left: 0px;
+    height: 52px;
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 0px 0px 6px 6px;
+    overflow: hidden;
+}
+
+.reserve_confirm_btn button {
+    flex: 1 0 50%;
+    border: none;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.reserve_confirm_btn button:nth-of-type(1) {
+    background: #5900FF;
+    color: #fff;
+}
+
+.reserve_confirm_btn button:nth-of-type(1):hover {
+    background: #6e20ff;
+}
+
+.reserve_confirm_btn button:nth-of-type(1):active {
+    background: #4200be;
+
+}
+
+.reserve_confirm_btn button:nth-of-type(2):hover {
+    background: #e8e8e8;
+}
+
+.reserve_confirm_btn button:nth-of-type(2):active {
+    background: #d8d8d8;
+}
+
+@media screen and (min-width : 1281px) {
+
+    .pc .reserve_wrap {
+        width: 1000px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .reserve_wrap .mb_finder_btn_wrap {
+        position: fixed;
+        z-index: 49;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 100%;
+        height: 80px;
+        max-width: 540px;
+        margin-top: 0px;
+        padding: 0px 10px;
+        text-align: center;
+        background: #fff;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .pc .reserve_room_title_wrap {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 80px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .pc .reserve_room_info_wrap {
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .pc .reserve_box {
+        position: absolute;
+        top: 90px;
+        right: 0px;
+
+        width: calc(40% - 10px);
+        height: 380px;
+    }
+
+    .pc .onFixed {
+        position: sticky;
+        top: 20px;
+        z-index: 1;
+    }
+
+    .pc .room_location {
+        width: 100%;
+    }
+
+    .pc .mb_reserve_top_nav {
+        position: fixed;
+        z-index: 10;
+        top: 0px;
+        text-align: center;
+        width: 100%;
+        height: 80px;
+        padding: 0px;
+        margin-top: 0px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px #1919192f;
+    }
+
+    .mb_reserve_top_nav p {
+        line-height: 80px;
+        font-size: 12px;
+    }
+
+    .reserve_room_info_wrap>p {
+        font-size: 16px;
+    }
+
+    .reserve_room_info>p,
+    .reserve_detail>p,
+    .room_service_wrap>p {
+        font-size: 16px;
+    }
+
+    .pc .reserve_room_title p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .pc .hotel_history p {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .reserve_room_bed_title {
+        margin-top: 0px;
+    }
+
+    .reserve_room_bed_title p {
+        font-size: 14px;
+    }
+
+    .pc .reserve_room_img_box {
+        margin-top: 0px;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .reserve_detail_box {
+        margin-top: 20px;
+    }
+
+    .reserve_detail_box:nth-of-type(1) {
+        margin-top: 0;
+    }
+
+    .reserve_detail_box span {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .reserve_room_info_detail {
+        width: 100%;
+    }
+
+    .reserve_room_info_detail p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .reserve_room_info_detail>div {
+        margin-top: 10px;
+    }
+
+    .reserve_detail>div {
+        padding: 10px 10px 20px 10px;
+    }
+
+    .room_service_wrap span {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .pc .reserve_cont {
+        padding: 10px 0px 0px;
+        width: 100%;
+        display: flex;
+    }
+
+    .pc .reserve_main {
+        width: 600px;
+        max-width: 1000px;
+        margin-right: 10px;
+    }
+
+    .pc .reserve_room_img_box>div {
+        flex: 0 0 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    .pc .swiper-pagination {
+        height: 8px;
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pc .swiper-pagination-bullet {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: rgb(255, 255, 255, .6);
+        margin-right: 8px;
+        border-radius: 50%;
+        transition: .2s;
+    }
+
+    .pc .swiper-pagination-bullet-active {
+        background: #fff;
+        scale: 1.3;
+    }
+
+    .pc .swiper-pagination-bullet:last-child {
+        margin-right: 0px;
+    }
+
+    .pc .room_location {
+        position: relative;
+
+        width: 100%;
+        height: 500px;
+        margin-top: 10px;
+        padding: 10px 10px 65px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background-image: none;
+        overflow: hidden;
+    }
+
+    .pc .room_location>p {
+        width: 100%;
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    .room_location_detail {
+        display: flex;
+        margin-top: 8px;
+    }
+
+    .room_location_detail p {
+        font-family: 'nanumbarungothicbold';
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .reserve_detail_box>div:nth-of-type(1) p {
+        font-size: 14px;
+    }
+
+    .pc .reserve_wrap .hotel_grade {
+        width: 60px;
+        min-width: 60px;
+        height: 12px;
+        margin-top: 3px;
+    }
+
+    .pc .room_location_box {
+        margin-top: 10px;
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pc .room_location_box_btn {
+        width: 42px;
+        height: 42px;
+        background: none;
+        background-image: url('https://github.com/user-attachments/assets/bdc11b7c-1801-45da-8939-f1ae58eb3342');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        position: absolute;
+        z-index: 11;
+        top: 10px;
+        left: 10px;
+    }
+
+    .pc .reserve_btn_wrap {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 80px;
+        z-index: 10;
+        border-radius: 0px 0px 6px 6px;
+    }
+
+    .pc .room_location_box_btn svg {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    .pc .reserve_close rect {
+        fill: none;
+        stroke: none;
+    }
+
+    .pc .reserve_close line {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .reserve_box_price {
+        margin-top: 0;
+        padding: 10px;
+    }
+
+
+    .pc .reserve_btn_top {
+        text-align: center;
+        height: 20px;
+        background: #3c00ff;
+    }
+
+    .pc .reserve_btn_top span {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .pc .reserve_box_price p {
+        margin-right: 2px;
+        font-size: 16px;
+    }
+
+    .pc .reserve_box_price span {
+        line-height: 22px;
+        font-size: 12px;
+    }
+
+    .pc .reserve_rent {
+        padding: 10px;
+    }
+
+    .reserve_totalpay {
+        padding: 20px 10px;
+    }
+
+    .pc .reserve_totalpay p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .pc .reserve_btn {
+        position: absolute;
+        right: auto;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: calc(100% - 20px);
+        height: 42px;
+        font-size: 14px;
+        border-radius: 4px;
+
+        background: #3c00ff;
+    }
+
+    .pc .reserve_btn_wrap p {
+        margin-left: 10px;
+        line-height: 20px;
+        margin-top: 8px;
+    }
+
+    .pc .reserve_btn_bottom span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_confirm_bg {
+        padding: 0px 10px;
+    }
+
+    .pc .reserve_confirm {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -75%);
+
+        width: 400px;
+        height: 200px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 6px;
+    }
+
+    .pc .reserve_rent>p {
+        font-size: 12px;
+    }
+
+    .pc .reserve_rent>div p {
+        font-size: 14px;
+    }
+
+    .reserve_room_bed_img {
+        width: 100%;
+        height: auto;
+        display: flex;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .reserve_room_bed {
+        flex: 1 0 20%;
+        aspect-ratio: 1;
+        max-width: none;
+    }
+
+    .reserve_room_bed:nth-of-type(4) {
+        margin-right: 0;
+    }
+
+
+
+    .reserve_room_info_detail>div:nth-of-type(1)>div {
+        min-width: 28px;
+    }
+
+    .reserve_room_photo_bg {
+        position: absolute;
+    }
+
+    .pc .reserve_room_photo_cont {
+        position: relative;
+        top: 40px;
+        width: 1200px;
+        height: 720px;
+        padding: 100px 40px 0px;
+    }
+
+    .pc .reserve_room_photo_view {
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        height: auto;
+    }
+
+    .pc .reserve_room_photo_box {
+        height: 118px;
+        display: flex;
+        position: static;
+        margin-top: 40px;
+    }
+
+    .pc .reserve_room_photo_wrap span {
+        position: static;
+        transform: none;
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .reserve_room_photo_close_btn {
+        width: 52px;
+        height: 52px;
+        background: red;
+        position: absolute;
+        top: 0;
+    }
+}
+
+@media screen and (max-width : 1280px) {
+
+    .pc .reserve_wrap {
+        width: calc(100% - 60px);
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .pc .reserve_cont {
+        padding: 90px 10px 0px;
+        width: 100%;
+        display: flex;
+    }
+
+    .reserve_main {
+        max-width: calc(60% - 20px);
+        margin-right: 20px;
+    }
+
+    .pc .reserve_room_title_wrap {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .pc .reserve_room_info_wrap {
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .pc .reserve_box {
+        position: static;
+        flex: 0 0 40%;
+        height: 420px;
+    }
+
+    .pc .onFixed {
+        position: sticky;
+        top: 20px;
+        right: 40px;
+        z-index: 1;
+    }
+
+    .pc .reserve_btn_wrap {
+        width: 100%;
+        position: static;
+        height: auto;
+        z-index: 10;
+        border-radius: 0px 0px 6px 6px;
+    }
+
+    .pc .reserve_btn {
+        position: static;
+
+        width: calc(100% - 20px);
+        height: 42px;
+        margin-left: 10px;
+        border-radius: 4px;
+        background: #3c00ff;
+    }
+
+    .pc .room_location {
+        width: 100%;
+    }
+
+    .pc .mb_reserve_top_nav {
+        position: fixed;
+        z-index: 10;
+        top: 0px;
+        text-align: center;
+        width: 100%;
+        height: 80px;
+        padding: 0px;
+        margin-top: 0px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px #1919192f;
+    }
+
+    .mb_reserve_top_nav p {
+        line-height: 80px;
+        font-size: 12px;
+    }
+
+    .pc .reserve_room_title p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .pc .hotel_history p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .reserve_room_bed_title p {
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_room_img_box {
+        margin-top: 0px;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .reserve_detail_box {
+        margin-top: 20px;
+    }
+
+    .reserve_detail_box:nth-of-type(1) {
+        margin-top: 0;
+    }
+
+    .reserve_detail_box span {
+        font-size: 14px;
+    }
+
+    .reserve_room_info_detail {
+        width: 100%;
+    }
+
+    .reserve_room_info_detail p {
+        font-size: 14px;
+    }
+
+    .reserve_detail>div {
+        padding: 10px 10px 20px 10px;
+    }
+
+    .room_service_wrap span {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+
+
+    .pc .reserve_room_img_box>div {
+        flex: 0 0 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    .pc .swiper-pagination {
+        height: 8px;
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pc .swiper-pagination-bullet {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: rgb(255, 255, 255, .6);
+        margin-right: 8px;
+        border-radius: 50%;
+        transition: .2s;
+    }
+
+    .pc .swiper-pagination-bullet-active {
+        background: #fff;
+        scale: 1.3;
+    }
+
+    .pc .swiper-pagination-bullet:last-child {
+        margin-right: 0px;
+    }
+
+    .pc .room_location {
+        position: relative;
+
+        width: 100%;
+        height: 500px;
+        margin-top: 10px;
+        padding: 10px 10px 40px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background-image: none;
+        overflow: hidden;
+    }
+
+    .pc .room_location p {
+        width: 100%;
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    .pc .reserve_wrap .hotel_grade {
+        width: 60px;
+        min-width: 60px;
+        height: 12px;
+        margin-top: 3px;
+    }
+
+    .pc .room_location_box {
+        margin-top: 10px;
+        position: static;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pc .room_location_box_btn {
+        width: 42px;
+        height: 42px;
+        background: none;
+        background-image: url('https://github.com/user-attachments/assets/bdc11b7c-1801-45da-8939-f1ae58eb3342');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        position: absolute;
+        z-index: 11;
+        top: 10px;
+        left: 10px;
+    }
+
+
+
+    .pc .room_location_box_btn svg {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    .pc .reserve_close rect {
+        fill: none;
+        stroke: none;
+    }
+
+    .pc .reserve_close line {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .reserve_box_price {
+        margin-top: 0;
+        padding: 10px;
+    }
+
+
+    .pc .reserve_btn_top {
+        text-align: center;
+        height: 20px;
+        background: #3c00ff;
+    }
+
+    .pc .reserve_btn_top span {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .pc .reserve_box_price p {
+        margin-right: 2px;
+        font-size: 16px;
+    }
+
+    .pc .reserve_box_price span {
+        line-height: 22px;
+        font-size: 12px;
+    }
+
+    .pc .reserve_rent {
+        padding: 10px;
+    }
+
+    .reserve_totalpay {
+        padding: 20px 10px 10px;
+    }
+
+    .pc .reserve_totalpay p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+
+
+    .pc .reserve_btn_wrap p {
+        margin-left: 10px;
+        line-height: 20px;
+        margin-top: 8px;
+    }
+
+    .pc .reserve_btn_bottom span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .pc .reserve_confirm_bg {
+        padding: 0px 10px;
+    }
+
+    .pc .reserve_confirm {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -75%);
+
+        width: 400px;
+        height: 200px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 6px;
+    }
+
+    .pc .reserve_rent>p {
+        font-size: 12px;
+    }
+
+    .pc .reserve_rent>div p {
+        font-size: 14px;
+    }
+
+    .reserve_room_bed_img {
+        width: 100%;
+        height: auto;
+        display: flex;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .reserve_room_bed {
+        flex: 1 0 20%;
+        aspect-ratio: 1;
+        max-width: none;
+    }
+
+    .reserve_room_bed:nth-of-type(4) {
+        margin-right: 0;
+    }
+
+
+
+    .reserve_room_info_detail>div:nth-of-type(1)>div {
+        min-width: 28px;
+    }
+
+    .reserve_room_photo_bg {
+        position: absolute;
+    }
+
+    .pc .reserve_room_photo_cont {
+        position: relative;
+        width: 100%;
+        height: 720px;
+        padding: 80px 40px 0px;
+        top: 80px;
+    }
+
+    .pc .reserve_room_photo_view {
+        width: 100%;
+        aspect-ratio: 16 / 6;
+        height: auto;
+    }
+
+    .pc .reserve_room_photo_box {
+        height: 118px;
+        display: flex;
+        position: static;
+        margin-top: 40px;
+    }
+
+    .pc .reserve_room_photo_wrap span {
+        position: static;
+        transform: none;
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .reserve_room_photo_close_btn {
+        width: 52px;
+        height: 52px;
+        background: red;
+        position: absolute;
+        top: 0;
+    }
+}
+
+@media screen and (max-width : 1024px) {
+    .reserve_main {
+        flex: auto;
+        max-width: calc(60% - 16px);
+        margin-right: 10px;
+    }
+
+    .pc .reserve_room_title_wrap {
+        width: 100%;
+        margin-top: 0px;
+    }
+
+    .pc .reserve_box {
+        flex: 1 0 40%;
+        height: 420px;
+    }
+
+    .pc .onFixed {
+        right: 30px;
+        z-index: 1;
+    }
+
+    .pc .reserve_btn_wrap {
+        position: static;
+    }
+
+    .pc .reserve_btn {
+        position: static;
+        transform: none;
+        width: calc(100% - 20px);
+        height: 42px;
+        font-size: 14px;
+        border-radius: 4px;
+        background: #3c00ff;
+    }
+
+    .pc .reserve_room_photo_cont {
+        padding: 60px 40px 0px;
+    }
+
+    .pc .reserve_room_photo_view {
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        height: auto;
+    }
+}
+
+@media screen and (max-width : 768px) {
+
+    .tb .reserve_wrap {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .tb .reserve_room_title_wrap {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 60px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .tb .reserve_room_info_wrap {
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .tb .reserve_box {
+        width: 100%;
+        position: relative;
+        top: 10px;
+    }
+
+    .tb .room_location {
+        width: 100%;
+    }
+
+    .tb .mb_reserve_top_nav {
+        position: fixed;
+        z-index: 10;
+        top: 0px;
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        padding: 0px;
+        margin-top: 0px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px #1919192f;
+    }
+
+    .mb_reserve_top_nav p {
+        line-height: 60px;
+        font-size: 12px;
+    }
+
+    .tb .reserve_undo_btn {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: none;
+        border: none;
+    }
+
+    .tb .reserve_undo_btn svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .tb .reserve_undo_btn rect {
+        fill: none;
+    }
+
+    .tb .reserve_undo_btn polyline {
+        fill: none;
+        stroke: #191919;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .tb .reserve_room_title p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .tb .hotel_history p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .tb .reserve_room_img_box {
+        margin-top: 0px;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .tb .reserve_cont {
+        padding: 10px 10px 40px;
+    }
+
+    .tb .reserve_room_img_box>div {
+        flex: 0 0 100%;
+    }
+
+    .tb .swiper-pagination {
+        height: 8px;
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .tb .swiper-pagination-bullet {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: rgb(255, 255, 255, .6);
+        margin-right: 8px;
+        border-radius: 50%;
+        transition: .2s;
+    }
+
+    .tb .swiper-pagination-bullet-active {
+        background: #fff;
+        scale: 1.3;
+    }
+
+    .tb .swiper-pagination-bullet:last-child {
+        margin-right: 0px;
+    }
+
+    .tb .room_location {
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background-image: url('https://github.com/user-attachments/assets/91ab44e5-9747-461b-a0d0-a0e3e8989ea9');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tb .room_location p {
+        width: 83%;
+        word-break: keep-all;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+    .tb .room_location_icon {
+        width: 18px;
+        height: 18px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 8px;
+        margin-top: 10px;
+    }
+
+    .tb .room_location_map_icon {
+        width: 24px;
+        height: 24px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .tb .room_location_right span {
+        width: 100%;
+        font-size: 12px;
+        color: #3c00ff;
+    }
+
+    .room_location_bg {
+        display: flex;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #ffffff 50%, #ffffff00);
+    }
+
+    .tb .reserve_wrap .hotel_grade {
+        width: 60px;
+        min-width: 60px;
+        height: 12px;
+        margin-top: 3px;
+    }
+
+    .tb .room_location_box {
+        margin-top: 0px;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        z-index: 10;
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+
+    .tb .room_location_box_btn {
+        width: 42px;
+        height: 42px;
+        background: none;
+        background-image: url('https://github.com/user-attachments/assets/bdc11b7c-1801-45da-8939-f1ae58eb3342');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        position: absolute;
+        z-index: 11;
+        top: 10px;
+        left: 10px;
+    }
+
+    .tb .reserve_btn_wrap {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 80px;
+        z-index: 10;
+    }
+
+    .tb .room_location_box_btn svg {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    .tb .reserve_close rect {
+        fill: none;
+        stroke: none;
+    }
+
+    .tb .reserve_close line {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .tb .reserve_btn_top {
+        text-align: center;
+        height: 20px;
+        background: #3c00ff;
+    }
+
+    .tb .reserve_btn_top span {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .tb .reserve_box_price p {
+        margin-right: 2px;
+        font-size: 16px;
+    }
+
+    .tb .reserve_box_price span {
+        line-height: 22px;
+        font-size: 12px;
+    }
+
+    .tb .reserve_rent {
+        padding: 10px;
+    }
+
+    .reserve_totalpay {
+        padding: 20px 10px;
+    }
+
+    .tb .reserve_totalpay p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .tb .reserve_btn {
+        width: 96px;
+        height: 42px;
+        font-size: 14px;
+        border-radius: 4px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background: #3c00ff;
+    }
+
+    .tb .reserve_btn_wrap p {
+        margin-left: 10px;
+        line-height: 20px;
+        margin-top: 8px;
+    }
+
+    .tb .reserve_btn_bottom span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .tb .reserve_confirm_bg {
+        padding: 0px 10px;
+    }
+
+    .tb .reserve_confirm {
+        position: relative;
+        top: 50%;
+        left: auto;
+        transform: none;
+        transform: translateY(-75%);
+        width: 100%;
+        height: 200px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 6px;
+    }
+
+    .tb .reserve_rent>p {
+        font-size: 12px;
+    }
+
+    .tb .reserve_rent>div p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width : 480px) {
+
+    .mb .reserve_wrap {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .mb .reserve_room_title_wrap {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 60px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .mb .reserve_room_info_wrap {
+        width: 100%;
+        border-radius: 6px;
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background: #fff;
+    }
+
+    .mb .reserve_box {
+        width: 100%;
+        position: relative;
+        top: 10px;
+    }
+
+    .mb .room_location {
+        width: 100%;
+    }
+
+    .mb .mb_reserve_top_nav {
+        position: fixed;
+        z-index: 10;
+        top: 0px;
+        text-align: center;
+        width: 100%;
+        height: 60px;
+        padding: 0px;
+        margin-top: 0px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px #1919192f;
+    }
+
+    .mb_reserve_top_nav p {
+        line-height: 60px;
+        font-size: 12px;
+    }
+
+    .mb .reserve_undo_btn {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: none;
+        border: none;
+    }
+
+    .mb .reserve_undo_btn svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .mb .reserve_undo_btn rect {
+        fill: none;
+    }
+
+    .mb .reserve_undo_btn polyline {
+        fill: none;
+        stroke: #191919;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .mb .reserve_room_title p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .mb .hotel_history p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .mb .reserve_room_img_box {
+        margin-top: 0px;
+        overflow: hidden;
+        height: auto;
+    }
+
+    .mb .reserve_cont {
+        padding: 10px 10px 120px;
+    }
+
+    .mb .reserve_room_img_box>div {
+        flex: 0 0 100%;
+    }
+
+    .mb .swiper-pagination {
+        height: 8px;
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mb .swiper-pagination-bullet {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: rgb(255, 255, 255, .6);
+        margin-right: 8px;
+        border-radius: 50%;
+        transition: .2s;
+    }
+
+    .mb .swiper-pagination-bullet-active {
+        background: #fff;
+        scale: 1.3;
+    }
+
+    .mb .swiper-pagination-bullet:last-child {
+        margin-right: 0px;
+    }
+
+    .mb .room_location {
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+        box-shadow: 0px 0px 10px #1919191d;
+        background-image: url('https://github.com/user-attachments/assets/91ab44e5-9747-461b-a0d0-a0e3e8989ea9');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mb .room_location p {
+        width: 83%;
+        word-break: keep-all;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+    .mb .room_location_icon {
+        width: 18px;
+        height: 18px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-right: 8px;
+        margin-top: 10px;
+    }
+
+    .mb .room_location_map_icon {
+        width: 24px;
+        height: 24px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .mb .room_location_right span {
+        width: 100%;
+        font-size: 12px;
+        color: #3c00ff;
+    }
+
+    .room_location_bg {
+        display: flex;
+        padding: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #ffffff 50%, #ffffff00);
+    }
+
+    .mb .reserve_wrap .hotel_grade {
+        width: 60px;
+        min-width: 60px;
+        height: 12px;
+        margin-top: 3px;
+    }
+
+    .mb .room_location_box {
+        margin-top: 0px;
+        position: fixed;
+        left: 0;
+        top: 60px;
+        z-index: 10;
+        width: 100%;
+        height: calc(100vh - 60px);
+    }
+
+    .mb .room_location_box_btn {
+        width: 42px;
+        height: 42px;
+        background: none;
+        background-image: url('https://github.com/user-attachments/assets/bdc11b7c-1801-45da-8939-f1ae58eb3342');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        position: absolute;
+        z-index: 11;
+        top: 10px;
+        left: 10px;
+    }
+
+    .mb .reserve_btn_wrap {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 80px;
+        z-index: 10;
+    }
+
+    .mb .room_location_box_btn svg {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+
+    .mb .reserve_close rect {
+        fill: none;
+        stroke: none;
+    }
+
+    .mb .reserve_close line {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .mb .reserve_btn_top {
+        text-align: center;
+        height: 20px;
+        background: #3c00ff;
+    }
+
+    .mb .reserve_btn_top span {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .mb .reserve_box_price p {
+        margin-right: 2px;
+        font-size: 16px;
+    }
+
+    .mb .reserve_box_price span {
+        line-height: 22px;
+        font-size: 12px;
+    }
+
+    .mb .reserve_rent {
+        padding: 10px;
+    }
+
+    .reserve_totalpay {
+        padding: 20px 10px;
+    }
+
+    .mb .reserve_totalpay p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .mb .reserve_btn {
+        width: 96px;
+        height: 42px;
+        font-size: 14px;
+        border-radius: 4px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background: #3c00ff;
+    }
+
+    .mb .reserve_btn_wrap p {
+        margin-left: 10px;
+        line-height: 20px;
+        margin-top: 8px;
+    }
+
+    .mb .reserve_btn_bottom span {
+        margin-left: 10px;
+        font-size: 16px;
+        font-family: 'nanumbarungothicbold';
+    }
+
+    .mb .reserve_confirm_bg {
+        padding: 0px 10px;
+    }
+
+    .mb .reserve_confirm {
+        position: relative;
+        top: 50%;
+        left: auto;
+        transform: none;
+        transform: translateY(-75%);
+        width: 100%;
+        height: 200px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 6px;
+    }
+
+    .mb .reserve_rent>p {
+        font-size: 12px;
+    }
+
+    .mb .reserve_rent>div p {
+        font-size: 14px;
+    }
+}

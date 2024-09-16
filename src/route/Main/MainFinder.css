@@ -1,0 +1,2202 @@
+.hotel_search_wrap {
+  position: absolute;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 0px 10px #1919191d;
+  z-index: 10;
+}
+
+.hs_title {}
+
+.hs_title p {
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.hs_destination {
+  position: relative;
+  border: 1px solid rgb(216, 223, 232);
+  border-radius: 4px;
+}
+
+.hs_destination p {
+  color: #726884;
+}
+
+.hs_destination input {
+  border: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+
+.hs_destination input:hover {
+  border-bottom: 2px solid #5900FF;
+}
+
+.hs_destination input::placeholder {
+  color: #726884;
+}
+
+.hs_destination input:focus {
+  outline: none;
+  border-bottom: 2px solid #5900FF;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+.hs_person {
+  border: 1px solid rgb(216, 223, 232);
+  border-radius: 4px;
+  position: relative;
+}
+
+.hs_person p {
+  color: #726884;
+}
+
+.hs_person span {
+  font-family: "nanumbarungothicbold";
+}
+
+.hs_person .hs_person_cont {
+  border-bottom: 2px solid transparent;
+
+}
+
+.hs_person:hover .hs_person_cont {
+  border-bottom: 2px solid #5900FF;
+}
+
+.search_box {
+  position: absolute;
+  background: #5900FF;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+
+.search_box:hover {
+  cursor: pointer;
+}
+
+.search_box p {
+  font-family: "nanumbarungothicbold";
+  color: #fff;
+}
+
+.setting_box {
+  position: absolute;
+  z-index: 1;
+  background: #fff;
+  text-align: left;
+  border: 1px solid rgb(233, 233, 233);
+  box-shadow: 0px 0px 10px #1919191d;
+}
+
+.setting_box span {}
+
+.setting_box button {
+  background: none;
+  border: 1px solid #5900FF;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.setting_box button:hover {
+  cursor: pointer;
+}
+
+.setting_box_options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting_box_options>div:first-child {}
+
+.setting_box_options>div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting_box_options p {
+  display: inline-block;
+  font-family: "nanumbarungothicbold";
+}
+
+
+
+
+/* 여행지 */
+.hs_search_preview {
+  position: absolute;
+  z-index: 1;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 0px 10px #1919191d;
+}
+
+.hs_preview_box {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hs_preview_box:hover {
+  cursor: pointer;
+  background: rgb(227, 240, 243);
+}
+
+.hs_preview_box:first-child {}
+
+.hs_preview_box span {
+  display: block;
+  overflow: hidden;
+  text-align: left;
+  white-space: nowrap;
+  line-height: 32px;
+  text-overflow: ellipsis;
+  font-family: 'pretendard-regular';
+}
+
+.region_img {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.regionBox .preview_text_box {}
+
+.alert {
+  position: absolute;
+}
+
+.alertIcon p {}
+
+
+/*  Calender  */
+.calendar {
+  position: absolute;
+  background: #fff;
+  z-index: 1;
+  box-shadow: 0px 0px 10px #1919191d;
+}
+
+.calendar_week {}
+
+.calendar_week th {
+  font-weight: normal;
+  background: #fff;
+}
+
+.calendar_week span:first-child {
+  color: #ff5353;
+  font-family: "nanumbarungothicbold";
+}
+
+.calendar_header {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  text-align: center;
+}
+
+.calendar_month {
+  font-family: "nanumbarungothicbold";
+}
+
+.calendar_body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar_month_view {}
+
+table {}
+
+.calendar th,
+.calendar td {
+  text-align: center;
+  border-radius: 8px;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+.calendar tr {
+  display: flex;
+  border-spacing: 0px;
+}
+
+.calendar th {
+  background-color: none;
+}
+
+.calendar td {
+  cursor: pointer;
+}
+
+.days:nth-of-type(1)>div {
+  color: rgb(255 85 0);
+  font-family: 'nanumbarungothicbold';
+}
+
+.calendar td:hover {
+  background-color: rgb(227, 240, 243);
+}
+
+.calendar .past:hover,
+.calendar .prevDay:hover {
+  background-color: #fff;
+}
+
+.calendar_footer {
+  text-align: right;
+  position: absolute;
+}
+
+.calendar_footer p {
+  font-size: 14px;
+}
+
+.calendarPrev,
+.calendarNext {
+  position: absolute;
+  background: none;
+  border: none;
+}
+
+.calendarPrev {}
+
+.calendarNext {}
+
+.calendarPrev img,
+.calendarNext img {}
+
+.calendarPrev:hover,
+.calendarNext:hover {
+  cursor: pointer;
+}
+
+.prevDay,
+.past>div {
+  color: rgb(141, 161, 184);
+}
+
+.inRange {
+  background: #eaebff;
+}
+
+.prevDay:hover,
+.past:hover {
+  background: #fff;
+  cursor: default;
+}
+
+.hs_check {
+  border: 1px solid rgb(216, 223, 232);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.calendar th,
+.days {}
+
+.days>div {}
+
+.hs_check p {
+  color: rgb(141, 161, 184);
+}
+
+.hs_check p:nth-of-type(1) {
+  color: #726884;
+}
+
+.hs_check>span {
+  font-family: 'nanumbarungothicbold';
+}
+
+.check_in {}
+
+.center_line {
+  width: 1px;
+  height: 40px;
+  border-right: 1px solid rgb(233, 233, 233);
+  margin-right: 20px;
+}
+
+.check_out {
+  width: 40%;
+}
+
+.hs_check_in,
+.hs_check_out {
+  font-family: "nanumbarungothicbold";
+  border-bottom: 2px solid transparent;
+}
+
+.hs_check_out {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.check_in:hover .hs_check_in,
+.check_out:hover .hs_check_out {
+  border-bottom: 2px solid #5900FF;
+  cursor: pointer;
+}
+
+.calendar .checkIn>div,
+.calendar .checkOut>div {
+  background: #3c00ff;
+  color: #fff;
+  font-family: "nanumbarungothicbold";
+  border-radius: 6px 0px 0px 6px;
+  margin: 0 auto;
+}
+
+.calendar .checkOut>div {
+  border-radius: 0px 6px 6px 0px;
+}
+
+.today>div {
+  color: #3c00ff;
+  font-family: 'nanumbarungothicbold';
+  border-collapse: collapse;
+}
+
+.nextday>div {
+  color: #191919;
+  font-family: 'nanumbarungothicbold';
+  border-collapse: collapse;
+}
+
+.prevDay>div {
+  color: rgb(159, 159, 159);
+}
+
+@media screen and (min-width: 1281px) {
+  .hotel_search_wrap {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 480px;
+    height: 600px;
+    padding: 20px;
+  }
+
+  .hs_title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hs_title p {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'nanumbarungothicbold';
+  }
+
+  .hs_destination {
+    margin-top: 20px;
+    padding: 10px 10px 0px;
+  }
+
+  .hs_destination input {
+    width: 100%;
+    padding: 3px;
+    margin-top: 9px;
+  }
+
+  .hs_destination .alert {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .hs_check {
+    margin-top: 36px;
+    justify-content: flex-start;
+    padding: 10px 10px 0px;
+  }
+
+  .check_in,
+  .check_out {
+    flex: 0 0 45%;
+  }
+
+  .hs_check_in,
+  .hs_check_out {
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 6px;
+  }
+
+  .hs_person {
+    margin-top: 20px;
+    padding: 10px 10px 0px;
+  }
+
+  .hs_person_cont span {
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 6px;
+    display: block;
+  }
+
+  .search_box {
+    width: calc(100% - 40px);
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
+    bottom: 20px;
+  }
+
+  .calendar {
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 800px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 20px 10px 100px;
+    z-index: 20;
+  }
+
+  .calendar_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #fff;
+    text-align: center;
+  }
+
+  .mb_calendar_top_nav {
+    display: none;
+  }
+
+  .hs_search_preview {
+    left: 0;
+    top: 60px;
+
+    width: 400px;
+    padding: 10px;
+  }
+
+  .pc .calendar .calendar_week {
+    width: 100%;
+    display: flex;
+    margin-top: 24px;
+  }
+
+  .pc .calendar .calendar_week span {
+    flex: 1 0 14.3%;
+    font-size: 12px;
+  }
+
+  .pc .calendar_month {
+    margin-top: 6px;
+  }
+
+  .calendar_month_view {
+    flex: 1 0 50%;
+  }
+
+
+
+  .pc .calendar table {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .pc .calendar tr {
+    height: 52px;
+  }
+
+  .pc .calendar td {
+    flex: 0 0 14.3%;
+    height: 46px;
+    margin-top: 2px;
+    line-height: 46px;
+    font-size: 14px;
+  }
+
+  .calendarPrev,
+  .calendarNext {
+    width: 50px;
+    height: 42px;
+    top: 10px;
+  }
+
+  .calendarNext {
+    right: 10px;
+  }
+
+  .pc .calendar_footer {
+    width: 100%;
+    left: 0;
+    padding: 20px;
+  }
+
+  .mb_claendar_date span {
+    margin-top: 8px;
+    display: block;
+  }
+
+  .mb_claendar_date p:nth-of-type(2) {
+    margin-top: 4px;
+  }
+
+  .pc .calendar_set_btn {
+    display: none;
+  }
+
+  .pc .setting_box {
+    width: 100%;
+    top: 63px;
+    left: 0;
+    height: 160px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .pc .setting_box button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .setting_box_options>div {
+    display: flex;
+    width: 100px;
+  }
+
+  .pc .setting_box_options p {}
+
+  .pc .setting_box_options {
+    margin-top: 20px;
+  }
+
+  .pc .setting_box_options:nth-of-type(1) {
+    margin-top: 10px;
+  }
+
+  /* 페이지 별 스타일링 */
+  /* 홈 HOME */
+  .home_finder {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 80px;
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .home_finder .hs_title {
+    display: none;
+  }
+
+  .home_finder>div {
+    flex: 0 0 10%;
+    margin-top: 0;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .home_finder .hs_destination {
+    flex: 20%;
+  }
+
+  .home_finder .hs_destination p,
+  .home_finder .hs_check p,
+  .home_finder .hs_person p {
+    font-size: 14px;
+  }
+
+  .home_finder .setting_box_options p {
+    line-height: 24px;
+  }
+
+  .home_finder .alert {
+    display: none;
+  }
+
+  .home_finder .hs_check {
+    flex: 20%;
+  }
+
+  .home_finder .hs_person {
+    flex: 30%;
+  }
+
+  .home_finder .search_box {
+    position: static;
+    margin-right: 0;
+    line-height: 64px;
+  }
+
+  .home_finder .setting_box {
+    top: 59px;
+  }
+
+  .home_finder .calendar {
+    top: 70px;
+  }
+
+  /* 검색 search */
+  .search_finder {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 80px;
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .search_wrap .hs_search_preview {
+    top: 60px;
+    left: 0px;
+    z-index: 1;
+
+    width: 150%;
+    margin-top: 0;
+    padding: 10px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 0px 10px #1919191d;
+  }
+
+  .hs_preview_box:first-child {
+    margin-top: 0;
+  }
+
+  .hs_preview_box {
+    transition: .2s;
+  }
+
+  .pc .region_img {
+    width: 48px;
+    height: 48px;
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .pc .regionBox .preview_text_box {
+    padding: 10px 0px 10px 68px;
+  }
+
+  .pc .hotelBox .preview_text_box {
+    padding: 10px;
+  }
+
+  .hs_preview_box span {
+    line-height: 24px;
+  }
+
+  .search_finder .hs_title {
+    display: none;
+  }
+
+  .search_finder>div {
+    flex: 0 0 10%;
+    margin-top: 0;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .search_finder .hs_destination {
+    flex: 20%;
+  }
+
+  .search_finder .hs_destination p,
+  .search_finder .hs_check p,
+  .search_finder .hs_person p {
+    font-size: 14px;
+  }
+
+  .search_finder .setting_box_options p {
+    line-height: 24px;
+  }
+
+  .search_finder .alert {
+    display: none;
+  }
+
+  .search_finder .hs_check {
+    flex: 20%;
+  }
+
+  .search_finder .hs_person {
+    flex: 30%;
+  }
+
+  .search_finder .search_box {
+    position: static;
+    margin-right: 0;
+    line-height: 64px;
+  }
+
+  .search_finder .setting_box {
+    top: 59px;
+  }
+
+  .search_finder .calendar {
+    top: 70px;
+  }
+
+  /* 디테일 Detail */
+  .detail_finder {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 190px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .detail_finder .hs_title,
+  .detail_finder .hs_destination {
+    display: none;
+  }
+
+  .detail_finder .hs_check {
+    margin-top: 0;
+  }
+
+  .detail_finder .search_box {
+    display: none;
+  }
+
+  .detail_finder .calendar {
+    top: 75px;
+  }
+
+  /* 예약 Reserve */
+  .reserve_finder {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .reserve_finder .hs_title,
+  .reserve_finder .hs_destination,
+  .reserve_finder .search_box {
+    display: none;
+  }
+
+  .reserve_finder .hs_check {
+    margin-top: 0;
+  }
+
+  .reserve_finder .hs_person {
+    margin-top: 10px;
+  }
+
+  .reserve_finder .calendar {
+    top: 75px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+
+  /** 타블렛 가로, 노트북 */
+  .hotel_search_wrap {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 600px;
+    height: 600px;
+    padding: 20px;
+  }
+
+  .hs_title {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hs_title p {
+    font-size: 20px;
+    line-height: 28px;
+    font-family: 'nanumbarungothicbold';
+  }
+
+  .hs_destination {
+    margin-top: 20px;
+    padding: 10px 10px 0px;
+  }
+
+  .hs_destination input {
+    width: 100%;
+    padding: 3px;
+    margin-top: 9px;
+  }
+
+  .hs_destination .alert {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .hs_check {
+    margin-top: 36px;
+    justify-content: flex-start;
+    padding: 10px 10px 0px;
+  }
+
+  .check_in,
+  .check_out {
+    flex: 0 0 45%;
+  }
+
+  .hs_check_in,
+  .hs_check_out {
+    font-size: 14px;
+    line-height: 32px;
+  }
+
+  .hs_person {
+    margin-top: 20px;
+    padding: 10px 10px 0px;
+  }
+
+  .hs_person_cont span {
+    line-height: 32px;
+    font-size: 14px;
+  }
+
+  .search_box {
+    width: calc(100% - 40px);
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
+    bottom: 20px;
+  }
+
+  .calendar {
+    top: 261px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 120%;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 20px 10px 100px;
+  }
+
+  .calendar_header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #fff;
+    text-align: center;
+  }
+
+  .mb_calendar_top_nav {
+    display: none;
+  }
+
+  .pc .calendar .calendar_week {
+    width: 100%;
+    display: flex;
+    margin-top: 24px;
+  }
+
+  .pc .calendar .calendar_week span {
+    flex: 1 0 14.3%;
+    font-size: 12px;
+  }
+
+  .pc .calendar_month {
+    margin-top: 6px;
+  }
+
+  .calendar_month_view {
+    flex: 1 0 50%;
+  }
+
+  .pc .calendar table {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .pc .calendar td {
+    flex: 0 0 14.3%;
+    height: 40px;
+    margin-top: 2px;
+    line-height: 40px;
+    font-size: 14px;
+  }
+
+  .calendarPrev,
+  .calendarNext {
+    width: 50px;
+    height: 42px;
+    top: 10px;
+  }
+
+  .calendarNext {
+    right: 10px;
+  }
+
+  .pc .calendar_footer {
+    width: 100%;
+    left: 0;
+    padding: 10px;
+  }
+
+  .pc .calendar_set_btn {
+    display: none;
+  }
+
+  /* 페이지 별 스타일링 */
+  /* 홈 HOME */
+  .home_finder {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 80px);
+    height: 80px;
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .home_finder .hs_title {
+    display: none;
+  }
+
+  .home_finder .setting_box {
+    flex: 0 0 10%;
+    margin-top: 0;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .home_finder .hs_destination {
+    flex: 0 0 25%;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 10px;
+  }
+
+  .home_finder .hs_destination p,
+  .home_finder .hs_check p,
+  .home_finder .hs_person p {
+    font-size: 14px;
+  }
+
+  .home_finder .alert {
+    display: none;
+  }
+
+  .home_finder .hs_check {
+    flex: 0 0 25%;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 10px;
+
+  }
+
+  .home_finder .hs_person {
+    flex: 1 0 30%;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 10px;
+  }
+
+  .home_finder .search_box {
+    position: static;
+    margin-right: 0;
+    line-height: 64px;
+    width: 100px;
+  }
+
+  /* 검색 search */
+  .search_finder {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 80px);
+    height: 80px;
+    margin-top: 20px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .search_wrap .hs_search_preview {
+    top: 60px;
+    left: 0px;
+    z-index: 1;
+
+    width: 150%;
+    margin-top: 0;
+    padding: 10px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 0px 10px #1919191d;
+  }
+
+  .hs_preview_box:first-child {
+    margin-top: 0;
+  }
+
+  .hs_preview_box {
+    transition: .2s;
+  }
+
+  .pc .region_img {
+    width: 48px;
+    height: 48px;
+    margin-top: 6px;
+    margin-left: 6px;
+  }
+
+  .pc .regionBox .preview_text_box {
+    padding: 10px 0px 10px 68px;
+  }
+
+  .pc .hotelBox .preview_text_box {
+    padding: 10px;
+  }
+
+  .hs_preview_box span {
+    line-height: 24px;
+  }
+
+  .search_finder .hs_title {
+    display: none;
+  }
+
+  .search_finder>div {
+    flex: 0 0 10%;
+    margin-top: 0;
+    height: 100%;
+    margin-right: 10px;
+  }
+
+  .search_finder .hs_destination {
+    flex: 20%;
+  }
+
+  .search_finder .hs_destination p,
+  .search_finder .hs_check p,
+  .search_finder .hs_person p {
+    font-size: 14px;
+  }
+
+  .search_finder .alert {
+    display: none;
+  }
+
+  .search_finder .hs_check {
+    flex: 20%;
+  }
+
+  .search_finder .hs_person {
+    flex: 30%;
+  }
+
+  .search_finder .search_box {
+    position: static;
+    margin-right: 0;
+    line-height: 64px;
+  }
+
+  /* 디테일 Detail */
+  .detail_finder {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 170px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .detail_finder .hs_title,
+  .detail_finder .hs_destination {
+    display: none;
+  }
+
+  .detail_finder .hs_check {
+    margin-top: 0;
+  }
+
+  .detail_finder .search_box {
+    display: none;
+  }
+
+  .detail_finder .calendar {
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 20px 10px 100px;
+  }
+
+  /* 예약 Reserve */
+  .reserve_finder {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .reserve_finder .hs_title,
+  .reserve_finder .hs_destination,
+  .reserve_finder .search_box {
+    display: none;
+  }
+
+  .reserve_finder .hs_check {
+    margin-top: 0;
+  }
+
+  .reserve_finder .hs_person {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hotel_search_wrap {
+    position: static;
+    transform: none;
+    width: calc(100% - 20px);
+    height: 100%;
+    max-height: calc(100% - 360px);
+    min-height: 450px;
+    margin-left: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .search_box {
+    border-radius: 0px;
+  }
+
+  .calendar {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    right: 0;
+    transform: none;
+    z-index: 1;
+
+    width: 100%;
+    height: calc(100vh - 330px);
+    padding: 10px;
+    background: #fff;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px #1919191d;
+    overflow-y: scroll;
+  }
+
+  .hs_title p {
+    color: #191919;
+    font-size: 20px;
+    font-family: 'nanumbarungothicbold';
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 60%;
+    margin-top: 20px;
+  }
+
+  .hs_title p:nth-of-type(2) {
+    margin-top: 4px;
+  }
+
+  .hs_destination {
+    margin-top: 20px;
+  }
+
+  .search_box {
+    position: static;
+
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    line-height: 60px;
+    margin-top: 40px;
+  }
+
+  .mb_calendar_top_nav {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    line-height: 60px;
+    background: #fff;
+    padding: 0px 6px 0px 0px;
+    display: block;
+  }
+
+  .calendar_header {
+    display: flex;
+    margin-bottom: 0px;
+    background: #fff;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0px;
+    position: relative;
+  }
+
+  .calendar_month_view {
+    width: auto;
+    flex: 1 0 100%;
+    margin-top: 20px;
+  }
+
+  .calendar_month_view:nth-of-type(3) {
+    margin-top: 40px;
+  }
+
+  .calendarPrev,
+  .calendarNext {
+    display: none;
+  }
+
+  .calendar_footer {
+    text-align: right;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 10px;
+    height: 150px;
+    background: #fff;
+    border-top: 1px solid rgb(233, 233, 233);
+  }
+
+  .calendar_footer span {
+    margin-top: 4px;
+    display: block;
+    font-family: 'nanumbarungothicbold';
+    font-size: 18px;
+  }
+
+  .calendar_set_btn {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: #5900FF;
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .mb_claendar_date {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0px 10px;
+  }
+
+  .mb_claendar_date>p:nth-of-type(1) {
+    font-size: 14px;
+    font-family: 'nanumbarungothicbold';
+  }
+
+  .mb_calendar_close {
+    width: 40px;
+    height: 40px;
+    background-image: url('https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .calendar table {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+
+  .calendar_week {
+    position: relative;
+    top: 10px;
+    line-height: 24px;
+    display: flex;
+    padding: 0px 10px;
+  }
+
+  .calendar_week span {
+    flex: 0 0 14.3%;
+    font-size: 14px;
+  }
+
+  .calendar td {
+    border-radius: 0px;
+    font-size: 14px;
+    flex: 0 0 14.3%;
+    height: 52px;
+  }
+
+  .calendar tr {
+    width: 100%;
+    line-height: 52px;
+    display: flex;
+    border-spacing: 0px;
+    margin-top: 6px;
+  }
+
+  .calendar::-webkit-scrollbar {
+    width: 6px;
+    height: 12px;
+  }
+
+  .calendar::-webkit-scrollbar-track {
+    background: rgb(235, 235, 235);
+  }
+
+  .calendar::-webkit-scrollbar-thumb {
+    background: #5900FF;
+    border-radius: 10px;
+  }
+
+  .calendar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .mb_claendar_date span {
+    font-family: 'nanumbarungothicbold';
+    line-height: 24px;
+  }
+
+  .mb_claendar_date p:nth-of-type(2) {
+    color: rgb(141, 161, 184);
+    margin-top: 8px;
+  }
+
+  .setting_box {
+    position: fixed;
+    left: 0px;
+    top: auto;
+    bottom: 0px;
+    width: 100%;
+    height: 35%;
+    min-height: 300px;
+    padding: 16px;
+    border-radius: 6px 6px 0px 0px;
+    box-shadow: none;
+    z-index: 56;
+  }
+
+  .setting_box button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .setting_box_options p {
+    line-height: 24px;
+    margin: 0px 12px;
+  }
+
+  .setting_box_bg {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    top: -60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .setting_box_top {
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .setting_box_options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgb(233, 233, 233);
+  }
+
+  .setting_box_top {
+    border-bottom: none;
+  }
+
+  .setting_box>div span {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .setting_box_top p {
+    line-height: 28px;
+    font-size: 16px;
+  }
+
+  .setting_box_top button {
+    border: 1px solid rgb(216, 223, 232);
+    width: 40px;
+    height: 28px;
+    background: none;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* 페이지 별 조정 */
+
+  .hs_search_preview {
+    top: 62px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .hs_preview_box:nth-of-type(1) {
+    margin-top: 0px;
+  }
+
+  .hs_preview_box {
+    margin-top: 10px;
+    padding: 4px;
+  }
+
+  .region_img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .regionBox .preview_text_box {
+    margin-left: 50px;
+  }
+
+  .hs_preview_box span {
+    line-height: 20px;
+    font-size: 16px;
+  }
+
+  .preview_text_box p {
+    margin-top: 4px;
+  }
+
+  /* 홈 */
+  .mb_finder_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .mb_finder_close_btn {
+    width: 42px;
+    height: 42px;
+    background: red;
+  }
+
+  .home_finder {
+    width: 100%;
+    position: static;
+    margin-top: 0px;
+    height: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  .hs_destination {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .hs_destination p {
+    font-size: 14px;
+  }
+
+  .hs_destination input {
+    width: 100%;
+    line-height: 20px;
+    margin-top: 8px;
+    position: relative;
+    border-spacing: 0px;
+  }
+
+  .alert {
+    display: none;
+  }
+
+  .hs_check,
+  .hs_person {
+    margin-top: 20px;
+  }
+
+  .home_finder .calendar {
+    top: 100px;
+    height: calc(100vh - 250px);
+  }
+
+  .home_finder .mb_calendar_top_nav {
+    top: 0px;
+  }
+
+  .hs_check p:nth-of-type(1) {
+    font-size: 14px;
+  }
+
+  .hs_check .check_in,
+  .hs_check .check_out {
+    width: 50%;
+  }
+
+  .check_in .hs_check_in,
+  .check_out .hs_check_out {
+    font-size: 14px;
+    line-height: 32px;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  .hs_person p {
+    font-size: 14px;
+  }
+
+  .hs_person span {
+    font-size: 14px;
+    line-height: 32px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* 홈 */
+  .home_finder {
+    position: static;
+    transform: none;
+    margin-left: 0;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .home_finder .hs_destination,
+  .home_finder .hs_check,
+  .home_finder .hs_person {
+    flex: none;
+  }
+
+  .home_finder .hs_destination {
+    height: 62px;
+  }
+
+  .home_finder .search_box {
+    position: absolute;
+    margin-top: 40px;
+    width: calc(100% - 20px);
+    height: 62px;
+  }
+
+  .home_finder .search_box p {
+    line-height: 62px;
+  }
+
+  .home_finder .hs_title p,
+  .detail_finder .hs_title p,
+  .reserve_finder .hs_title p {
+    display: none;
+  }
+
+  /* 디테일 */
+  .detail_finder {
+    position: static;
+
+    width: 100%;
+    min-height: 136px;
+    margin: 10px 0px 0px;
+    padding: 0px;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .detail_finder .calendar {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    right: 0;
+    transform: none;
+    z-index: 1;
+    width: 100%;
+    height: calc(100vh - 330px);
+    padding: 10px 10px 0px;
+    overflow: auto;
+  }
+
+  .detail_finder .mb_calendar_top_nav {
+    top: 80px;
+    display: block;
+  }
+
+  .detail_finder .hs_destination {
+    display: none;
+  }
+
+  .detail_finder .hs_check {
+    margin-top: 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+
+  .detail_finder .hs_person {
+    margin-top: 10px;
+  }
+
+  .detail_finder .search_box {
+    display: none;
+  }
+
+  .detail_finder .setting_box_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 55;
+    height: calc(100vh - 200px);
+  }
+
+  /* 예약 */
+  .reserve_finder {
+    position: static;
+    transform: none;
+
+    width: 100%;
+    min-height: 136px;
+    margin: 0px;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .reserve_finder .setting_box_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 55;
+  }
+
+  .reserve_finder .hs_destination {
+    display: none;
+  }
+
+  .reserve_finder .hs_check {
+    margin-top: 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+
+  .reserve_finder .hs_person {
+    margin-top: 10px;
+  }
+
+  .reserve_finder .search_box {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hotel_search_wrap {
+    position: relative;
+    transform: none;
+    left: 0;
+    top: 0;
+    z-index: 51;
+
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    max-height: calc(100vh - 96px);
+    padding: 10px;
+    border-radius: 0px;
+  }
+
+  .hs_title p {
+    font-size: 18px;
+    font-family: 'nanumbarungothicbold';
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    width: 100%;
+    line-height: 18px;
+    margin-top: 20px;
+  }
+
+  .hs_title p:nth-of-type(2) {
+    margin-top: 4px;
+  }
+
+  .mb .search_box {
+    width: 100%;
+    height: 62px;
+    line-height: 62px;
+    left: 0;
+    bottom: 0;
+    border-radius: 0px;
+  }
+
+  .calendar {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    transform: none;
+    z-index: 1;
+
+    width: 100%;
+    height: calc(100vh - 240px);
+    padding: 0px 0px;
+    background: #fff;
+    border-radius: 0px;
+    box-shadow: 0px 0px 10px #1919191d;
+    overflow-y: scroll;
+  }
+
+  .mb_calendar_top_nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    line-height: 60px;
+    background: #fff;
+    display: block;
+  }
+
+  .calendar_header {
+    display: flex;
+    margin-bottom: 20px;
+    background: #fff;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 20px 10px 10px 10px;
+    position: relative;
+  }
+
+  .calendar_month_view {
+    width: auto;
+    flex: 1 0 100%;
+    margin-top: 40px;
+  }
+
+  .calendar_month_view:nth-of-type(2) {
+    margin-top: 20px;
+  }
+
+  .calendar_month_view:nth-of-type(3) {
+    margin-top: 40px;
+  }
+
+  .calendarPrev,
+  .calendarNext {
+    display: none;
+  }
+
+  .calendar_footer {
+    text-align: right;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0px;
+    height: 140px;
+    background: #fff;
+    border-top: 1px solid rgb(233, 233, 233);
+  }
+
+  .calendar_set_btn {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 52px;
+    border: none;
+    background: #5900FF;
+    color: #fff;
+  }
+
+  .mb_claendar_date {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .mb_claendar_date>p:nth-of-type(1) {
+    font-size: 14px;
+    font-family: 'nanumbarungothicbold';
+  }
+
+  .mb_calendar_close {
+    width: 40px;
+    height: 40px;
+    background-image: url('https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .calendar table {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+
+  .calendar_week {
+    position: relative;
+    top: 10px;
+    line-height: 24px;
+    display: flex;
+    padding: 0px 10px;
+  }
+
+  .calendar_week span {
+    flex: 1 0 14%;
+    font-size: 14px;
+    font-weight: "nanumbarungothic";
+  }
+
+  .calendar td {
+    text-align: center;
+    border-radius: 0px;
+    font-size: 14px;
+    flex: 0 0 14%;
+    height: 42px;
+  }
+
+  .calendar tr {
+    width: 100%;
+    line-height: 42px;
+    display: flex;
+    border-spacing: 0px;
+    margin-top: 4px;
+  }
+
+  .mb_claendar_date span {
+    font-family: 'nanumbarungothicbold';
+    line-height: 24px;
+  }
+
+  .mb_claendar_date p:nth-of-type(2) {
+    color: rgb(141, 161, 184);
+    margin-top: 8px;
+  }
+
+  .setting_box {
+    left: 0px;
+    top: auto;
+    bottom: 0px;
+    width: 100%;
+    height: 35%;
+    min-height: 300px;
+    padding: 16px;
+    border-radius: 6px 6px 0px 0px;
+    box-shadow: none;
+  }
+
+  .setting_box button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .setting_box_options p {
+    line-height: 24px;
+    margin: 0px 12px;
+  }
+
+  .setting_box_bg {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 100vh;
+  }
+
+  .setting_box_top {
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .setting_box_options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgb(233, 233, 233);
+  }
+
+  .setting_box_top {
+    border-bottom: none;
+  }
+
+  .setting_box>div span {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .setting_box_top p {
+    line-height: 28px;
+    font-size: 16px;
+  }
+
+  .setting_box_top button {
+    border: 1px solid rgb(216, 223, 232);
+    width: 40px;
+    height: 28px;
+    background: none;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* 페이지 별 조정 */
+
+  .hs_search_preview {
+    top: 62px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .hs_preview_box:nth-of-type(1) {
+    margin-top: 0px;
+  }
+
+  .hs_preview_box {
+    margin-top: 10px;
+    padding: 4px;
+  }
+
+  .region_img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .regionBox .preview_text_box {
+    margin-left: 50px;
+  }
+
+  .hs_preview_box span {
+    line-height: 20px;
+    font-size: 16px;
+  }
+
+  .preview_text_box p {
+    margin-top: 4px;
+  }
+
+  /* 홈 */
+  .mb_finder_wrap {
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    height: 100vh;
+    padding: 0px;
+    background: #fff;
+  }
+
+  .mb_finder_close_btn {
+    width: 42px;
+    height: 42px;
+    background: red;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .home_finder {
+    width: 100%;
+    position: static;
+    margin-top: 20px;
+    margin-left: 0px;
+    height: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    justify-content: flex-start;
+  }
+
+  .home_finder .hs_destination {
+    flex: none;
+    width: 100%;
+    height: 60px;
+    padding: 8px 10px;
+    margin-top: 10px;
+  }
+
+  .home_finder .hs_destination p {
+    font-size: 14px;
+  }
+
+  .home_finder .hs_destination input {
+    position: relative;
+    width: 100%;
+    line-height: 26px;
+    margin-top: 0px;
+    border-spacing: 0px;
+    font-size: 14px;
+  }
+
+  .home_finder .alert {
+    display: none;
+  }
+
+  .home_finder .hs_check,
+  .home_finder .hs_person {
+    margin-top: 20px;
+    padding: 8px 10px;
+    flex: none;
+    height: 62px;
+  }
+
+  .home_finder .hs_check p:nth-of-type(1) {
+    font-size: 14px;
+  }
+
+  .home_finder .hs_check .check_in,
+  .home_finder .hs_check .check_out {
+    width: 50%;
+  }
+
+  .home_finder .check_in .hs_check_in,
+  .home_finder .check_out .hs_check_out {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .home_finder .hs_person p {
+    font-size: 14px;
+  }
+
+  .home_finder .hs_person span {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
+    display: block;
+  }
+
+  .home_finder .search_box {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 62px;
+    left: 0;
+  }
+
+  .home_finder .search_box p {
+    line-height: 62px;
+  }
+
+  /* 검색 */
+  .search_finder {
+    box-shadow: none;
+    padding: 0;
+    margin-top: 40px;
+    padding: 0px 10px;
+  }
+
+  /* 디테일 */
+  .detail_finder {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0;
+    box-shadow: none;
+    position: static;
+    min-height: auto;
+  }
+
+  .detail_finder .hs_title {
+    display: none;
+  }
+
+  .detail_finder .hs_destination {
+    display: none;
+  }
+
+  .detail_finder .hs_check {
+    margin-top: 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+
+  .detail_finder .hs_person {
+    margin-top: 10px;
+  }
+
+  .detail_finder .search_box {
+    display: none;
+  }
+
+  /* 예약 */
+  .reserve_finder {
+    width: 100%;
+    min-height: auto;
+    padding: 10px;
+    margin-top: 0;
+    box-shadow: none;
+    position: static
+  }
+
+  .reserve_finder .hs_destination {
+    display: none;
+  }
+
+  .reserve_finder .hs_check {
+    margin-top: 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+  }
+
+  .reserve_finder .hs_person {
+    margin-top: 10px;
+  }
+
+  .reserve_finder .search_box {
+    display: none;
+  }
+
+  .reserve_finder .mb_calendar_top_nav {
+    top: 60px;
+  }
+
+  .reserve_finder .calendar {
+    position: fixed;
+    top: 160px;
+
+    height: calc(100vh - 300px);
+    z-index: 11;
+  }
+}

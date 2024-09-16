@@ -1,0 +1,1968 @@
+.search_wrap .close {
+    display: none;
+}
+
+.search_cont {
+    padding: 0px 360px;
+    display: flex;
+    position: relative;
+}
+
+.search_right {
+    flex-basis: 25%;
+    transition: .2s;
+}
+
+.search_map {
+    width: 100%;
+    height: 108px;
+    text-align: center;
+    position: relative;
+    border-radius: 4px;
+    background-image: url('https://github.com/user-attachments/assets/91ab44e5-9747-461b-a0d0-a0e3e8989ea9');
+
+    box-shadow: 0px 0px 10px #1919190a;
+}
+
+.map_view_btn {
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    border: none;
+    box-shadow: 0px 0px 5px #19191918;
+}
+
+.search_filter {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 10px #1919190a;
+}
+
+.search_filter>p {
+    font-family: "nanumbarungothicbold";
+    font-size: 18px;
+}
+
+
+.search_filter_wrap {
+    margin-top: 20px;
+}
+
+.search_filter>div p {
+    font-size: 16px;
+}
+
+.price_section>div {
+    display: flex;
+}
+
+.by_price {
+    border-radius: 4px;
+    border-bottom: 1px solid rgb(216, 223, 232);
+}
+
+.by_price span {
+    font-size: 14px;
+    color: rgb(141, 161, 184);
+}
+
+.price_btn {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price_box {
+    max-width: 240px;
+    height: 36px;
+    margin-top: 4px;
+    margin-right: 4px;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.search_filter .price_box {
+    font-size: 14px;
+}
+
+.by_rating>div,
+.by_grade>div {
+    display: flex;
+    margin-top: 10px;
+}
+
+.rate_box,
+.grade_box {
+    background-color: rgb(232, 237, 245);
+    height: 40px;
+    border-radius: 4px;
+    line-height: 40px;
+    text-align: center;
+    flex-basis: 40%;
+    margin-right: 10px;
+    border: none;
+}
+
+.onFilter {
+    background: #5900FF;
+    color: #fff;
+}
+
+.rate_box:hover,
+.grade_box:hover {
+    cursor: pointer;
+    background: rgb(209, 213, 219);
+}
+
+.rate_box:active,
+.grade_box:active {
+    cursor: pointer;
+    background: rgb(200, 202, 206);
+}
+
+.onFilter:hover {
+    background: #6b1cff;
+}
+
+.onFilter:active {
+    background: #4500c5;
+}
+
+.rate_box:last-child,
+.grade_box:last-child {
+    margin-right: 0px;
+}
+
+/* 가격 슬라이드 */
+.horizontal-slider {
+    width: 100%;
+    height: 16px;
+    border-radius: 10px;
+}
+
+.thumb {
+    top: 1px;
+    height: 17px;
+    width: 17px;
+    background-color: #fff;
+    border: 2px solid #5900FF;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.track {
+    position: absolute;
+    top: 50%;
+    background: #5900FF;
+    border-radius: 999px;
+    height: 3px;
+    border-radius: 10px;
+}
+
+.track:hover {
+    cursor: pointer;
+}
+
+.track-0,
+.track-2 {
+    background: #d0d1df;
+}
+
+
+.thumb:active,
+.thumb:focus {
+    outline: none;
+}
+
+.price_labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.thumb_value {
+    position: absolute;
+    top: -48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: none;
+}
+
+.thumb:hover .thumb_value {
+    display: block;
+}
+
+.price_btn .price_box {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #EEF1FA;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    transition: .2s;
+}
+
+.price_btn .price_box:hover {
+    background: #f5f8ff;
+}
+
+.price_btn .price_box:active {
+    background: #d1d5df;
+}
+
+.price_range {
+    height: 60px;
+    margin-top: 10px;
+}
+
+/* main */
+.search_main {
+    flex-basis: 75%;
+    padding: 0px 20px;
+}
+
+.main_top {
+    height: 40px;
+    line-height: 40px;
+}
+
+.main_top p {
+    font-size: 20px;
+    font-family: "nanumbarungothicbold";
+}
+
+.result_box {
+    position: relative;
+    padding: 16px;
+    width: 100%;
+    height: 260px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0px 0px 10px #1919190a;
+    margin-top: 20px;
+    display: flex;
+}
+
+.hotel_info {
+    flex-basis: 70%;
+}
+
+.hotel_img {
+    flex-basis: 28%;
+    height: 100%;
+    background: rgb(200, 200, 200);
+    margin-right: 20px;
+    border-radius: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hotel_img:hover img {
+    scale: 1.05;
+}
+
+.hotel_img img {
+    width: 100%;
+    height: 100%;
+    transition: .2s;
+}
+
+.hotel_title>p {
+    font-size: 18px;
+    font-family: "nanumbarungothicbold";
+    margin-right: 8px;
+}
+
+.map_on .hotel_title p {
+    width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hotel_title {
+    display: flex;
+}
+
+.hotel_grade {
+    width: 90px;
+    height: 18px;
+    display: flex;
+}
+
+.hotel_grade div {
+    flex: 0 0 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hotel_rating {
+    margin-top: 8px;
+    display: flex;
+    height: 28px;
+    line-height: 28px;
+}
+
+.hotel_rating>p {
+    text-align: center;
+    margin-right: 10px;
+    display: block;
+    background: linear-gradient(90deg, #0b59ff, #5900FF);
+    border-radius: 20px 4px 20px 20px;
+    padding: 0px 6px;
+    line-height: 28px;
+    letter-spacing: -0.5px;
+    color: #f9edff;
+}
+
+.hotel_rating p span {
+    color: #DEA6FF;
+}
+
+.hotel_location {
+    margin-top: 8px;
+    display: flex;
+    line-height: 16px;
+}
+
+.hotel_location button {
+    color: #5900FF;
+    border: none;
+    background: none;
+    font-size: 16px;
+    line-height: 12px;
+    margin-left: 4px;
+}
+
+.hotel_location button:hover {
+    text-decoration: underline;
+}
+
+.location_icon {
+    width: 16px;
+    height: 16px;
+    background: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 4px;
+}
+
+.hotel_bottom {
+    width: 100%;
+    height: 58%;
+    border-radius: 4px;
+    margin-top: 14px;
+    background: #EEF1FA;
+    padding: 10px;
+    display: flex;
+}
+
+.hotel_more {
+    flex-basis: 50%;
+    margin-right: 10px;
+    border-right: 1px solid rgb(216, 223, 232);
+}
+
+.hotel_price_box {
+    flex-basis: 50%;
+    text-align: right;
+}
+
+.hotel_price {
+    font-size: 24px;
+    font-family: "nanumbarungothicbold";
+}
+
+.hotel_price_cont span {
+    font-size: 16px;
+    color: #424348;
+    display: block;
+    margin-top: 4px;
+}
+
+.reservation_btn {
+    width: 180px;
+    line-height: 46px;
+    text-align: center;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #0b59ff, #5900FF);
+    float: right;
+    margin-top: 16px;
+    color: #f9edff;
+    font-size: 18px;
+    border: none;
+}
+
+.reservation_btn:hover {
+    cursor: pointer;
+}
+
+/* TopHeader */
+.search_wrap .topHeader {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+.search_wrap .header_wrap {
+    width: 100%;
+    padding: 0px 120px;
+    height: 120px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search_wrap .header_right {
+    position: inherit;
+    display: flex;
+    width: 130px;
+    float: right;
+}
+
+.search_wrap .header_lang {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    float: none;
+    border-radius: 4px;
+}
+
+.search_wrap .header_login {
+    height: 40px;
+    float: none;
+    border-radius: 4px;
+    border: 1.5px solid #fff;
+}
+
+.search_wrap .alert {
+    display: none;
+}
+
+
+
+/* map_on_filter */
+.map_on_filter {
+    display: block;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0px;
+    z-index: 50;
+}
+
+.map_on_filter .map_on_filter_bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.map_on_filter .search_right {
+    position: absolute;
+    z-index: 1;
+    width: 400px;
+    height: 100%;
+}
+
+.map_on_filter>div>.search_map {
+    display: none;
+}
+
+.map_on_filter .search_filter {
+    margin-top: 0px;
+    border-radius: 0px;
+    height: 100%;
+}
+
+.map_on_filter_btn {
+    min-width: 190px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+
+
+/* MAP ON */
+.map_on_wrap {
+    position: relative;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.map_on {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    padding: 10px;
+}
+
+.map_on>.search_right {
+    flex: 1 0 100%;
+    display: flex;
+}
+
+.map_on .search_map {
+    flex-basis: 20%;
+    max-width: 200px;
+    height: 52px;
+    margin-right: 10px;
+    background: none;
+}
+
+.map_on .search_map .map_view_btn {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #0b59ff, #5900FF);
+    color: #fff;
+    font-size: 16px;
+}
+
+
+.map_on .search_filter {
+    display: flex;
+    flex-basis: 25%;
+    height: 52px;
+    margin-top: 0px;
+    line-height: 32px;
+    padding: 0;
+    background: none;
+}
+
+.map_on .search_filter button {
+    box-shadow: 0px 0px 5px #19191944;
+    transition: .2s;
+}
+
+.map_on .search_filter button {
+    padding: 0px;
+    height: 52px;
+    min-width: 100px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    transition: .2s;
+}
+
+.map_on .search_filter button:hover {
+    background-color: rgb(242, 247, 255);
+}
+
+.map_on .search_filter button:active {
+    background-color: rgb(213, 221, 230);
+}
+
+.map_on .price_section {
+    position: absolute;
+    width: 240px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.map_on .by_rating {
+    position: absolute;
+    width: 240px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.map_on .by_grade {
+    position: absolute;
+    width: 240px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.map_on .grade_box,
+.map_on .rate_box {
+    height: 36px;
+}
+
+.map_on .search_main {
+    width: 400px;
+    height: 100%;
+    min-height: 720px;
+    padding: 0px;
+    position: absolute;
+    top: 80px;
+    overflow-y: scroll;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.map_on .search_main::-webkit-scrollbar {
+    width: 6px;
+}
+
+.map_on .search_main::-webkit-scrollbar-track {
+    background: rgb(228, 235, 243);
+}
+
+.map_on .search_main::-webkit-scrollbar-thumb {
+    background: #5900FF;
+    border-radius: 10px;
+}
+
+.map_on .search_main::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.map_on .search_main .result_box {
+    height: 300px;
+    margin-top: 0px;
+    border-bottom: 1px solid rgb(213, 221, 230);
+    border-radius: 6px;
+}
+
+.map_on .search_main .main_top {
+    display: none;
+}
+
+.map_on .search_main>div .hotel_more {
+    display: none;
+}
+
+
+.search_no_result {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.search_no_result div {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 1281px) {
+    /** 데스크탑 */
+
+    .search_cont {
+        width: 1000px;
+        height: 100%;
+        padding: 0;
+        margin: 0 auto;
+        margin-top: 40px;
+        justify-content: flex-end;
+        position: relative;
+        left: 0;
+    }
+
+    .search_right {
+        width: 30%;
+        max-width: 360px;
+        position: sticky;
+        top: 180px;
+    }
+
+    .search_main {
+        width: 70%;
+        padding: 0px 0px 0px 20px;
+    }
+
+    .price_range {
+        height: 40px;
+    }
+
+    .pc .by_rating {
+        margin-top: 20px;
+    }
+
+    .rate_box,
+    .grade_box {
+        max-width: 42px;
+        aspect-ratio: 15 / 10;
+    }
+
+    .pc .by_grade {
+        margin-top: 20px;
+    }
+
+
+
+    .hotel_info {
+        flex-basis: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hotel_title>p {
+        font-size: 16px;
+    }
+
+    .hotel_grade {
+        width: 80px;
+        min-width: 80px;
+        height: 16px;
+    }
+
+    .hotel_price {
+        font-size: 20px;
+    }
+
+    .hotel_price_cont span {
+        font-size: 12px;
+    }
+
+    .hotel_bottom {
+        display: block;
+        height: 60%;
+        max-height: 230px;
+    }
+
+    .hotel_price_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+    }
+
+
+    .reservation_btn {
+        font-size: 16px;
+        float: none;
+        margin-top: 8px;
+    }
+
+    /* mapOn */
+    .map_on {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        padding: 20px;
+        top: 20px;
+    }
+
+    .map_on .search_main {
+        width: calc(100% - 40px);
+        height: 240px;
+        min-height: auto;
+        padding: 0px;
+        position: absolute;
+        left: 20px;
+        top: auto;
+        bottom: 120px;
+    }
+
+    .map_on_wrap {
+        position: relative;
+
+        height: calc(100vh - 80px);
+        overflow-y: hidden;
+    }
+
+    .pc .map_on .search_main .swiper {
+        height: 100%;
+        overflow: visible;
+    }
+
+    .pc .map_on .search_main .result_box {
+        height: 100%;
+    }
+
+    .pc .map_on .search_main .hotel_bottom {
+        max-height: 96px;
+    }
+
+    .pc .map_on .search_main .reservation_btn {
+        font-size: 14px;
+        line-height: 32px;
+        width: 120px;
+        margin-top: 4px;
+    }
+
+    .pc .map_on .hotel_title p {
+    }
+
+    .map_on .hotel_info {
+        flex: 1 0 40%;
+    }
+
+    .map_on .hotel_img {
+        min-width: 70px;
+    }
+
+    .map_on .result_box:hover {
+        cursor: pointer;
+    }
+
+    .map_on .search_right {
+        position: absolute;
+        left: 20px;
+        top: 0;
+        z-index: 1;
+
+        width: 200px;
+    }
+
+    .map_on .search_map {
+        flex-basis: 50%;
+        max-width: 200px;
+        height: 52px;
+        margin-right: 10px;
+        background: none;
+    }
+
+    .map_on .search_map .map_view_btn {
+        font-size: 14px;
+    }
+
+    .map_on_filter {
+        margin-top: 0;
+    }
+
+    .map_on_filter_bg {
+        left: 0;
+    }
+
+    .map_on_filter .search_right {
+        left: 0;
+        width: 30%;
+        min-width: 400px;
+    }
+
+    .map_on_filter .search_filter {
+        padding: 100px 20px 0px;
+    }
+
+    .map_on_filter_close_btn {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+
+    /** 타블렛 가로, 노트북 */
+    .search_cont {
+        padding: 0px 40px;
+        margin-top: 40px;
+        display: flex;
+    }
+
+    .search_right {}
+
+    .search_main {
+        width: calc(70% - 80px);
+        padding: 0px 0px 0px 20px;
+    }
+
+    .price_range {
+        height: 40px;
+    }
+
+    .pc .by_rating {
+        margin-top: 20px;
+    }
+
+    .rate_box,
+    .grade_box {
+        max-width: 42px;
+        aspect-ratio: 15 / 10;
+    }
+
+    .pc .by_grade {
+        margin-top: 20px;
+    }
+
+
+
+    .hotel_info {
+        flex-basis: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hotel_title>p {
+        font-size: 16px;
+    }
+
+    .hotel_grade {
+        min-width: 90px;
+    }
+
+    .hotel_price {
+        font-size: 20px;
+    }
+
+    .hotel_price_cont span {
+        font-size: 12px;
+    }
+
+    .hotel_bottom {
+        display: block;
+        height: 60%;
+        max-height: 230px;
+    }
+
+    .hotel_price_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+    }
+
+
+    .reservation_btn {
+        font-size: 16px;
+        float: none;
+        margin-top: 8px;
+    }
+
+    /* mapOn */
+    .map_on {
+        height: 100%;
+        margin-top: 0;
+    }
+
+    .map_on .search_main {
+        width: 100%;
+        height: 240px;
+        min-height: auto;
+        padding: 0px 20px;
+        position: absolute;
+        left: 0px;
+        top: auto;
+        bottom: 120px;
+    }
+
+    .map_on_wrap {
+        position: relative;
+
+        height: calc(100vh - 80px);
+        overflow-y: hidden;
+    }
+
+    .pc .map_on .search_main .swiper {
+        height: 100%;
+        overflow: visible;
+    }
+
+    .pc .map_on .search_main .result_box {
+        height: 100%;
+    }
+
+    .pc .map_on .search_main .hotel_bottom {
+        max-height: 96px;
+    }
+
+    .pc .map_on .search_main .reservation_btn {
+        font-size: 14px;
+        line-height: 32px;
+        width: 120px;
+        margin-top: 4px;
+    }
+
+    .pc .map_on .hotel_title p {
+        flex: 0 0 60%;
+    }
+
+    .map_on .hotel_info {
+        flex: 1 0 40%;
+    }
+
+    .map_on .hotel_img {
+        min-width: 70px;
+    }
+
+    .map_on .result_box:hover {
+        cursor: pointer;
+    }
+
+    .map_on .search_right {
+        position: absolute;
+        left: 40px;
+        top: 0;
+        z-index: 1;
+
+        width: 200px;
+    }
+
+    .map_on .search_map {
+        flex-basis: 50%;
+        max-width: 200px;
+        height: 52px;
+        margin-right: 10px;
+        background: none;
+    }
+
+    .map_on .search_map .map_view_btn {
+        font-size: 14px;
+    }
+
+    .map_on_filter {
+        margin-top: 0;
+    }
+
+    .map_on_filter_bg {
+        left: 0;
+    }
+
+    .map_on_filter .search_right {
+        left: 0;
+        width: 30%;
+        min-width: 400px;
+    }
+
+    .map_on_filter .search_filter {
+        padding: 100px 20px 0px;
+    }
+
+    .map_on_filter_close_btn {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    /** 모바일 가로, 타블렛 세로 */
+    .search_wrap .mb_finder_btn_wrap {
+        position: fixed;
+        z-index: 49;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 100%;
+        height: 80px;
+        max-width: 540px;
+        margin-top: 0px;
+        padding: 0px 10px;
+        text-align: center;
+        background: #fff;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .search_main {
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    .search_undo_btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+    }
+
+    .search_undo_btn rect {
+        fill: none;
+    }
+
+    .search_undo_btn polyline {
+        fill: none;
+        stroke: #191919;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .search_wrap .mb_finder_btn {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        padding: 18px 0px;
+        border-radius: 0px;
+        line-height: 18px;
+        display: flex;
+        background: none;
+        box-shadow: none;
+    }
+
+    .mb_search_top {
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mb_search_top div {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-right: 4px;
+    }
+
+    .mb_finder_btn p {
+        font-size: 14px;
+    }
+
+    .mb_search_bottom {
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    .mb_search_bottom>div {
+        display: flex;
+        margin-right: 4px;
+    }
+
+    .mb_search_bottom>div span {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .mb_filter_btn {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+
+        display: flex;
+        width: 240px;
+        height: 48px;
+        background: rgba(0, 0, 0, .8);
+        border-radius: 6px;
+        padding: 8px;
+    }
+
+    .mb_filter_btn>div {
+        flex: 1 0 50%;
+        display: flex;
+        padding: 6px 10px;
+    }
+
+    .mb_filter_btn>div:nth-of-type(1) {
+        border-right: 1px solid #ffffffb7;
+    }
+
+    .mb_filter_btn span {
+        color: #fff;
+    }
+
+    .search_cont {
+        margin-top: 20px;
+        padding: 0px;
+        display: block;
+    }
+
+    .search_right {
+        position: fixed;
+        top: 0;
+        z-index: 53;
+
+        background: rgba(0, 0, 0, .6);
+        margin-top: 80px;
+        width: 100%;
+        height: calc(100% - 80px);
+    }
+
+    .search_map {
+        display: none;
+    }
+
+    .search_filter {
+        position: fixed;
+        top: 0;
+
+        height: 100vh;
+        margin-top: 0px;
+        padding: 80px 0px 0px;
+        background: rgba(0, 0, 0, .6);
+        border-radius: 0;
+    }
+
+    .map_on_filter .search_filter {
+        background: #fff;
+        padding: 10px;
+        height: 480px;
+        top: auto;
+        bottom: 0;
+    }
+
+    .search_filter_wrap {
+        background: #fff;
+        height: 100%;
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .price_section,
+    .by_rating,
+    .by_grade {
+        margin-top: 20px;
+    }
+
+    .mb_filter_close_btn {
+        width: 42px;
+        height: 42px;
+        margin-top: 0px;
+    }
+
+    .mb_alert_box {
+        padding: 12px 10px;
+        width: 100%;
+        background: #fff;
+        border-radius: 4px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
+    }
+
+    .mb_alert_box p {
+        font-size: 14px;
+    }
+
+    .main_top {
+        margin-top: 10px;
+    }
+
+    .main_top p {
+        font-size: 14px;
+    }
+
+    .result_box:nth-of-type(1) {
+        margin-top: 10px;
+    }
+
+    .result_box {
+        padding: 10px;
+        width: 100%;
+        height: 240px;
+        border-radius: 6px;
+    }
+
+    .hotel_img {
+        flex-basis: 25%;
+        margin-right: 10px;
+        border-radius: 4px;
+    }
+
+    .hotel_info {
+        flex-basis: 75%;
+        overflow: hidden;
+    }
+
+    .rate_box,
+    .grade_box {
+        max-width: 52px;
+        height: 46px;
+        aspect-ratio: auto;
+    }
+
+    .hotel_title>p {
+        width: 80%;
+        font-size: 16px;
+        word-break: break-all;
+    }
+
+    .hotel_grade {
+        margin-top: 1px;
+        width: 80px;
+        min-width: 80px;
+        height: 16px;
+    }
+
+    .hotel_rating {
+        margin-top: 4px;
+    }
+
+    .hotel_rating>p,
+    .hotel_rating span {
+        line-height: 28px;
+        font-size: 14px;
+    }
+
+    .hotel_location {
+        line-height: 26px;
+    }
+
+    .location_icon {
+        margin-top: 5px;
+    }
+
+    .hotel_location p,
+    .hotel_location button {
+        font-size: 14px;
+    }
+
+    .hotel_location button {
+        padding: 12px 0px;
+        line-height: 0;
+    }
+
+    .hotel_bottom {
+        width: 100%;
+        margin-top: 0px;
+        justify-content: flex-end;
+    }
+
+    .hotel_price {
+        font-size: 18px;
+    }
+
+    .hotel_price_cont span {
+        font-size: 12px;
+    }
+
+    .reservation_btn {
+        width: 120px;
+        line-height: 46px;
+        text-align: center;
+        border-radius: 4px;
+        background: linear-gradient(90deg, #0b59ff, #5900FF);
+        float: right;
+        margin-top: 10px;
+        color: #f9edff;
+        font-size: 14px;
+        border: none;
+    }
+
+    .map_on .search_right {
+        display: none;
+    }
+
+    .map_on_filter_bg {
+        top: 0;
+        background: rgba(0, 0, 0, .6);
+    }
+
+    .map_on_wrap .search_cont {
+        margin-top: 0;
+        height: 100vh;
+        top: auto;
+        bottom: 0;
+    }
+
+    .map_on_filter {
+        z-index: 60;
+    }
+
+    .map_on_filter .search_right {
+        bottom: 0;
+        top: auto;
+
+        width: 100%;
+        height: 480px;
+        background: #fff;
+    }
+
+    .map_on_filter_close_btn {
+        width: 42px;
+        height: 42px;
+        background: red;
+    }
+
+    .map_on .search_main {
+        position: relative;
+        top: auto;
+        bottom: 0;
+
+        width: 100%;
+        height: 100%;
+        min-height: auto;
+        padding: 0px;
+        background: transparent;
+        border-radius: 6px;
+    }
+
+    .map_on .hotel_img {
+        flex-basis: 40%;
+    }
+
+    .map_on .hotel_title p {
+        width: 65%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .mb_map_filter {
+        width: 100%;
+        top: 80px;
+        left: auto;
+        transform: none;
+        bottom: auto;
+        z-index: 2;
+        background: rgba(255, 255, 255, .6);
+        border-radius: 0px;
+        padding: 10px 0px;
+    }
+
+    .mb_map_filter>div {
+        display: flex;
+    }
+
+    .mb_filter_map_icon,
+    .mb_filter_icon {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-right: 4px;
+        margin-top: 1px;
+    }
+
+    .map_on .search_main .result_box {
+        height: 220px;
+        margin-top: 0px;
+        border-bottom: 1px solid rgb(213, 221, 230);
+        border-radius: 6px;
+    }
+
+    .map_on {
+        padding: 10px;
+    }
+
+    .map_on .search_main::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .map_on_wrap .mb_filter_btn span {
+        color: #0c0121;
+    }
+
+    .map_on .swiper {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search_cont {
+        margin-top: 0px;
+        padding: 20px 0px 0px;
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+
+    .search_right {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        z-index: 52;
+        height: 100vh;
+        background: #fff;
+    }
+
+    .mb .search_map {
+        display: none;
+    }
+
+    .mb .search_filter {
+        margin-top: 0px;
+        box-shadow: none;
+        padding-top: 60px;
+    }
+
+    .mb_filter_close_btn {
+        width: 42px;
+        height: 42px;
+        background: red;
+        border: none;
+        margin: 0;
+    }
+
+    .mb_filter_btn {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 60px;
+        z-index: 10;
+        background: #191919e7;
+        border-radius: 6px;
+        display: flex;
+        padding: 8px 10px;
+    }
+
+    .mb_filter_btn span {
+        color: #fff;
+        margin-left: 4px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .mb_filter_map,
+    .mb_filter_options {
+        display: flex;
+    }
+
+    .mb_filter_map {
+        margin-right: 8px;
+        padding-right: 10px;
+        border-right: 1px solid rgb(200, 200, 200);
+    }
+
+    .mb_filter_map_icon,
+    .mb_filter_icon {
+        width: 18px;
+        height: 18px;
+        background: red;
+    }
+
+    .search_wrap .mb_finder_btn_wrap {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        transform: none;
+
+        text-align: center;
+        width: 100%;
+        height: auto;
+        padding: 0px;
+        margin-top: 0px;
+        box-shadow: 0px 0px 5px #1919192f;
+    }
+
+    .search_wrap .mb_finder_btn {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        padding: 10px 0px 8px;
+        border-radius: 0px;
+        line-height: 42px;
+        display: flex;
+        background: rgb(255, 255, 255);
+        box-shadow: none;
+    }
+
+    .mb_search_top {
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mb_search_top div {
+        width: 18px;
+        height: 18px;
+        background: red;
+        margin-right: 4px;
+    }
+
+    .mb_search_top p {
+        line-height: 18px;
+    }
+
+    .mb_search_bottom {
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+    }
+
+    .mb_search_bottom>div {
+        display: flex;
+        margin-right: 4px;
+    }
+
+    .mb_search_bottom>div:last-child {
+        margin-right: 0px;
+    }
+
+    .mb_search_bottom>div>div {
+        width: 18px;
+        height: 18px;
+        margin-right: 4px;
+        background: red;
+    }
+
+    .mb_search_bottom>div span {
+        font-size: 14px;
+        line-height: 18px;
+        color: #0c0121;
+    }
+
+    .search_undo_btn {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        transform: none;
+    }
+
+    .mb .search_main {
+        flex-basis: 100%;
+        padding: 10px;
+        margin-top: 0px;
+        margin-bottom: 180px;
+    }
+
+    .mb_alert_box {
+        margin: 0;
+        padding: 10px 10px;
+        background: #fff;
+        box-shadow: 0px 0px 5px #19191918;
+    }
+
+    .mb_alert_box p {
+        font-size: 14px;
+    }
+
+    .mb .main_top {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .mb .main_top p {
+        font-size: 14px;
+    }
+
+    .mb .result_box {
+        position: relative;
+        padding: 10px;
+        width: 100%;
+        max-height: 252px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0px 0px 10px #1919190a;
+        margin-top: 20px;
+        display: flex;
+    }
+
+    .mb .hotel_img {
+        flex: 1 0 30%;
+        height: 100%;
+        background: rgb(200, 200, 200);
+        margin-right: 20px;
+        border-radius: 4px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+    .mb .hotel_img img {
+        object-fit: cover;
+    }
+
+    .mb .hotel_title>p {
+        font-size: 16px;
+        font-family: "nanumbarungothicbold";
+        margin-right: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical
+    }
+
+    .mb .hotel_price_box {
+        width: 100%;
+        text-align: right;
+        flex: 1 0 100%;
+    }
+
+    .mb .hotel_rating p {
+        font-size: 14px;
+        margin-top: 0px;
+    }
+
+    .mb .hotel_rating span {
+        font-size: 14px;
+    }
+
+    .mb .hotel_more {
+        display: none;
+    }
+
+    .mb .hotel_grade {
+        width: 70px;
+        min-width: 70px;
+        height: 14px;
+    }
+
+    .mb .hotel_bottom {
+        max-height: 124px;
+        margin-top: 0px;
+    }
+
+    .mb .reservation_btn {
+        line-height: 40px;
+        margin-top: 18px;
+        font-size: 14px;
+    }
+
+    .mb .hotel_price {
+        font-size: 18px;
+    }
+
+    .mb .hotel_price_cont span {
+        font-size: 12px;
+    }
+
+    .search_no_result {
+        width: 100%;
+        height: 100%;
+        min-height: 236px;
+        position: relative;
+    }
+
+    .mb .rate_box,
+    .mb .grade_box {
+        max-width: 52px;
+        min-height: 48px;
+        aspect-ratio: auto;
+    }
+
+    .mb .map_on .search_right {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        z-index: 50;
+        height: 60px;
+        background: #3c00ff;
+        padding: 10px 20px;
+        display: none;
+    }
+
+    .mb .map_on .search_filter div {
+        display: none;
+    }
+
+    .mb .map_on_filter .search_filter {
+        box-shadow: none;
+        height: calc(100vh - 40px);
+        margin-top: 0px;
+        padding-top: 0;
+        top: 60px;
+    }
+
+    .mb .map_on_filter .search_right {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        margin-top: 60px;
+    }
+
+    .mb .map_on_filter {
+        display: block;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 0px;
+        background: #19191999;
+        z-index: 51;
+    }
+
+    .mb .search_filter>.mb_search_filter_top {
+        width: 100%;
+        padding: 10px 0px;
+        margin-top: 0px;
+        border-bottom: 1px solid rgb(235, 235, 235);
+    }
+
+    .map_on_wrap {
+        position: relative;
+        top: 110px;
+        overflow-y: hidden;
+    }
+
+    .mb_search_filter_top span {
+        line-height: 42px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mb_search_filter_btn {
+        min-width: 42px;
+        height: 42px;
+        background: red;
+    }
+
+    .map_on_filter_close_btn {
+        display: none;
+    }
+
+    .map_on_wrap .map_on {
+        display: block;
+        z-index: 1;
+        height: auto;
+    }
+
+    .mb .map_on .search_main {
+        width: 100%;
+        height: 100px;
+        min-height: 280px;
+        padding: 20px;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        overflow: inherit;
+        background: none;
+        border-radius: 6px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .map_on .search_main .swiper {
+        position: relative;
+        overflow: visible;
+        height: 240px;
+    }
+
+    .map_on .search_main .swiper-slide {
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .mb .map_on .hotel_title>p {
+        width: auto;
+        display: block;
+    }
+
+    .map_on .search_main .result_box {
+        position: relative;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        max-height: 240px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: none;
+        margin-top: 0px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mb .map_on .hotel_img {
+        flex-basis: 100%;
+        height: 55%;
+        background: rgb(200, 200, 200);
+        margin-right: 0px;
+        border-radius: 0px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+    .mb .map_on .reservation_btn {
+        display: none;
+    }
+
+    .mb .map_on .hotel_info {
+        flex: 1 0 100%;
+        height: 45%;
+        padding: 10px;
+        position: relative;
+    }
+
+    .mb .map_on .hotel_bottom {
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        background: none;
+        height: 50%;
+        padding: 10px;
+        margin-top: 0px;
+        display: block;
+    }
+
+    .mb .hotel_location p,
+    .mb .hotel_location button {
+        font-size: 14px;
+        margin-top: 0px;
+        padding: 0;
+        display: flex;
+    }
+
+    .mb .hotel_location button {
+        line-height: 24px;
+    }
+
+    .mb_map_filter {
+        width: 100%;
+        position: fixed;
+        top: 60px;
+        left: auto;
+        transform: none;
+        bottom: auto;
+        z-index: 10;
+        background: #fff;
+        border-radius: 0px;
+        display: flex;
+        padding: 8px 10px;
+    }
+
+    .mb_map_filter .mb_filter_map,
+    .mb_map_filter .mb_filter_options {
+        flex: 1 0 50%;
+    }
+
+    .mb_map_filter .mb_filter_map span,
+    .mb_map_filter .mb_filter_options span {
+        color: #191919;
+    }
+
+    .search_wrap svg {
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        margin-top: 2px;
+        display: block;
+        background: none;
+        border-radius: 50%;
+        transition: .2s;
+    }
+
+    .search_wrap .cls-1 {
+        fill: none;
+    }
+
+    .search_wrap .cls-2 {
+        fill: none;
+        stroke: #191919;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: .2s;
+    }
+
+}

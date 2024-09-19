@@ -74,6 +74,8 @@ const DetailView: React.FC = () => {
         const breakfast = event.currentTarget.getAttribute('data-break') === 'true' ? 1 : 0;
 
         const thisRoom = hotelDetails?.hotelRoom.find(h => h.roomId === roomId)
+
+        setModal(false)
         if (roomId && thisRoom) {
             const roomCapacity = parseInt(thisRoom.roomCapacity, 10)
             if (roomCapacity < adult) {

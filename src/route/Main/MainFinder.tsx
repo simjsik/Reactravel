@@ -543,22 +543,24 @@ const MainFinder: React.FC = () => {
                 </div>
                 <div className='hs_calender'>
                     {
-                        onCalender === true ?
+                        onCalender === true &&
+                        <>
+                            <div className='mb_calendar_top_nav'>
+                                <div className="mb_calendar_close" onClick={toggleCalender}></div>
+                                <p>날짜 선택</p>
+                                <div className='calendar_week'>
+                                    <span>일</span>
+                                    <span>월</span>
+                                    <span>화</span>
+                                    <span>수</span>
+                                    <span>목</span>
+                                    <span>금</span>
+                                    <span>토</span>
+                                </div>
+                            </div>
                             <div className="calendar" ref={calendarBoxRef}>
                                 <header className="calendar_header">
-                                    <div className='mb_calendar_top_nav'>
-                                        <div className="mb_calendar_close" onClick={toggleCalender}></div>
-                                        <p>날짜 선택</p>
-                                        <div className='calendar_week'>
-                                            <span>일</span>
-                                            <span>월</span>
-                                            <span>화</span>
-                                            <span>수</span>
-                                            <span>목</span>
-                                            <span>금</span>
-                                            <span>토</span>
-                                        </div>
-                                    </div>
+
                                     {media > 1 ?
                                         <>
                                             {renderMonth(months[currentIndex])}
@@ -572,17 +574,16 @@ const MainFinder: React.FC = () => {
                                 </header>
                                 <button className='calendarPrev' onClick={() => setCalenderPrev(setCurrentIndex, 0)}><img src='https://github.com/simjsik/savefile/assets/39624384/d99b0090-cf55-4f4d-ad23-59f124992614' alt="이전"></img></button>
                                 <button className='calendarNext' onClick={() => setCalenderNext(setCurrentIndex, months.length - 2)}><img src='https://github.com/simjsik/savefile/assets/39624384/3ed517cf-52af-4c78-be11-b7a28e2f2f58' alt="다음"></img></button>
-                                <footer className="calendar_footer">
-                                    <div className="mb_claendar_date">
-                                        <p>{clickCheckIn === null ? formatDate(new Date()) : formatDate(clickCheckIn)} - {formatDate(clickCheckOut)}</p>
-                                        <span>{night}박</span>
-                                        <p>모든 날짜는 현지 시간 기준입니다.</p>
-                                    </div>
-                                    <button className="calendar_set_btn" onClick={setCheckDay}>적용</button>
-                                </footer>
                             </div>
-                            :
-                            null
+                            <footer className="calendar_footer">
+                                <div className="mb_claendar_date">
+                                    <p>{clickCheckIn === null ? formatDate(new Date()) : formatDate(clickCheckIn)} - {formatDate(clickCheckOut)}</p>
+                                    <span>{night}박</span>
+                                    <p>모든 날짜는 현지 시간 기준입니다.</p>
+                                </div>
+                                <button className="calendar_set_btn" onClick={setCheckDay}>적용</button>
+                            </footer>
+                        </>
                     }
                 </div>
             </div>

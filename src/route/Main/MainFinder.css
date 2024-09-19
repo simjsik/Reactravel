@@ -1910,20 +1910,19 @@ table {}
     height: 62px;
     line-height: 62px;
     left: 0;
-    bottom: 9px;
+    bottom: 0px;
     border-radius: 0px;
   }
 
   .calendar {
     position: absolute;
-    top: 100px;
+    top: 120px;
     left: 0;
     right: 0;
     transform: none;
     z-index: 1;
-
     width: 100%;
-    height: calc(100vh - 240px);
+    height: calc(100vh - 280px);
     padding: 0px 0px;
     background: #fff;
     border-radius: 0px;
@@ -1935,11 +1934,12 @@ table {}
     position: fixed;
     left: 0;
     top: 0;
-
+    z-index: 2;
     width: 100%;
     height: 120px;
     border-bottom: 1px solid rgb(235, 235, 235);
     line-height: 80px;
+    text-align: center;
     background: #fff;
     display: block;
   }
@@ -1961,9 +1961,7 @@ table {}
     margin-top: 40px;
   }
 
-  .calendar_month_view:nth-of-type(2) {
-    margin-top: 20px;
-  }
+  .calendar_month_view:nth-of-type(2) {}
 
   .calendar_month_view:nth-of-type(3) {
     margin-top: 40px;
@@ -1975,13 +1973,14 @@ table {}
   }
 
   .calendar_footer {
-    text-align: right;
     position: fixed;
     bottom: 0px;
     left: 0px;
     right: 0px;
-    padding: 0px;
     height: 160px;
+    z-index: 2;
+    padding: 0px;
+    text-align: right;
     background: #fff;
     border-top: 1px solid rgb(233, 233, 233);
   }
@@ -2034,9 +2033,9 @@ table {}
   }
 
   .calendar_week span {
-    flex: 1 0 14%;
+    flex: 1 0 15%;
+    max-width: 56.5px;
     font-size: 14px;
-    font-weight: "nanumbarungothic";
   }
 
   .calendar td {

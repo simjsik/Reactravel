@@ -81,8 +81,10 @@ function App() {
   useEffect(() => {
     if (modal) {
       document.body.style.overflow = 'hidden';
+      console.log('Modal True!')
     } else if (!modal) {
       document.body.style.overflow = 'auto'
+      console.log('Modal False!')
     }
   }, [modal])
 

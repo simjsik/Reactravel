@@ -75,7 +75,6 @@ const DetailView: React.FC = () => {
 
         const thisRoom = hotelDetails?.hotelRoom.find(h => h.roomId === roomId)
 
-        setModal(false)
         if (roomId && thisRoom) {
             const roomCapacity = parseInt(thisRoom.roomCapacity, 10)
             if (roomCapacity < adult) {

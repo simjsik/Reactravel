@@ -204,6 +204,8 @@
     }
 
     .header_right {
+        height: 40px;
+        padding: 4px;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -211,6 +213,12 @@
     .topHeader .nav_svg path {
         fill: none;
         stroke: #ffffff;
+    }
+    .header_right svg{
+        width: 32px;
+    }
+    .nav_box{
+        width: auto;
     }
 }
 

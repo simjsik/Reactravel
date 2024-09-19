@@ -137,7 +137,11 @@ const MainSearch: React.FC = () => {
 
     const goMap = () => {
         setMap((prev) => !prev)
-        navigate('/search?query=map')
+        if (map) {
+            navigate('/search?query=')
+        } else {
+            navigate('/search?query=map')
+        }
     } // 지도 보기 이동
 
     const setLocation = (event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>, lat: number, lng: number) => {
@@ -270,7 +274,7 @@ const MainSearch: React.FC = () => {
                                 <div className="search_right">
                                     <button className="map_on_filter_close_btn" onClick={handleFilter}></button>
                                     <div className="search_map">
-                                        <button className="map_view_btn" onClick={() => goMap}>{map ? <p>홈으로</p> : <p>지도에서 보기</p>}</button>
+                                        <button className="map_view_btn" onClick={() => goMap}>{map ? <p>지도 닫기</p> : <p>지도에서 보기</p>}</button>
                                     </div>
                                     <div className="search_filter">
                                         {media === 0 &&
@@ -351,7 +355,7 @@ const MainSearch: React.FC = () => {
 
                             <div className="search_right">
                                 <div className="search_map">
-                                    <button className="map_view_btn" onClick={goMap}>{map ? '홈으로' : '지도에서 보기'}</button>
+                                    <button className="map_view_btn" onClick={goMap}>{map ? '지도 닫기' : '지도에서 보기'}</button>
                                 </div>
                                 <div className="search_filter">
                                     <button className="map_on_filter_btn" onClick={handleFilter}>조건 내 검색</button>
@@ -695,7 +699,7 @@ const MainSearch: React.FC = () => {
                     {(media > 1 || filterOn) &&
                         <div className='search_right' ref={rightFilterRef}>
                             <div className="search_map">
-                                <button className="map_view_btn" onClick={goMap}>{map ? <p>홈으로</p> : <p>지도에서 보기</p>}</button>
+                                <button className="map_view_btn" onClick={goMap}>{map ? <p>지도 닫기</p> : <p>지도에서 보기</p>}</button>
                             </div>
                             <div className="search_filter">
                                 <div className="search_filter_wrap">

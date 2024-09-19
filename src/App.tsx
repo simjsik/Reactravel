@@ -129,7 +129,6 @@ function App() {
         </div>
       </main >
       {
-
         location.pathname !== '/' && !map &&
         <footer id="homeFooter" ref={footerRef}>
           <div className="footer_wrap">

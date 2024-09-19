@@ -251,7 +251,7 @@
     position: relative;
     padding: 16px;
     width: 100%;
-    height: 260px;
+    height: 240px;
     border-radius: 8px;
     background: #fff;
     box-shadow: 0px 0px 10px #1919190a;
@@ -269,8 +269,6 @@
     background: rgb(200, 200, 200);
     margin-right: 20px;
     border-radius: 4px;
-    background-size: cover;
-    background-repeat: no-repeat;
     overflow: hidden;
 }
 
@@ -635,7 +633,6 @@
 }
 
 .map_on .search_main .result_box {
-    height: 300px;
     margin-top: 0px;
     border-bottom: 1px solid rgb(213, 221, 230);
     border-radius: 6px;
@@ -720,6 +717,10 @@
         justify-content: space-between;
     }
 
+    .hotel_title {
+        max-width: 100%;
+    }
+
     .hotel_title>p {
         font-size: 16px;
     }
@@ -759,13 +760,22 @@
         margin-top: 8px;
     }
 
+    .result_box {
+        height: 270px;
+    }
+
+    .hotel_img img {
+        object-fit: cover;
+    }
+
     /* mapOn */
     .map_on {
+        position: absolute;
+        top: 0px;
+
         width: 100%;
         height: 100%;
         margin-top: 0;
-        padding: 20px;
-        top: 20px;
     }
 
     .map_on .search_main {
@@ -776,7 +786,7 @@
         position: absolute;
         left: 20px;
         top: auto;
-        bottom: 120px;
+        bottom: 0px;
     }
 
     .map_on_wrap {
@@ -788,6 +798,7 @@
 
     .pc .map_on .search_main .swiper {
         height: 100%;
+        max-height: 223px;
         overflow: visible;
     }
 
@@ -806,15 +817,24 @@
         margin-top: 4px;
     }
 
+    .pc .map_on .hotel_title {
+        justify-content: space-between;
+    }
+
     .pc .map_on .hotel_title p {
+        width: 100%;
     }
 
     .map_on .hotel_info {
         flex: 1 0 40%;
+        max-width: 70%;
     }
 
     .map_on .hotel_img {
         min-width: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .map_on .result_box:hover {
@@ -824,18 +844,24 @@
     .map_on .search_right {
         position: absolute;
         left: 20px;
-        top: 0;
+        top: 20px;
         z-index: 1;
 
-        width: 200px;
+        width: auto;
     }
 
     .map_on .search_map {
-        flex-basis: 50%;
+        flex: none;
         max-width: 200px;
         height: 52px;
         margin-right: 10px;
         background: none;
+    }
+
+    .map_on .search_filter {
+        flex: none;
+        width: 240px;
+        margin-right: 0;
     }
 
     .map_on .search_map .map_view_btn {
@@ -843,20 +869,27 @@
     }
 
     .map_on_filter {
+        position: absolute;
+        width: 100%;
         margin-top: 0;
     }
 
     .map_on_filter_bg {
         left: 0;
+        background: rgba(0, 0, 0, .6);
     }
 
     .map_on_filter .search_right {
         left: 0;
+        top: 0;
         width: 30%;
         min-width: 400px;
     }
 
     .map_on_filter .search_filter {
+        position: absolute;
+        left: 0;
+
         padding: 100px 20px 0px;
     }
 
@@ -864,6 +897,7 @@
         position: absolute;
         left: 20px;
         top: 20px;
+        z-index: 1;
         width: 42px;
         height: 42px;
     }

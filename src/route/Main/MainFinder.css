@@ -482,9 +482,9 @@ table {}
 
   .hs_search_preview {
     left: 0;
-    top: 60px;
+    top: 61px;
 
-    width: 400px;
+    width: 100%;
     padding: 10px;
   }
 
@@ -575,7 +575,9 @@ table {}
     width: 100px;
   }
 
-  .pc .setting_box_options p {}
+  .pc .setting_box_options p {
+    line-height: 25px;
+  }
 
   .pc .setting_box_options {
     margin-top: 20px;
@@ -779,7 +781,8 @@ table {}
   }
 
   .detail_finder .calendar {
-    top: 75px;
+    top: 83px;
+    width: 100%;
   }
 
   /* 예약 Reserve */

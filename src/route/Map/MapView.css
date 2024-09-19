@@ -53,10 +53,13 @@
     text-align: left;
     z-index: 10;
 }
-
+.hotel_map_box>div:nth-of-type(2){
+    max-width: 65%;
+}
 .hotel_map_box>div:nth-of-type(2)>div {
     display: flex;
     text-align: left;
+    width: 100%;
 }
 
 .hotel_map_box>div:nth-of-type(2)>div p {

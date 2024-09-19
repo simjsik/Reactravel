@@ -3,11 +3,13 @@ import './MapView.css'
 import { GoogleMap, OverlayView, OverlayViewF, MarkerF } from '@react-google-maps/api';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { defaultLat, defaultLng, defaultMap, defaultZoom, filterDataState, filteredHotelSelector, Hotel, hotelDataState, mapSlideIndexState, mediaState, searchResultDataState } from "../../recoil";
+import { useNavigate } from "react-router-dom";
 
 interface MapViewComponent {
     copyFilteredHotels: Hotel[]; // copyFilteredHotels의 타입을 정의합니다.
 }
 const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
+    const navigate = useNavigate()
 
     const [center, setCenter] = useState({ lat: useRecoilValue(defaultLat), lng: useRecoilValue(defaultLng) });
     const [hotelBoxId, setHotelBoxId] = useState<number | null>(null)
@@ -54,8 +56,8 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
 
     const hotelBoxClick = (id: number) => {
         setHotelBoxId(id)
-        setSlideIndex(id)
-        console.log(id)
+        navigate(`/detail?query=${'0' + id}`)
+        // console.log(id)
     }
 
 

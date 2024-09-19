@@ -107,6 +107,7 @@
 
 .reserve_price {
     padding: 10px 10px;
+    margin-top: 10px;
 }
 
 .reserve_price>p {
@@ -1521,7 +1522,7 @@
         width: 100%;
         padding: 10px;
         border-radius: 6px;
-        margin-top: 60px;
+        margin-top: 80px;
         box-shadow: 0px 0px 10px #1919191d;
         background: #fff;
     }
@@ -1539,6 +1540,7 @@
         width: 100%;
         position: relative;
         top: 10px;
+        padding-top: 10px;
     }
 
     .tb .room_location {
@@ -1551,7 +1553,7 @@
         top: 0px;
         text-align: center;
         width: 100%;
-        height: 60px;
+        height: 80px;
         padding: 0px;
         margin-top: 0px;
         background-color: #fff;
@@ -1559,7 +1561,7 @@
     }
 
     .mb_reserve_top_nav p {
-        line-height: 60px;
+        line-height: 80px;
         font-size: 12px;
     }
 
@@ -1567,13 +1569,14 @@
         width: 42px;
         height: 42px;
         position: absolute;
-        top: 10px;
+        top: 18px;
         left: 10px;
         background: none;
         border: none;
     }
 
     .tb .reserve_undo_btn svg {
+        margin-top: 4px;
         width: 36px;
         height: 36px;
     }
@@ -1704,14 +1707,19 @@
         margin-top: 3px;
     }
 
+    .reserve_box_price {
+        margin-top: 4px;
+        padding: 0px;
+    }
+
     .tb .room_location_box {
         margin-top: 0px;
         position: fixed;
         left: 0;
-        top: 60px;
+        top: 80px;
         z-index: 10;
         width: 100%;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 80px);
     }
 
     .tb .room_location_box_btn {
@@ -1837,6 +1845,17 @@
     .tb .reserve_rent>div p {
         font-size: 14px;
     }
+
+    .tb .reserve_box .hs_check,
+    .tb .reserve_box .hs_person {
+        width: calc(100% - 20px);
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .tb .reserve_box .hs_check {
+        margin-top: 0;
+    }
 }
 
 @media screen and (max-width : 480px) {
@@ -1851,7 +1870,7 @@
         width: 100%;
         padding: 10px;
         border-radius: 6px;
-        margin-top: 60px;
+        margin-top: 80px;
         box-shadow: 0px 0px 10px #1919191d;
         background: #fff;
     }
@@ -1881,7 +1900,7 @@
         top: 0px;
         text-align: center;
         width: 100%;
-        height: 60px;
+        height: 80px;
         padding: 0px;
         margin-top: 0px;
         background-color: #fff;
@@ -1889,7 +1908,7 @@
     }
 
     .mb_reserve_top_nav p {
-        line-height: 60px;
+        line-height: 80px;
         font-size: 12px;
     }
 
@@ -1897,7 +1916,7 @@
         width: 42px;
         height: 42px;
         position: absolute;
-        top: 10px;
+        top: 19px;
         left: 10px;
         background: none;
         border: none;
@@ -1935,8 +1954,28 @@
         height: auto;
     }
 
+    .reserve_box {
+        padding-top: 10px;
+    }
+
+    .reserve_box .hs_check,
+    .reserve_box .hs_person {
+        width: calc(100% - 20px);
+        margin: 0 auto;
+    }
+
+    .reserve_box .hs_check {
+        margin-top: 0px;
+    }
+
+    .reserve_box .hs_person {
+        margin-top: 10px;
+    }
+
+
+
     .mb .reserve_cont {
-        padding: 10px 10px 120px;
+        padding: 10px 10px 40px;
     }
 
     .mb .reserve_room_img_box>div {

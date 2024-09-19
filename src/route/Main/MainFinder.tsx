@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import './MainFinder.css'
 import { useRecoilState, useRecoilValue } from "recoil";
-import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState } from "../../recoil";
+import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState, calenderState, mbSetterState } from "../../recoil";
 import { useLocation, useNavigate } from "react-router-dom";
 import useHotelDetail from "../Hook/useHotelDetail";
 
@@ -12,6 +12,8 @@ const MainFinder: React.FC = () => {
     const [adult, setAdult] = useRecoilState<number>(adultState);
     const [child, setChild] = useRecoilState<number>(childState);
     const [setter, setSetter] = useRecoilState(setterState);
+    const [mbSetter, setMbSetter] = useRecoilState(mbSetterState);
+    const [mbCalender, setMbCalender] = useRecoilState<boolean>(calenderState);
     const [preview, setPreview] = useRecoilState(previewState);
     const [searchTerm, setSearchTerm] = useRecoilState(searchTermState);
     const [filterData, setFilterData] = useRecoilState<any[]>(searchResultDataState);
@@ -21,9 +23,9 @@ const MainFinder: React.FC = () => {
 
     const media = useRecoilValue(mediaState)
 
-    const [onCalender, setOnCalender] = useState<boolean>(false);
     const [hoverDate, setHoverDate] = useState<Date | null>(null)
     const [capacity, setCapacity] = useState<number>(room * 4)
+    const [onCalender, setOnCalender] = useState<boolean>(false);
 
     const [clickCheckIn, setClickCheckIn] = useState<Date>(new Date())
     const [clickCheckOut, setClickCheckOut] = useState<Date | string>(new Date(clickCheckIn.getTime() + 86400000))
@@ -123,6 +125,7 @@ const MainFinder: React.FC = () => {
     const toggleCalender = (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation();
         setOnCalender((prev) => !prev);
+        setMbCalender((prev) => !prev);
         setSetter(false);
         setPreview(false);
         setCurrentIndex(0);
@@ -156,7 +159,8 @@ const MainFinder: React.FC = () => {
         event.stopPropagation()
         setSetter((prev) => !prev);
         setPreview(false);
-        if (media < 2 && location.pathname === '/detail') {
+        if (media < 2 && (location.pathname === '/detail' || location.pathname === '/reserve')) {
+            setMbSetter((prev) => !prev)
             setModal((prev) => !prev)
         }
     }
@@ -224,6 +228,7 @@ const MainFinder: React.FC = () => {
             days.forEach(day => day.classList.remove('inRange'))
 
             setOnCalender(false)
+            setMbCalender(false)
         } else {
             alert('날짜를 전부 선택 해주세요')
             return
@@ -654,6 +659,82 @@ const MainFinder: React.FC = () => {
                         </div>
                     </>
                     : null
+            }
+            {
+                media < 2 && (location.pathname === '/detail' || location.pathname === '/reserve') && mbCalender &&
+                <div className="calendar" ref={calendarBoxRef}>
+                    <header className="calendar_header">
+                        <div className='mb_calendar_top_nav'>
+                            <div className="mb_calendar_close" onClick={toggleCalender}></div>
+                            <p>날짜 선택</p>
+                            <div className='calendar_week'>
+                                <span>일</span>
+                                <span>월</span>
+                                <span>화</span>
+                                <span>수</span>
+                                <span>목</span>
+                                <span>금</span>
+                                <span>토</span>
+                            </div>
+                        </div>
+                        {media > 1 ?
+                            <>
+                                {renderMonth(months[currentIndex])}
+                                {renderMonth(months[(currentIndex + 1) % months.length])}
+                            </>
+                            :
+                            <>
+                                {months.map(renderMonth)}
+                            </>
+                        }
+                    </header>
+                    <button className='calendarPrev' onClick={() => setCalenderPrev(setCurrentIndex, 0)}><img src='https://github.com/simjsik/savefile/assets/39624384/d99b0090-cf55-4f4d-ad23-59f124992614' alt="이전"></img></button>
+                    <button className='calendarNext' onClick={() => setCalenderNext(setCurrentIndex, months.length - 2)}><img src='https://github.com/simjsik/savefile/assets/39624384/3ed517cf-52af-4c78-be11-b7a28e2f2f58' alt="다음"></img></button>
+                    <footer className="calendar_footer">
+                        <div className="mb_claendar_date">
+                            <p>{clickCheckIn === null ? formatDate(new Date()) : formatDate(clickCheckIn)} - {formatDate(clickCheckOut)}</p>
+                            <span>{night}박</span>
+                            <p>모든 날짜는 현지 시간 기준입니다.</p>
+                        </div>
+                        <button className="calendar_set_btn" onClick={setCheckDay}>적용</button>
+                    </footer>
+                </div>
+            }
+            {
+                media < 2 && (location.pathname === '/detail' || location.pathname === '/reserve') && mbSetter &&
+                <>
+                    <div className="setting_box_bg" onClick={toggleSetter}></div>
+                    <div className="setting_box" ref={settingBoxRef}>
+                        <div className="setting_box_top">
+                            <p>객실 정보</p>
+                            <button onClick={toggleSetter}>적용</button>
+                        </div>
+                        <div className="setting_box_options">
+                            <span>객실</span>
+                            <div>
+                                <button onClick={(event) => decreBtn(event, setRoom, 1)}><img src="https://github.com/simjsik/savefile/assets/39624384/81074449-6762-4ba7-a088-a00a585886c5" alt="navImg"></img></button>
+                                <p>{room}</p>
+                                <button onClick={(event) => increBtn(event, setRoom, 10)}><img src="https://github.com/simjsik/savefile/assets/39624384/664f1cd2-1c18-43ee-9066-d51065b4c938" alt="navImg"></img></button>
+                            </div>
+                        </div>
+                        <div className="setting_box_options">
+                            <span>성인</span>
+                            <div>
+                                <button onClick={(event) => decreBtn(event, setAdult, 1)}><img src="https://github.com/simjsik/savefile/assets/39624384/81074449-6762-4ba7-a088-a00a585886c5" alt="navImg"></img></button>
+                                <p>{adult}</p>
+                                <button onClick={(event) => increBtn(event, setAdult, capacity)}><img src="https://github.com/simjsik/savefile/assets/39624384/664f1cd2-1c18-43ee-9066-d51065b4c938" alt="navImg"></img></button>
+                            </div>
+                        </div>
+                        <div className="setting_box_options">
+                            <span>어린이</span>
+                            <div>
+                                <button onClick={(event) => decreBtn(event, setChild, 0)}><img src="https://github.com/simjsik/savefile/assets/39624384/81074449-6762-4ba7-a088-a00a585886c5" alt="navImg"></img></button>
+                                <p>{child}</p>
+                                <button onClick={(event) => increBtn(event, setChild, 10)}><img src="https://github.com/simjsik/savefile/assets/39624384/664f1cd2-1c18-43ee-9066-d51065b4c938" alt="navImg"></img></button>
+                            </div>
+                        </div>
+                    </div>
+                </>
             }
         </div >
     )

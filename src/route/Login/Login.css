@@ -126,7 +126,9 @@
 .login_box>button:active {
     background: #baa6e2;
 }
-
+.mb_id_copy:hover{
+    cursor: pointer;
+}
 @media screen and (min-width: 1281px) {
     /** 데스크탑 */
 }

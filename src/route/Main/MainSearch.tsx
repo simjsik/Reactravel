@@ -523,171 +523,90 @@ const MainSearch: React.FC = () => {
                                             ))}
                                         </Swiper>
                                         :
-                                        media === 2 ?
-                                            <Swiper
-                                                spaceBetween={20}
-                                                slidesPerView={2}
-                                                loop={true}
-                                                pagination={{
-                                                    clickable: true,
-                                                }}
-                                                navigation={true}
-                                                modules={[Navigation]}
-                                                onSwiper={(swiper: SwiperClass) => {
-                                                    swiperRef.current = swiper
-                                                }}
-                                            >
-                                                {copyFilteredHotels.map((hotel: Hotel, index: number) => (
-                                                    <SwiperSlide key={index}>
-                                                        <div className="result_box" onClick={(event) => setLocation(event, hotel.lat, hotel.lng)}>
-                                                            <div className="hotel_img" style={{ backgroundImage: `url(${hotel.img})` }}></div>
-                                                            <div className="hotel_info">
-                                                                <div className="hotel_title">
-                                                                    <p>{hotel.title}</p>
-                                                                    <div className="hotel_grade">
-                                                                        {hotel.grade === '2' ?
+                                        <Swiper
+                                            spaceBetween={20}
+                                            breakpoints={{
+                                                768: { slidesPerView: 2 },
+                                                1280: { slidesPerView: 3 },
+                                                1600: { slidesPerView: 4 }
+                                            }}
+                                            loop={true}
+                                            pagination={{
+                                                clickable: true,
+                                            }}
+                                            navigation={true}
+                                            modules={[Navigation]}
+                                            onSwiper={(swiper: SwiperClass) => {
+                                                swiperRef.current = swiper
+                                            }}
+                                        >
+                                            {copyFilteredHotels.map((hotel: Hotel, index: number) => (
+                                                <SwiperSlide key={index}>
+                                                    <div className="result_box" onClick={(event) => setLocation(event, hotel.lat, hotel.lng)}>
+                                                        <div className="hotel_img" style={{ backgroundImage: `url(${hotel.img})` }}></div>
+                                                        <div className="hotel_info">
+                                                            <div className="hotel_title">
+                                                                <p>{hotel.title}</p>
+                                                                <div className="hotel_grade">
+                                                                    {hotel.grade === '2' ?
+                                                                        <>
+                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
+                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
+                                                                        </>
+                                                                        : hotel.grade === '3' ?
                                                                             <>
                                                                                 <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                 <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
+                                                                                <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                             </>
-                                                                            : hotel.grade === '3' ?
+                                                                            : hotel.grade === '4' ?
                                                                                 <>
                                                                                     <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                     <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                     <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
+                                                                                    <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                 </>
-                                                                                : hotel.grade === '4' ?
+                                                                                : hotel.grade === '5' ?
                                                                                     <>
                                                                                         <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                         <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                         <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                         <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
+                                                                                        <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
                                                                                     </>
-                                                                                    : hotel.grade === '5' ?
-                                                                                        <>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                        </>
-                                                                                        : <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>}
+                                                                                    : <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>}
+                                                                </div>
+                                                            </div>
+                                                            <div className="hotel_rating">
+                                                                <p>{hotel.review.toFixed(1)} <span>/ 5.0</span></p>
+                                                                <span>+999개의 후기</span>
+                                                            </div>
+                                                            <div className="hotel_location">
+                                                                <div className="location_icon" style={{ backgroundImage: "url('https://github.com/user-attachments/assets/b7a9fa5d-e126-47b2-835f-ae85545dbd2b')" }}></div>
+                                                                <p>{hotel.region[0]} · </p>
+                                                                <button onClick={(event) => setLocation(event, hotel.lat, hotel.lng)}>지도에서 호텔보기</button>
+                                                            </div>
+                                                            <div className="hotel_bottom">
+                                                                <div className="hotel_price_box">
+                                                                    <p className="check_inOut"></p>
+                                                                    <div className="hotel_price_cont">
+                                                                        <p className="hotel_price">{priceNumber(hotel.price)}원</p>
+                                                                        <span>세금 포함</span>
                                                                     </div>
-                                                                </div>
-                                                                <div className="hotel_rating">
-                                                                    <p>{hotel.review.toFixed(1)} <span>/ 5.0</span></p>
-                                                                    <span>+999개의 후기</span>
-                                                                </div>
-                                                                <div className="hotel_location">
-                                                                    <div className="location_icon" style={{ backgroundImage: "url('https://github.com/user-attachments/assets/b7a9fa5d-e126-47b2-835f-ae85545dbd2b')" }}></div>
-                                                                    <p>{hotel.region[0]} · </p>
-                                                                    <button onClick={(event) => setLocation(event, hotel.lat, hotel.lng)}>지도에서 호텔보기</button>
-                                                                </div>
-                                                                <div className="hotel_bottom">
-                                                                    <div className="hotel_price_box">
-                                                                        <p className="check_inOut"></p>
-                                                                        <div className="hotel_price_cont">
-                                                                            <p className="hotel_price">{priceNumber(hotel.price)}원</p>
-                                                                            <span>세금 포함</span>
-                                                                        </div>
-                                                                        <button
-                                                                            className="reservation_btn"
-                                                                            data-hotel-id={hotel.hotelId}
-                                                                            onClick={detailClick}
-                                                                        >
-                                                                            예약하러 가기
-                                                                        </button>
-                                                                    </div>
+                                                                    <button
+                                                                        className="reservation_btn"
+                                                                        data-hotel-id={hotel.hotelId}
+                                                                        onClick={detailClick}
+                                                                    >
+                                                                        예약하러 가기
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </SwiperSlide>
-                                                ))}
-                                            </Swiper>
-                                            :
-                                            <Swiper
-                                                spaceBetween={20}
-                                                breakpoints={{
-                                                    1280: { slidesPerView: 3 },
-                                                    1600: { slidesPerView: 4 }
-                                                }}
-                                                loop={true}
-                                                pagination={{
-                                                    clickable: true,
-                                                }}
-                                                navigation={true}
-                                                modules={[Navigation]}
-                                                onSwiper={(swiper: SwiperClass) => {
-                                                    swiperRef.current = swiper
-                                                }}
-                                            >
-                                                {copyFilteredHotels.map((hotel: Hotel, index: number) => (
-                                                    <SwiperSlide key={index}>
-                                                        <div className="result_box" onClick={(event) => setLocation(event, hotel.lat, hotel.lng)}>
-                                                            <div className="hotel_img" style={{ backgroundImage: `url(${hotel.img})` }}></div>
-                                                            <div className="hotel_info">
-                                                                <div className="hotel_title">
-                                                                    <p>{hotel.title}</p>
-                                                                    <div className="hotel_grade">
-                                                                        {hotel.grade === '2' ?
-                                                                            <>
-                                                                                <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                            </>
-                                                                            : hotel.grade === '3' ?
-                                                                                <>
-                                                                                    <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                    <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                    <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                </>
-                                                                                : hotel.grade === '4' ?
-                                                                                    <>
-                                                                                        <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                        <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                        <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                        <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                    </>
-                                                                                    : hotel.grade === '5' ?
-                                                                                        <>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                            <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>
-                                                                                        </>
-                                                                                        : <div style={{ backgroundImage: "url('https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5')" }}></div>}
-                                                                    </div>
-                                                                </div>
-                                                                <div className="hotel_rating">
-                                                                    <p>{hotel.review.toFixed(1)} <span>/ 5.0</span></p>
-                                                                    <span>+999개의 후기</span>
-                                                                </div>
-                                                                <div className="hotel_location">
-                                                                    <div className="location_icon" style={{ backgroundImage: "url('https://github.com/user-attachments/assets/b7a9fa5d-e126-47b2-835f-ae85545dbd2b')" }}></div>
-                                                                    <p>{hotel.region[0]} · </p>
-                                                                    <button onClick={(event) => setLocation(event, hotel.lat, hotel.lng)}>지도에서 호텔보기</button>
-                                                                </div>
-                                                                <div className="hotel_bottom">
-                                                                    <div className="hotel_price_box">
-                                                                        <p className="check_inOut"></p>
-                                                                        <div className="hotel_price_cont">
-                                                                            <p className="hotel_price">{priceNumber(hotel.price)}원</p>
-                                                                            <span>세금 포함</span>
-                                                                        </div>
-                                                                        <button
-                                                                            className="reservation_btn"
-                                                                            data-hotel-id={hotel.hotelId}
-                                                                            onClick={detailClick}
-                                                                        >
-                                                                            예약하러 가기
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </SwiperSlide>
-                                                ))}
-                                            </Swiper>
+                                                    </div>
+                                                </SwiperSlide>
+                                            ))}
+                                        </Swiper>
                                 }
                             </div>
                         </div>

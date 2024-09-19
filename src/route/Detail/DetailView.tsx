@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { adultState, defaultCheckInState, defaultCheckOutState, defaultLat, defaultLng, defaultMap, defaultZoom, hotelDataState, mapSlideIndexState, mediaState, modalState } from "../../recoil";
+import { adultState, calenderState, childState, defaultCheckInState, defaultCheckOutState, defaultLat, defaultLng, defaultMap, defaultZoom, finderState, hotelDataState, mapSlideIndexState, mbSetterState, mediaState, modalState, roomState } from "../../recoil";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import useHotelDetail from "../Hook/useHotelDetail";
 import './DetailView.css'
@@ -23,8 +23,13 @@ const DetailView: React.FC = () => {
     const setLng = useSetRecoilState<number>(defaultLng)
     const setZoom = useSetRecoilState<number>(defaultZoom)
     const setSlideIndex = useSetRecoilState<number>(mapSlideIndexState)
-    const adult = useRecoilValue<number>(adultState)
+    const [calender, setCalender] = useRecoilState<boolean>(calenderState);
+    const [setter, setSetter] = useRecoilState<boolean>(mbSetterState);
 
+
+    const adult = useRecoilValue<number>(adultState)
+    const room = useRecoilValue<number>(roomState)
+    const child = useRecoilValue<number>(childState)
     const hotelData = useRecoilValue(hotelDataState);
     const checkIn = useRecoilValue<Date | null>(defaultCheckInState)
     const checkOut = useRecoilValue<Date | null | string>(defaultCheckOutState)
@@ -81,7 +86,6 @@ const DetailView: React.FC = () => {
                 alert(`해당 객실은 ${roomCapacity}인 객실입니다.`)
             } else {
                 navigate(`/reserve?query=${query}_${roomId}&breakfast=${breakfast}&onlinepay=${onlinepay}`)
-                setModal(false)
             }
         }
     } // 예약 화면 이동
@@ -109,6 +113,7 @@ const DetailView: React.FC = () => {
         const scrolledTop = () => {
             const currentY = window.scrollY
             const mainY = 260
+            const topUndo = document.querySelector('.detail_undo_btn') as HTMLElement
             const topP = document.querySelector('.mb_detail_top_nav p') as HTMLElement
             const topSpan = document.querySelector('.mb_detail_top_nav span') as HTMLElement
             const topRight = document.querySelector('.detail_header .nav_box') as HTMLElement
@@ -125,11 +130,13 @@ const DetailView: React.FC = () => {
                     topP.style.marginTop = '10px'
                     topRight.style.background = 'transparent'
                     topRightSvg.style.stroke = '#191919'
-
+                    topUndo.style.background = 'transparent'
                 } else {
                     topP.style.cssText = ''
                     topRight.style.cssText = ''
                     topRightSvg.style.cssText = ''
+                    topUndo.style.cssText = ''
+
                 }
 
                 if (currentY >= 520) {
@@ -150,6 +157,16 @@ const DetailView: React.FC = () => {
     }, [])
     // 스크롤 스타일
 
+
+    const toggleCalender = () => {
+        setCalender((prev) => !prev)
+        setModal((prev) => !prev)
+    }
+    const toggleSetter = () => {
+        setSetter((prev) => !prev)
+        setModal((prev) => !prev)
+    }
+    // 모바일 캘린더 & 세팅
 
     const goMap = () => {
         if (hotel) {
@@ -408,10 +425,33 @@ const DetailView: React.FC = () => {
                                     ))}
                                 </div>
                             </div> : null}
-
                         </div>
                         {/* top */}
-                        <MainFinder />
+
+                        {media < 2 ?
+                            <>
+                                <div className="hs_check" onClick={toggleCalender}>
+                                    <div className="check_in">
+                                        <p>체크인</p>
+                                        <div className='hs_check_in'>{formatDate(checkIn)}</div>
+                                    </div>
+                                    <div className="center_line"></div>
+                                    <div className="check_out">
+                                        <p>체크아웃</p>
+                                        <div className='hs_check_out'>{formatDate(checkOut)}</div>
+                                    </div>
+                                </div>
+                                <div className='hs_person'>
+                                    <p>객실당 인원 수</p>
+                                    <div className="hs_person_cont" onClick={toggleSetter}>
+                                        <span>{`객실 ${room}개, 성인 ${adult}명, 어린이 ${child}명`}</span>
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            <MainFinder />
+                        }
+
                         <div className="hotel_detail_center">
                             <div className="hotel_point">
                                 <span>이 숙소의 포인트</span>
@@ -824,7 +864,8 @@ const DetailView: React.FC = () => {
                 )
                 }
             </div >
-
+            {media < 2 && (calender || setter) && <MainFinder />}
+            {/* Detail Cont */}
         </div >
     );
 };

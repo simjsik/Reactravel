@@ -71,7 +71,7 @@ function App() {
   useEffect(() => {
     setModal(false)
     console.log('Modal False!')
-  }, [location, modal])
+  }, [location])
 
   useEffect(() => {
     console.log(media)

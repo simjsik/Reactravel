@@ -811,6 +811,7 @@ table {}
 
   .reserve_finder .calendar {
     top: 75px;
+    left: -20px;
   }
 }
 
@@ -853,6 +854,12 @@ table {}
     margin-top: 4px;
   }
 
+  .hs_search_preview {
+    width: 100%;
+    left: 0;
+    top: 61px;
+  }
+
   .hs_check {
     margin-top: 36px;
     justify-content: flex-start;
@@ -886,6 +893,37 @@ table {}
     line-height: 60px;
     border-radius: 4px;
     bottom: 20px;
+  }
+
+  .setting_box {
+    top: 63px;
+    left: 0;
+
+    width: 100%;
+    padding: 10px 10px 20px;
+    border-radius: 6px;
+  }
+
+  .pc .setting_box_options {
+    margin-top: 20px;
+  }
+
+  .pc .setting_box_options:nth-of-type(1) {
+    margin-top: 10px;
+  }
+
+  .setting_box_options>div {
+    display: flex;
+    width: 100px;
+  }
+
+  .pc .setting_box button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .pc .setting_box_options p {
+    line-height: 25px;
   }
 
   .calendar {
@@ -1156,7 +1194,8 @@ table {}
 
   /* 예약 Reserve */
   .reserve_finder {
-    position: static;
+    position: relative;
+    left: 0;
     transform: none;
     width: 100%;
     height: auto;
@@ -1177,6 +1216,15 @@ table {}
   .reserve_finder .hs_person {
     margin-top: 10px;
   }
+
+  .reserve_finder .calendar {
+    top: 75px;
+    left: auto;
+    right: 10px;
+
+    transform: none;
+    width: 680px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1191,8 +1239,9 @@ table {}
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
+
+
 
   .search_box {
     border-radius: 0px;
@@ -1200,7 +1249,7 @@ table {}
 
   .calendar {
     position: fixed;
-    top: 180px;
+    top: 200px;
     left: 0;
     right: 0;
     transform: none;
@@ -1249,9 +1298,9 @@ table {}
     left: 0;
     top: 80px;
     width: 100%;
-    height: 100px;
+    height: 120px;
     border-bottom: 1px solid rgb(235, 235, 235);
-    line-height: 60px;
+    line-height: 80px;
     background: #fff;
     padding: 0px 6px 0px 0px;
     display: block;
@@ -1325,14 +1374,18 @@ table {}
   }
 
   .mb_calendar_close {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background-image: url('https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6');
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
-    top: 10px;
+    top: 18px;
     left: 10px;
+  }
+
+  .mb_calendar_close:hover {
+    cursor: pointer;
   }
 
   .calendar table {
@@ -1428,6 +1481,8 @@ table {}
     right: 0;
     bottom: 0;
     left: 0;
+
+    margin-right: 0;
   }
 
   .setting_box_top {
@@ -1516,6 +1571,7 @@ table {}
   }
 
   .mb_finder_close_btn {
+    margin-top: 8px;
     width: 42px;
     height: 42px;
     background: red;
@@ -1557,8 +1613,8 @@ table {}
   }
 
   .home_finder .calendar {
-    top: 100px;
-    height: calc(100vh - 250px);
+    top: 120px;
+    height: calc(100vh - 270px);
   }
 
   .home_finder .mb_calendar_top_nav {
@@ -1598,6 +1654,7 @@ table {}
     position: static;
     transform: none;
     margin-left: 0;
+    margin-top: 10px;
     padding: 0;
     justify-content: flex-start;
   }
@@ -1606,14 +1663,17 @@ table {}
   .home_finder .hs_check,
   .home_finder .hs_person {
     flex: none;
+    height: 62px;
+    margin-top: 20px;
   }
 
-  .home_finder .hs_destination {
-    height: 62px;
+  .home_finder .hs_check,
+  .home_finder .hs_person {
+    height: 66px;
   }
 
   .home_finder .search_box {
-    position: absolute;
+    position: fixed;
     margin-top: 40px;
     width: calc(100% - 20px);
     height: 62px;
@@ -1629,9 +1689,73 @@ table {}
     display: none;
   }
 
+  .home_finder .setting_box {
+    position: fixed;
+    left: 0px;
+    top: auto;
+    bottom: 0px;
+    width: 100%;
+    height: 35%;
+    min-height: 300px;
+    padding: 16px;
+    border-radius: 6px 6px 0px 0px;
+    box-shadow: none;
+    z-index: 56;
+  }
+
+  /* 검색 */
+  .search_finder {
+    width: 100%;
+    box-shadow: none;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .search_finder>div {
+    margin-right: 0;
+  }
+
+  .search_finder .mb_calendar_top_nav {
+    top: 0;
+  }
+
+  .search_finder .calendar {
+    top: 120px;
+    height: calc(100% - 270px);
+  }
+
+  .search_finder .hs_destination,
+  .search_finder .hs_check,
+  .search_finder .hs_person {
+    flex: none;
+    height: 62px;
+    margin-top: 20px;
+  }
+
+  .search_finder .hs_check,
+  .search_finder .hs_person {
+    height: 66px;
+  }
+
+  .search_finder .hs_destination {
+    margin-top: 12px;
+  }
+
+  .search_finder .search_box {
+    position: fixed;
+    margin-top: 40px;
+    width: calc(100% - 20px);
+    height: 62px;
+  }
+
+  .search_finder .setting_box {
+    height: 35%;
+  }
+
   /* 디테일 */
   .detail_finder {
-    position: static;
+    position: fixed;
+    top: 0;
 
     width: 100%;
     min-height: 136px;
@@ -1639,23 +1763,25 @@ table {}
     padding: 0px;
     box-shadow: none;
     transform: none;
+    z-index: 51;
+    background: transparent;
   }
 
   .detail_finder .calendar {
     position: fixed;
-    top: 180px;
+    top: 120px;
     left: 0;
     right: 0;
     transform: none;
     z-index: 1;
     width: 100%;
-    height: calc(100vh - 330px);
+    height: calc(100vh - 270px);
     padding: 10px 10px 0px;
     overflow: auto;
   }
 
   .detail_finder .mb_calendar_top_nav {
-    top: 80px;
+    top: 0px;
     display: block;
   }
 
@@ -1664,12 +1790,11 @@ table {}
   }
 
   .detail_finder .hs_check {
-    margin-top: 0px;
-    border-bottom: 1px solid rgb(235, 235, 235);
+    display: none;
   }
 
   .detail_finder .hs_person {
-    margin-top: 10px;
+    display: none;
   }
 
   .detail_finder .search_box {
@@ -1687,8 +1812,29 @@ table {}
   }
 
   /* 예약 */
+  .reserve_finder .calendar {
+    top: 120px;
+    width: 100%;
+    height: calc(100vh - 270px);
+    right: 0;
+  }
+
+  .reserve_finder .mb_calendar_top_nav {
+    position: fixed;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    line-height: 80px;
+    background: #fff;
+    padding: 0px 6px 0px 0px;
+    display: block;
+  }
+
   .reserve_finder {
-    position: static;
+    position: fixed;
+    top: 0;
     transform: none;
 
     width: 100%;
@@ -1696,6 +1842,7 @@ table {}
     margin: 0px;
     padding: 10px;
     box-shadow: none;
+    background: transparent;
   }
 
   .reserve_finder .setting_box_bg {
@@ -1712,12 +1859,11 @@ table {}
   }
 
   .reserve_finder .hs_check {
-    margin-top: 0px;
-    border-bottom: 1px solid rgb(235, 235, 235);
+    display: none;
   }
 
   .reserve_finder .hs_person {
-    margin-top: 10px;
+    display: none;
   }
 
   .reserve_finder .search_box {
@@ -1735,6 +1881,7 @@ table {}
 
     width: 100%;
     height: 100%;
+    margin-left: 0;
     min-height: 480px;
     max-height: calc(100vh - 96px);
     padding: 10px;
@@ -1758,11 +1905,12 @@ table {}
   }
 
   .mb .search_box {
+    position: absolute;
     width: 100%;
     height: 62px;
     line-height: 62px;
     left: 0;
-    bottom: 0;
+    bottom: 9px;
     border-radius: 0px;
   }
 
@@ -1789,12 +1937,13 @@ table {}
     top: 0;
 
     width: 100%;
-    height: 100px;
+    height: 120px;
     border-bottom: 1px solid rgb(235, 235, 235);
-    line-height: 60px;
+    line-height: 80px;
     background: #fff;
     display: block;
   }
+
 
   .calendar_header {
     display: flex;
@@ -1832,7 +1981,7 @@ table {}
     left: 0px;
     right: 0px;
     padding: 0px;
-    height: 140px;
+    height: 160px;
     background: #fff;
     border-top: 1px solid rgb(233, 233, 233);
   }
@@ -1842,7 +1991,7 @@ table {}
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: 52px;
+    height: 62px;
     border: none;
     background: #5900FF;
     color: #fff;
@@ -1860,13 +2009,13 @@ table {}
   }
 
   .mb_calendar_close {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     background-image: url('https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6');
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
-    top: 10px;
+    top: 19px;
     left: 10px;
   }
 
@@ -1941,7 +2090,7 @@ table {}
   .setting_box_bg {
     position: absolute;
     background: rgba(0, 0, 0, 0.6);
-    top: 0;
+    top: -96px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -2037,7 +2186,7 @@ table {}
     width: 42px;
     height: 42px;
     background: red;
-    margin-top: 10px;
+    margin-top: 19px;
     margin-left: 10px;
   }
 
@@ -2133,13 +2282,18 @@ table {}
     padding: 0px 10px;
   }
 
+  .search_finder .calendar {
+    top: 0px;
+    height: calc(100% - 160px);
+  }
+
   /* 디테일 */
   .detail_finder {
+    position: fixed;
     width: 100%;
     padding: 10px;
     margin-top: 0;
     box-shadow: none;
-    position: static;
     min-height: auto;
   }
 
@@ -2166,12 +2320,13 @@ table {}
 
   /* 예약 */
   .reserve_finder {
+    position: fixed;
+
     width: 100%;
     min-height: auto;
     padding: 10px;
     margin-top: 0;
     box-shadow: none;
-    position: static
   }
 
   .reserve_finder .hs_destination {
@@ -2192,14 +2347,13 @@ table {}
   }
 
   .reserve_finder .mb_calendar_top_nav {
-    top: 60px;
+    top: 0px;
   }
 
   .reserve_finder .calendar {
     position: fixed;
-    top: 160px;
-
-    height: calc(100vh - 300px);
+    top: 120px;
+    height: calc(100vh - 280px);
     z-index: 11;
   }
 }

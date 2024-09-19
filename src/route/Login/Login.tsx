@@ -41,11 +41,10 @@ const Login: React.FC = () => {
 
     const handleGuestLogin = async () => {
         const guestUser = await loginGuest();
-        setLoginToggle((prev) => !prev);
+        setLoginToggle(false);
         if (modal) {
-            setModal((prev) => !prev)
+            setModal(false)
         }
-
         if (!guestUser) {
             setError('게스트 로그인에 실패했습니다.');
         }

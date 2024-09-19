@@ -214,10 +214,12 @@
         fill: none;
         stroke: #ffffff;
     }
-    .header_right svg{
+
+    .header_right svg {
         width: 32px;
     }
-    .nav_box{
+
+    .nav_box {
         width: auto;
     }
 }
@@ -394,7 +396,7 @@
         margin: 0 auto;
         width: 42px;
         height: 42px;
-        padding: 4px;
+        padding: 6px 4px;
     }
 
     .mb_undo_btn {
@@ -522,7 +524,7 @@
 
     .confirm_header .header_right {
         position: absolute;
-        top: 26px;
+        top: 16px;
         width: 48px;
         height: 48px;
         padding: 4px 0px 0px;
@@ -600,9 +602,11 @@
 
     .header_right {
         position: static;
-        padding: 4px 20px 20px 20px;
-        flex: 1 0 50%;
+        transform: none;
+
         display: block;
+        flex: 1 0 50%;
+        padding: 4px 20px 20px 20px;
         transition: .2s;
     }
 
@@ -631,7 +635,7 @@
         display: flex;
         flex-wrap: wrap;
         align-content: flex-start;
-        padding: 20px;
+        padding: 10px;
     }
 
     .header_login,
@@ -690,10 +694,11 @@
     }
 
     .nav_close_btn {
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
         background: red;
         border: none;
+        margin-top: 0;
     }
 
     .nav {
@@ -716,11 +721,14 @@
 
     .nav .header_right {
         position: static;
+        top: 0;
+
+        height: 42px;
+        margin-top: 9px;
         padding: 0px;
         flex: 1 0 100%;
         display: block;
         transition: .2s;
-        top: 0;
     }
 
     .nav .nav_box {
@@ -787,6 +795,7 @@
         padding: 0px;
         width: 42px;
         height: 42px;
+        margin-top: 0;
         transition: .2s;
         background: none;
     }
@@ -804,11 +813,9 @@
     }
 
     .detail_header svg {
-        width: 28px;
-        height: 28px;
         margin: 0 auto;
         display: block;
-        margin-top: 0px;
+        margin-top: 2px;
         transition: .2s;
     }
 

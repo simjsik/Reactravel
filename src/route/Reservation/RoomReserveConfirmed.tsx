@@ -19,6 +19,7 @@ const RoomReserveConfirmed: React.FC = () => {
         const saved = sessionStorage.getItem("reservation");
         return saved ? JSON.parse(saved) : [];
     });
+    
     const user = useRecoilValue(userState)
     const media = useRecoilValue(mediaState)
 
@@ -47,7 +48,11 @@ const RoomReserveConfirmed: React.FC = () => {
         const day = days[date.getDay()]; // 요일 인덱스를 사용해 배열에서 축약형 요일 가져오기
         return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 (${day})`;
     };
-
+    const idCopyHandle = (reserveId: string | null) => {
+        if (reserveId) {
+            navigator.clipboard.writeText(reserveId)
+        }
+    }
     const handleUndoBtn = () => {
         navigate(-1)
     }
@@ -82,7 +87,7 @@ const RoomReserveConfirmed: React.FC = () => {
                             <p>예약 ID</p>
                             <div className="reserve_id_text">
                                 <span>{reservedId}</span>
-                                <div className="mb_id_copy"></div>
+                                <div className="mb_id_copy" onClick={() => idCopyHandle(reservedId)}></div>
                             </div>
                             <div className="alert_box">
                                 <span>* 비회원 고객님들께서는 반드시 예약 ID를 저장해주세요.</span>

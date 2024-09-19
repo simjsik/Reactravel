@@ -5,7 +5,7 @@ import { Pagination } from 'swiper/modules';
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { adultState, childState, defaultCheckInState, defaultCheckOutState, footerYState, hotelDataState, mediaState, modalState, nightState, Reservation, reserveDataState, roomState, userState } from "../../recoil";
+import { adultState, calenderState, childState, defaultCheckInState, defaultCheckOutState, footerYState, hotelDataState, mbSetterState, mediaState, modalState, nightState, Reservation, reserveDataState, roomState, userState } from "../../recoil";
 import { createReservation } from "../Hook/reserveService";
 import useHotelDetail from "../Hook/useHotelDetail";
 import MainFinder from "../Main/MainFinder";
@@ -20,6 +20,9 @@ const RoomReserve: React.FC = () => {
 
     const [reservedId, setReservedId] = useState('');
     const [reservation, setReservation] = useRecoilState<Reservation[]>(reserveDataState)
+    const [calender, setCalender] = useRecoilState<boolean>(calenderState);
+    const [setter, setSetter] = useRecoilState<boolean>(mbSetterState);
+
     const reservedCheckIn = useRecoilValue<Date | null>(defaultCheckInState);
     const reservedCheckOut = useRecoilValue<Date | string | null>(defaultCheckOutState);
     const reservedNight = useRecoilValue<number | null>(nightState);
@@ -42,6 +45,8 @@ const RoomReserve: React.FC = () => {
     const hotelData = useRecoilValue(hotelDataState);
     const media = useRecoilValue(mediaState)
     const footer = useRecoilValue(footerYState)
+    const checkIn = useRecoilValue<Date | null>(defaultCheckInState)
+    const checkOut = useRecoilValue<Date | null | string>(defaultCheckOutState)
 
     const params = new URLSearchParams(location.search)
     const query = params.get('query')
@@ -133,6 +138,7 @@ const RoomReserve: React.FC = () => {
             setModal(false)
         }
     }
+
     const handleMap = () => {
         setReserveMap((prev) => !prev)
         setModal((prev) => !prev)
@@ -141,6 +147,23 @@ const RoomReserve: React.FC = () => {
     const handleUndoBtn = () => {
         navigate(-1)
     }
+
+    const formatDate = (date: Date | string | null) => {
+        if (typeof date === 'string') return date;
+        if (!date) return;
+        return `${String(date.getMonth() + 1)}월 ${String(date.getDate())}일`
+    } // 날짜 
+
+    const toggleCalender = () => {
+        setCalender((prev) => !prev)
+        setModal((prev) => !prev)
+    }
+    const toggleSetter = () => {
+        setSetter((prev) => !prev)
+        setModal((prev) => !prev)
+    }
+    // 모바일 캘린더 & 세팅
+
     useEffect(() => {
         if (hotelQuery && roomQuery) {
             if (thisHotel && reserveRoom) {
@@ -172,6 +195,7 @@ const RoomReserve: React.FC = () => {
         setModal((prev) => !prev)
     }, [reservedId])
     // 예약 성공 시 이동
+    
     const showRoomHandle = () => {
         setShowAllRoom((prev) => !prev)
         setModal((prev) => !prev)
@@ -666,10 +690,27 @@ const RoomReserve: React.FC = () => {
                                     {/* 지도 */}
                                 </div>
                                 {/* 탑 */}
-                                <div className={`reserve_box ${fixed ? 'onFixed' : ''}`} ref={reserveBoxRef}>
+                                <div className='reserve_box' ref={reserveBoxRef}>
                                     {reserveRoom && thisHotel &&
                                         <>
-                                            <MainFinder />
+                                            <div className="hs_check" onClick={toggleCalender}>
+                                                <div className="check_in">
+                                                    <p>체크인</p>
+                                                    <div className='hs_check_in'>{formatDate(checkIn)}</div>
+                                                </div>
+                                                <div className="center_line"></div>
+                                                <div className="check_out">
+                                                    <p>체크아웃</p>
+                                                    <div className='hs_check_out'>{formatDate(checkOut)}</div>
+                                                </div>
+                                            </div>
+                                            <div className='hs_person'>
+                                                <p>객실당 인원 수</p>
+                                                <div className="hs_person_cont" onClick={toggleSetter}>
+                                                    <span>{`객실 ${room}개, 성인 ${adult}명, 어린이 ${child}명`}</span>
+                                                </div>
+                                            </div>
+
                                             <div className="reserve_price">
                                                 <p>객실 요금</p>
                                                 <div className="reserve_box_price">
@@ -748,7 +789,7 @@ const RoomReserve: React.FC = () => {
                     </div>
                 </div >
             }
-
+            {media < 2 && (calender || setter) && <MainFinder />}
             {
                 confirm && <div className="reserve_confirm_bg" onClick={confirmToggle}>
                     <div className="reserve_confirm" ref={reserveBtnRef} onClick={(e) => e.stopPropagation()}>

@@ -103,9 +103,17 @@ export const childState = atom<number>({
     key: 'childState',
     default: 0,
 })
-
+export const calenderState = atom<boolean>({
+    key: 'calenderState',
+    default: false
+})
 export const setterState = atom({
     key: 'setterState',
+    default: false,
+})
+
+export const mbSetterState = atom({
+    key: 'mbSetterState',
     default: false,
 })
 

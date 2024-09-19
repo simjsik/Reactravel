@@ -776,6 +776,7 @@
         width: 100%;
         height: 100%;
         margin-top: 0;
+        display: block;
     }
 
     .map_on .search_main {
@@ -843,11 +844,13 @@
 
     .map_on .search_right {
         position: absolute;
-        left: 20px;
-        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 110px;
         z-index: 1;
 
-        width: auto;
+        width: 1000px;
+        max-width: none;
     }
 
     .map_on .search_map {
@@ -1105,7 +1108,6 @@
 
         width: 100%;
         height: 80px;
-        max-width: 540px;
         margin-top: 0px;
         padding: 0px 10px;
         text-align: center;
@@ -1124,6 +1126,10 @@
         transform: translateY(-50%);
         width: 42px;
         height: 42px;
+    }
+
+    .search_undo_btn:hover {
+        cursor: pointer;
     }
 
     .search_undo_btn rect {
@@ -1581,7 +1587,7 @@
 
         text-align: center;
         width: 100%;
-        height: auto;
+        height: 80px;
         padding: 0px;
         margin-top: 0px;
         box-shadow: 0px 0px 5px #1919192f;
@@ -1592,7 +1598,7 @@
         flex-wrap: wrap;
         width: 100%;
         height: 100%;
-        padding: 10px 0px 8px;
+        padding: 19px 0px 10px;
         border-radius: 0px;
         line-height: 42px;
         display: flex;
@@ -1650,7 +1656,7 @@
         width: 42px;
         height: 42px;
         position: absolute;
-        top: 10px;
+        top: 19px;
         left: 10px;
         transform: none;
     }
@@ -1674,7 +1680,7 @@
     }
 
     .mb .main_top {
-        margin-top: 10px;
+        margin-top: 20px;
         text-align: center;
     }
 
@@ -1800,7 +1806,7 @@
         height: calc(100vh - 40px);
         margin-top: 0px;
         padding-top: 0;
-        top: 60px;
+        top: 0px;
     }
 
     .mb .map_on_filter .search_right {
@@ -1827,7 +1833,7 @@
 
     .mb .search_filter>.mb_search_filter_top {
         width: 100%;
-        padding: 10px 0px;
+        padding: 15px 0px;
         margin-top: 0px;
         border-bottom: 1px solid rgb(235, 235, 235);
     }
@@ -1955,7 +1961,7 @@
     .mb_map_filter {
         width: 100%;
         position: fixed;
-        top: 60px;
+        top: 74px;
         left: auto;
         transform: none;
         bottom: auto;
@@ -1977,10 +1983,10 @@
     }
 
     .search_wrap svg {
-        width: 90%;
-        height: 90%;
+        width: 36px;
+        height: 36px;
         margin: 0 auto;
-        margin-top: 2px;
+        margin-top: 3px;
         display: block;
         background: none;
         border-radius: 50%;

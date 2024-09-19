@@ -81,6 +81,7 @@ const DetailView: React.FC = () => {
                 alert(`해당 객실은 ${roomCapacity}인 객실입니다.`)
             } else {
                 navigate(`/reserve?query=${query}_${roomId}&breakfast=${breakfast}&onlinepay=${onlinepay}`)
+                setModal(false)
             }
         }
     } // 예약 화면 이동

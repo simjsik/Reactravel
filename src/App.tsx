@@ -21,7 +21,7 @@ function App() {
   // data
 
   const map = useRecoilValue(defaultMap)
-  const modal = useRecoilValue<boolean>(modalState)
+  const [modal, setModal] = useRecoilState<boolean>(modalState)
   const [media, setMedia] = useRecoilState(mediaState)
   const [footerY, setFooterY] = useRecoilState<number>(footerYState)
 
@@ -68,6 +68,10 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    setModal(false)
+    console.log('Modal False!')
+  }, [location, modal])
 
   useEffect(() => {
     console.log(media)
@@ -81,10 +85,8 @@ function App() {
   useEffect(() => {
     if (modal) {
       document.body.style.overflow = 'hidden';
-      console.log('Modal True!')
     } else if (!modal) {
       document.body.style.overflow = 'auto'
-      console.log('Modal False!')
     }
   }, [modal])
 

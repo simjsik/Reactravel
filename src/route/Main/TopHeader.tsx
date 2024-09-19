@@ -35,6 +35,7 @@ const TopHeader: React.FC = () => {
   const homeClick = () => {
     setSearchTerm('')
     setMap(false)
+    setModal(false)
     navigate('/home')
 
   } // 홈 이동
@@ -55,6 +56,9 @@ const TopHeader: React.FC = () => {
 
   const handleLoginToggle = () => {
     setLoginToggle((prev) => !prev);
+    if(media > 1){
+      setModal((prev) => !prev)
+    }
     setNavToggle((prev) => !prev)
   } // 로그인 토글
 

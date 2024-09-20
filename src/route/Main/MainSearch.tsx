@@ -444,7 +444,7 @@ const MainSearch: React.FC = () => {
                                     media === 1 ?
                                         <Swiper
                                             spaceBetween={20}
-                                            slidesPerView={1}
+                                            slidesPerView={1.25}
                                             loop={true}
                                             pagination={{
                                                 clickable: true,
@@ -527,8 +527,9 @@ const MainSearch: React.FC = () => {
                                             spaceBetween={20}
                                             breakpoints={{
                                                 768: { slidesPerView: 2 },
-                                                1280: { slidesPerView: 3 },
-                                                1600: { slidesPerView: 4 }
+                                                1024: { slidesPerView: 2.1 },
+                                                1280: { slidesPerView: 3.1 },
+                                                1600: { slidesPerView: 4.1 }
                                             }}
                                             loop={true}
                                             pagination={{

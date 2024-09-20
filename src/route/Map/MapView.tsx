@@ -56,6 +56,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
 
     const hotelBoxClick = (id: number) => {
         setHotelBoxId(id)
+        setMap(false)
         navigate(`/detail?query=${'0' + (id + 1)}`)
         // console.log(id)
     }
@@ -80,6 +81,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         }
     }, [lat, lng])
     // 구글 화면 이동, 처리해주지 않으면 이동안함.
+
     return (
         <div className="map_wrap">
             <GoogleMap mapContainerStyle={{ height: "100%", width: "100%" }} // 지도의 크기 설정

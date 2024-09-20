@@ -270,6 +270,7 @@
     margin-right: 20px;
     border-radius: 4px;
     overflow: hidden;
+    background-size: cover;
 }
 
 .hotel_img:hover img {
@@ -1292,6 +1293,7 @@
 
     .main_top {
         margin-top: 10px;
+        text-align: center;
     }
 
     .main_top p {
@@ -1445,6 +1447,9 @@
 
     .map_on .hotel_img {
         flex-basis: 40%;
+        max-width: 180px;
+        background-position: bottom;
+        background-size: cover;
     }
 
     .map_on .hotel_title p {
@@ -1530,7 +1535,7 @@
     .mb .search_filter {
         margin-top: 0px;
         box-shadow: none;
-        padding-top: 60px;
+        padding-top: 80px;
     }
 
     .mb_filter_close_btn {

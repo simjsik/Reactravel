@@ -1508,7 +1508,7 @@
 @media screen and (max-width: 480px) {
     .search_cont {
         margin-top: 0px;
-        padding: 20px 0px 0px;
+        padding: 80px 0px 0px;
         display: flex;
         position: relative;
         width: 100%;
@@ -1680,7 +1680,7 @@
     }
 
     .mb .main_top {
-        margin-top: 20px;
+        margin-top: 10px;
         text-align: center;
     }
 

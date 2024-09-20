@@ -2360,6 +2360,7 @@ table {}
 
   .reserve_finder .mb_calendar_top_nav {
     top: 0px;
+    z-index: 12;
   }
 
   .reserve_finder .calendar {
@@ -2367,5 +2368,9 @@ table {}
     top: 120px;
     height: calc(100vh - 280px);
     z-index: 11;
+  }
+
+  .reserve_finder .calendar_footer {
+    z-index: 12;
   }
 }

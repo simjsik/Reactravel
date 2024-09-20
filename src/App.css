@@ -336,9 +336,10 @@ button:hover {
     margin-right: 8px;
   }
 
-  .pay_wrap li:last-child{
+  .pay_wrap li:last-child {
     margin-right: 0;
   }
+
   .pay_icon {
     width: 40px;
     height: 24px;
@@ -550,5 +551,13 @@ button:hover {
 
   #search_section {
     padding: 0px 0px 0px;
+  }
+
+  #homeFooter {
+    padding: 10px 10px 180px;
+  }
+
+  .footer_wrap {
+    padding: 40px 10px;
   }
 }

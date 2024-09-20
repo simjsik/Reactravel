@@ -70,7 +70,6 @@ function App() {
 
   useEffect(() => {
     setModal(false)
-    console.log('Modal False!')
   }, [location])
 
   useEffect(() => {

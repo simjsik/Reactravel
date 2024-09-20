@@ -1718,4 +1718,17 @@
         transition: .2s;
         background: none;
     }
+
+    .detail_cont .hs_check,
+    .detail_cont .hs_person {
+        margin-top: 10px;
+    }
+
+    .hotel_detail_center {
+        margin-top: 10px;
+    }
+
+    .detail_cont {
+        top: 0px;
+    }
 }

@@ -56,7 +56,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
 
     const hotelBoxClick = (id: number) => {
         setHotelBoxId(id)
-        navigate(`/detail?query=${'0' + id}`)
+        navigate(`/detail?query=${'0' + (id + 1)}`)
         // console.log(id)
     }
 

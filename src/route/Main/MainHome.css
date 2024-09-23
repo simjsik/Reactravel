@@ -220,7 +220,7 @@
 
 .most_bg,
 .hotpic_bg {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))
 }
 
 .most_box:last-child {
@@ -661,8 +661,9 @@
         width: 40px;
         height: 40px;
         margin-top: 6px;
-        margin-right: 8px;
-        background: red;
+        background-image: url("https://github.com/user-attachments/assets/8c6b0ce4-8de0-499a-ae85-2f4b352375ef");
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .mb_finder_btn p {

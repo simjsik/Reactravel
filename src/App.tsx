@@ -29,7 +29,7 @@ function App() {
 
   const mainBg: React.CSSProperties | undefined =
     location.pathname === '/' ?
-      { backgroundImage: 'url("https://github.com/user-attachments/assets/315be9e6-20cb-411e-8c8d-6e394d2c1732")', height: '100vh' }
+      { backgroundImage: 'url("https://github.com/user-attachments/assets/d1f98c8b-d80f-4299-8b16-286b93d5e50d")', height: '100vh' }
       :
       undefined
   // style

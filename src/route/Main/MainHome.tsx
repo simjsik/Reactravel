@@ -93,7 +93,9 @@ const MainHome: React.FC = () => {
                     {media < 2 &&
                         <div className="mb_finder_btn_wrap">
                             <div className="mb_finder_btn" onClick={handleFinder}>
-                                <div className="mb_finder_btn_icon"></div>
+                                <div className="mb_finder_btn_icon">
+                                    
+                                </div>
                                 <p>도시, 호텔 또는 랜드마크</p>
                             </div>
                         </div>

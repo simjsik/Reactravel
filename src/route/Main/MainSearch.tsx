@@ -251,7 +251,8 @@ const MainSearch: React.FC = () => {
                         </div>
                         <div className={`mb_filter_btn ${map && 'mb_map_filter'}`}>
                             <div className="mb_filter_map" onClick={goMap}>
-                                <div className="mb_filter_map_icon"></div>
+                                <div className="mb_filter_map_icon">
+                                </div>
                                 <span>지도 보기</span>
                             </div>
                             <div className="mb_filter_options" onClick={handleFilter}>

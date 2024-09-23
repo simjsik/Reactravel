@@ -1166,7 +1166,9 @@
     .mb_search_top div {
         width: 18px;
         height: 18px;
-        background: red;
+        background-image: url('https://github.com/user-attachments/assets/1214e94c-f333-47e3-b005-b7b041486471');
+        background-size: cover;
+        background-repeat: no-repeat;
         margin-right: 4px;
     }
 
@@ -1184,6 +1186,23 @@
     .mb_search_bottom>div {
         display: flex;
         margin-right: 4px;
+    }
+
+    .mb_search_bottom>div:nth-of-type(2)>div,
+    .mb_search_bottom>div:nth-of-type(3)>div {
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-right: 4px;
+    }
+
+    .mb_search_bottom>div:nth-of-type(2)>div {
+        background-image: url("https://github.com/user-attachments/assets/2fffe87d-2828-4480-a3ed-d46ae4d6c4ea");
+    }
+
+    .mb_search_bottom>div:nth-of-type(3)>div {
+        background-image: url("https://github.com/user-attachments/assets/ca708107-b109-4041-97b4-6907d53bdc02");
     }
 
     .mb_search_bottom>div span {
@@ -1218,6 +1237,7 @@
 
     .mb_filter_btn span {
         color: #fff;
+        line-height: 22px;
     }
 
     .search_cont {
@@ -1475,13 +1495,32 @@
         display: flex;
     }
 
+    .mb_filter_map_icon {
+        background-image: url("https://github.com/user-attachments/assets/19234e1e-0593-4cdd-83b9-6f62e4ebf956");
+    }
+    .mb_filter_icon{
+        background-image: url("https://github.com/user-attachments/assets/da86914d-bbab-445f-afa3-d7dfaeff3f54");
+    }
     .mb_filter_map_icon,
     .mb_filter_icon {
         width: 18px;
         height: 18px;
-        background: red;
         margin-right: 4px;
         margin-top: 1px;
+    }
+
+    .mb_filter_map_icon svg,
+    .mb_filter_icon svg {
+        fill: none;
+    }
+
+    #map_path_wrap path,
+    #map_path_wrap rect {
+        fill: none;
+    }
+
+    #map_path_wrap path {
+        stroke: #fff;
     }
 
     .map_on .search_main .result_box {

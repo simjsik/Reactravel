@@ -3,7 +3,8 @@
     width: 100%;
     height: 80px;
     position: absolute;
-    background: #5900FF;
+    background: #3c00ff;
+    /* border-bottom: 1px solid rgb(235, 235, 235); */
     z-index: 50;
     padding: 0px 20px;
     top: 0;
@@ -21,16 +22,23 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 140px;
+}
+
+#logo_hotel path {
+    /* fill: #3c00ff; */
+}
+
+#logo_circle circle {
+    fill: #ffc400;
+}
+
+.header_logo path {
+    fill: #fff;
 }
 
 .header_logo:hover {
     cursor: pointer;
-}
-
-.header_logo img {
-    width: 220px;
-    /* height: 40px; */
-    margin-top: 6px;
 }
 
 .header_right {
@@ -77,7 +85,7 @@
     height: 40px;
     float: right;
     border-radius: 4px;
-    background: #5900ff;
+    background: #191919;
     border: none;
     color: #fff;
     transition: .2s;
@@ -85,33 +93,32 @@
 
 .header_login:hover,
 .header_logout:hover {
-    background: #6d1fff;
+    background: #383838;
 }
 
 .header_login:active,
 .header_logout:active {
-    background: #4a00d3;
+    background: #000000;
+
 }
 
 .guest_reserve {
     height: 40px;
     float: right;
     border-radius: 4px;
-    border: 1.5px solid #5900ff;
+    border: 1.5px solid rgb(235, 235, 235);
     background: none;
-    color: #5900FF;
+    color: #262626;
     margin-top: 10px;
     transition: .2s;
 }
 
 .guest_reserve:hover {
-    background: #f1edf4;
+    background: #d5d5d5;
 }
 
 .guest_reserve:active {
-    background: #5900FF;
-    color: #fff;
-    border: none;
+    background: #d1d1d1;
 }
 
 .header_logout {
@@ -163,7 +170,7 @@
 
 .topHeader .nav_svg path {
     fill: none;
-    stroke: #191919;
+    stroke: #fff;
 }
 
 .mb_undo_btn svg {
@@ -212,7 +219,6 @@
 
     .topHeader .nav_svg path {
         fill: none;
-        stroke: #ffffff;
     }
 
     .header_right svg {
@@ -267,7 +273,8 @@
     .header_logo {
         display: block;
         padding: 10px;
-        left: 0px;
+        left: 10px;
+        width: auto;
     }
 
     .header_logo img {
@@ -275,7 +282,6 @@
         margin: 0 auto;
         width: 48px;
         height: 48px;
-        background: red;
     }
 
     .header_logo span,
@@ -325,7 +331,6 @@
         flex: 1 0 100%;
         height: 60px;
         border-radius: 4px;
-        border: none;
         float: none;
         margin-top: 20px;
     }
@@ -643,7 +648,7 @@
         flex: 1 0 100%;
         height: 52px;
         border-radius: 4px;
-        background: #5900ff;
+        background: #3c00ff;
         border: none;
         color: #fff;
         transition: .2s;
@@ -655,9 +660,9 @@
         flex: 1 0 100%;
         height: 52px;
         border-radius: 4px;
-        border: 1.5px solid #5900ff;
+        border: 1.5px solid #3c00ff;
         background: none;
-        color: #5900FF;
+        color: #3c00FF;
         margin-top: 10px;
         transition: .2s;
         float: none;

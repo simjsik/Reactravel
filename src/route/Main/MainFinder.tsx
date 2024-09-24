@@ -159,6 +159,7 @@ const MainFinder: React.FC = () => {
         event.stopPropagation()
         setSetter((prev) => !prev);
         setPreview(false);
+        setOnCalender(false)
         if (media < 2 && (location.pathname === '/detail' || location.pathname === '/reserve')) {
             setMbSetter((prev) => !prev)
             setModal((prev) => !prev)

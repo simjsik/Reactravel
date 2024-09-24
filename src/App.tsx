@@ -8,9 +8,10 @@ import MainFinder from './route/Main/MainFinder';
 import DetailView from './route/Detail/DetailView';
 import RoomReserve from './route/Reservation/RoomReserve';
 import RoomReserveConfirmed from './route/Reservation/RoomReserveConfirmed';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { defaultMap, footerYState, mediaState, modalState } from './recoil';
-import { useEffect, useRef } from 'react';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { defaultMap, footerYState, Hotel, hotelDataState, mediaState, modalState, searchResultDataState } from './recoil';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { centerDistanceState } from './MapState';
 
 function App() {
   const location = useLocation();
@@ -20,11 +21,13 @@ function App() {
 
   // data
 
+  const hotels = useRecoilValue<Hotel[]>(searchResultDataState)
   const map = useRecoilValue(defaultMap)
   const [modal, setModal] = useRecoilState<boolean>(modalState)
   const [media, setMedia] = useRecoilState(mediaState)
   const [footerY, setFooterY] = useRecoilState<number>(footerYState)
 
+  const setDistance = useSetRecoilState<number>(centerDistanceState)
   // state
 
   const mainBg: React.CSSProperties | undefined =
@@ -117,7 +120,7 @@ function App() {
                     : 'main_section'
             }`}>
             {googleMapsApiKey &&
-              <LoadScript googleMapsApiKey={googleMapsApiKey}>
+              <LoadScript googleMapsApiKey={googleMapsApiKey} libraries={["geometry"]}>
                 <Routes>
                   <Route path='/' element={<MainFinder />} />
                   <Route path='/home' element={<MainHome />} />

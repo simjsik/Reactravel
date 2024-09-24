@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import './MapView.css'
 import { GoogleMap, OverlayView, OverlayViewF, MarkerF } from '@react-google-maps/api';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { defaultLat, defaultLng, defaultMap, defaultZoom, filterDataState, filteredHotelSelector, Hotel, hotelDataState, mapSlideIndexState, mediaState, searchResultDataState } from "../../recoil";
 import { useNavigate } from "react-router-dom";
+import { centerDistanceState, mapCenterLatState, mapCenterLngState } from "../../MapState";
+import { throttle } from "lodash";
 
 interface MapViewComponent {
     copyFilteredHotels: Hotel[]; // copyFilteredHotels의 타입을 정의합니다.
@@ -11,7 +13,6 @@ interface MapViewComponent {
 const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const navigate = useNavigate()
 
-    const [center, setCenter] = useState({ lat: useRecoilValue(defaultLat), lng: useRecoilValue(defaultLng) });
     const [hotelBoxId, setHotelBoxId] = useState<number | null>(null)
     const [hotelBoxTime, setHotelBoxTime] = useState<NodeJS.Timeout | null>(null)
     const [maps, setMaps] = useState<google.maps.Map | null>(null)
@@ -23,9 +24,17 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
 
     const hotels = useRecoilValue(filterDataState)
     const zoom = useRecoilValue(defaultZoom)
-    const lat = useRecoilValue(defaultLat)
-    const lng = useRecoilValue(defaultLng)
+
+    const [lat, setLat] = useRecoilState(defaultLat)
+    const [lng, setLng] = useRecoilState(defaultLng)
+    const [center, setCenter] = useState({ lat: lat, lng: lng });
+
     const media = useRecoilValue(mediaState)
+    const [centerLat, setCenterLat] = useRecoilState<number>(mapCenterLatState)
+    const [centerLng, setCenterLng] = useRecoilState<number>(mapCenterLngState)
+    const [mapCenter, setMapCenter] = useState({ lat: mapCenterLatState, lng: mapCenterLngState });
+    const [distance, setDistance] = useRecoilState<number>(centerDistanceState)
+
     // state
 
     const formatPrice = (value: number) => {
@@ -61,6 +70,20 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         // console.log(id)
     }
 
+    // 지도가 로드될 때 map 객체 저장
+    const handleMapLoad = (m: google.maps.Map) => {
+        setMaps(m)
+    }
+
+    const onCenterChanged = useCallback(() => { // state로 maps가 받아져 있기때문에 객체를 받지 않음.
+        if (maps) {
+            const newCenter = maps.getCenter()?.toJSON();  // 중앙 좌표를 가져옴
+            if (newCenter) {
+                setCenterLat(newCenter.lat)
+                setCenterLng(newCenter.lng)
+            }
+        }
+    }, [maps]);
 
     useEffect(() => {
         return () => {
@@ -70,9 +93,6 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         }
     }, [hotelBoxTime])
 
-    const handleMapLoad = (m: google.maps.Map) => {
-        setMaps(m)
-    }
 
     useEffect(() => {
         const mapInstance = maps
@@ -82,6 +102,27 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     }, [lat, lng])
     // 구글 화면 이동, 처리해주지 않으면 이동안함.
 
+    const calculateDistance = useCallback(() => {
+        if (map && google.maps.geometry) {
+            const centerLatLng = new google.maps.LatLng(centerLat, centerLng);
+            Object.values(filteredHotels).flat().forEach(overlay => {
+
+                const overlayLatLng = new google.maps.LatLng(overlay.lat, overlay.lng)
+
+                const distance = google.maps.geometry.spherical.computeDistanceBetween(centerLatLng, overlayLatLng);
+                console.log(distance)
+
+                setDistance(distance)
+
+            })
+        }
+    }, []);
+
+    useEffect(() => {
+        throttle(() => {
+            calculateDistance();
+        }, 500)
+    }, [centerLat])
     return (
         <div className="map_wrap">
             <GoogleMap mapContainerStyle={{ height: "100%", width: "100%" }} // 지도의 크기 설정
@@ -165,7 +206,6 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                     <span className="triangle"></span>
                                 </span>
                             </div>
-
                         </OverlayViewF>
                     ))}
                 </>

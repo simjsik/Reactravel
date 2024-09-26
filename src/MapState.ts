@@ -1,14 +1,11 @@
 import { atom } from 'recoil';
 
-export const mapCenterLatState = atom<number>({
+export const mapCenterLatState = atom({
     key: 'mapCenterLatState',
-    default: 0
+    default: 1
 })
-export const mapCenterLngState = atom<number>({
+export const mapCenterLngState = atom({
     key: 'mapCenterLngState',
-    default: 0
+    default: 1
 })
-export const centerDistanceState = atom<number>({
-    key: 'centerDistanceState',
-    default: 0
-})
+

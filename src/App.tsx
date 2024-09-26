@@ -11,7 +11,6 @@ import RoomReserveConfirmed from './route/Reservation/RoomReserveConfirmed';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { defaultMap, footerYState, Hotel, hotelDataState, mediaState, modalState, searchResultDataState } from './recoil';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { centerDistanceState } from './MapState';
 
 function App() {
   const location = useLocation();
@@ -27,7 +26,6 @@ function App() {
   const [media, setMedia] = useRecoilState(mediaState)
   const [footerY, setFooterY] = useRecoilState<number>(footerYState)
 
-  const setDistance = useSetRecoilState<number>(centerDistanceState)
   // state
 
   const mainBg: React.CSSProperties | undefined =

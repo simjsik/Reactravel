@@ -10,7 +10,7 @@ export const KoreanHotels = [
         hotelId: '01',
         lat: 35.16,
         lng: 129.1603,
-        searchWord: ['한국', 'korea', 'south korea', 'busan'],
+        searchWord: ['대한민국','한국', 'korea', 'south korea', 'busan'],
     },
     {
         title: '서울 스카이 팔레스 (Seoul Sky Palace)',
@@ -23,7 +23,7 @@ export const KoreanHotels = [
         hotelId: '02',
         lat: 37.5642,
         lng: 126.9827,
-        searchWord: ['한국', 'korea', 'south korea', 'myeongdong', 'seoul'],
+        searchWord: ['대한민국','한국', 'korea', 'south korea', 'myeongdong', 'seoul'],
     },
     {
         title: '제주 오션 스위트 (Jeju Ocean Suites)',
@@ -36,7 +36,7 @@ export const KoreanHotels = [
         hotelId: '03',
         lat: 33.2504,
         lng: 126.5116,
-        searchWord: ['한국', 'korea', 'south korea', 'jeju', '제주도',],
+        searchWord: ['대한민국','한국', 'korea', 'south korea', 'jeju', '제주도',],
     },
     {
         title: '한강 리버 뷰 호텔 (Hangang River View Hotel)',
@@ -49,7 +49,7 @@ export const KoreanHotels = [
         hotelId: '04',
         lat: 37.5219,
         lng: 126.9245,
-        searchWord: ['한국', 'korea', 'south korea', 'seoul', 'yeouido'],
+        searchWord: ['대한민국','한국', 'korea', 'south korea', 'seoul', 'yeouido'],
     },
 ]
 export const JapanHotels = [

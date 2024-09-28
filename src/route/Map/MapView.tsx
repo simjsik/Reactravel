@@ -87,24 +87,8 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         setMaps(m)
     }
 
-    const hotelCounts = [
-        {
-            seoul:
-            {
-                lat: 37.5, lng: 126.7, count: 2
-            }
-            ,
-            busan:
-            {
-                lat: 35.1, lng: 129.16, count: 1
-            }
-
-        }
-    ]
-
-
     const overlayDistance = (newCenter: { lat: number, lng: number }) => {
-        const maxDistance = 100000;
+        const maxDistance = 500000;
         const hotels = copyFilteredHotels.filter(hotel => {
             const hotelPosition = new google.maps.LatLng(hotel.lat, hotel.lng);
             const centerPosition = new google.maps.LatLng(newCenter.lat, newCenter.lng);
@@ -114,11 +98,13 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         })
         setOverlayHotels(hotels)
     }
+
     const throttleOverlay = useCallback(
         debounce((newCenter: { lat: number, lng: number }) => {
             overlayDistance(newCenter)
         }, 1000), []
     )
+
     const onCenterChanged = useCallback(() => {// state로 maps가 받아져 있기때문에 객체를 받지 않음.
         if (maps) {
             const newCenter = maps.getCenter()?.toJSON();  // 중앙 좌표를 가져옴
@@ -134,21 +120,77 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     }, [maps, throttleOverlay]);
 
 
-    const onZoomChanged = useCallback(() => {
+    const onZoomChanged = useCallback(debounce(() => {
         if (maps) {
             const newZoom = maps.getZoom();
-            if (typeof newZoom === 'number' && !Number.isNaN(newZoom)) {
+            if (newZoom) {
                 setCurrentZoom(newZoom)
             }
-            console.log(newZoom)
         }
-    }, [maps])
+    }, 500), [maps])
 
     const zoomHandle = useCallback(() => {
         if (maps) {
-            google.maps.event.addListener(maps, 'zoom_changed', () => onZoomChanged);
+            google.maps.event.addListener(maps, 'zoom_changed', onZoomChanged);
         }
     }, [maps, onZoomChanged])
+
+    // 같은 방법이지만, loadash 기능을 사용하기 위해 useCallback 두 개로 분리.
+
+    // useEffect(() => {
+    //     if (maps) {
+    //         google.maps.event.addListener(maps, 'zoom_changed', () => {
+    //             const newZoom = maps.getZoom();
+    //             console.log('Zoom level changed:', newZoom);
+    //             if (newZoom) {
+    //                 setCurrentZoom(newZoom); // 상태 업데이트
+    //             }
+    //         });
+    //     }
+    // }, [maps])
+
+    const countryCenterPosition: { [key: string]: { lat: number, lng: number } } =
+    {
+        "대한민국": { lat: 37.5665, lng: 126.9780 },  // 서울
+        "서울": { lat: 37.5665, lng: 126.9780 },  // 서울
+        "부산": { lat: 35.1796, lng: 129.0756 },  // 부산
+        "제주": { lat: 33.4996, lng: 126.5312 },  // 제주
+
+        "일본": { lat: 35.682839, lng: 139.759455 },  // 도쿄
+        "도쿄": { lat: 35.682839, lng: 139.759455 },  // 도쿄
+        "오사카": { lat: 34.6937, lng: 135.5023 },
+        "홋카이도": { lat: 43.0642, lng: 141.3469 },
+
+        "필리핀": { lat: 14.5995, lng: 120.9842 },  // 마닐라
+        "마닐라": { lat: 14.5995, lng: 120.9842 },  // 마닐라
+        "세부": { lat: 10.3157, lng: 123.8854 },
+        "라푸라푸 시티": { lat: 10.3050, lng: 123.9560 },
+
+        "태국": { lat: 13.7563, lng: 100.5018 },  // 방콕
+        "방콕": { lat: 13.7563, lng: 100.5018 },  // 방콕
+        "파타야": { lat: 12.9289, lng: 100.8850 },
+        //  hotelData.js의 country 필드와 이름이 같아야 함
+    }
+
+    const hotelByCoutry = copyFilteredHotels.reduce((acc: { [key: string]: Hotel[] }, hotel) => {
+        if (!acc[hotel.country]) {
+            acc[hotel.country] = [];
+        }
+        acc[hotel.country].push(hotel);
+        return acc;
+    }, {})
+
+    const hotelByRegion = copyFilteredHotels.reduce((acc: { [key: string]: Hotel[] }, hotel) => {
+        if (!acc[hotel.region[0]]) {
+            acc[hotel.region[0]] = [];
+        }
+        acc[hotel.region[0]].push(hotel);
+        return acc;
+    }, {})
+
+    useEffect(() => {
+        console.log('Zoom Changed', currentZoom)
+    }, [currentZoom]) // 줌 레벨 확인
 
     useEffect(() => {
         return () => {
@@ -185,90 +227,136 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                 onZoomChanged={zoomHandle}
             >
                 <>
-                    {overlayHotels.map((hotels, hotelIndex) => (
-                        <OverlayViewF
-                            key={hotelIndex}
-                            position={{ lat: hotels.lat, lng: hotels.lng }}
-                            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-                        >
-                            <div className={`hotel_marker ${slideIndex === hotelIndex && 'hover_on'}`}
-                                onMouseEnter={(e) => hotelBoxEnter(hotelIndex, e)}
-                                onMouseLeave={hotelBoxOut}
-                                onClick={() => hotelBoxClick(hotelIndex)}
-                                data-marker-id={hotels.hotelId}
-                            >
-                                <p>{formatPrice(hotels.price)}원</p>
-                                {hotelBoxId === hotelIndex &&
-                                    <div className="hotel_map_box">
-                                        <div style={{ backgroundImage: `url(${hotels.img})` }}></div>
-                                        <div>
-                                            <div>
-                                                <p>{hotels.title}</p>
-                                                <div className="hotel_map_grade">
-                                                    {hotels.grade === '2'
-                                                        ?
-                                                        <>
-                                                            <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                            <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                        </>
-                                                        : hotels.grade === '3' ?
-                                                            <>
-                                                                <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                            </>
-                                                            : hotels.grade === '4' ?
-                                                                <>
-                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                </>
-                                                                : hotels.grade === '5' ?
-                                                                    <>
-                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                                    </>
-                                                                    : <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
-                                                    }
+                    {/* {나라 별 오버레이} */}
+
+
+                    {/* 호텔 별 오버레이 */}
+                    {currentZoom < 8 ?
+                        <>
+                            {
+                                Object.keys(hotelByCoutry).map((country) => {
+                                    const hotelInCountry = hotelByCoutry[country];
+                                    const hotelCount = hotelInCountry.length;
+                                    const countryCenter = countryCenterPosition[country];
+
+                                    if (hotelCount > 0) {
+
+                                        // 구글 맵에 마커 추가 (나라 중심에 호텔 수 표시)
+                                        return (
+                                            <OverlayViewF
+                                                key={country}
+                                                position={{ lat: countryCenter.lat, lng: countryCenter.lng }}
+                                                mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+                                            >
+                                                <div className="country_marker">
+                                                    <p>{`${country} ${hotelCount}개 호텔`}</p>
                                                 </div>
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <p>{hotels.review.toFixed(1)}</p>
-                                                    <span>/ 5.0</span>
+                                            </OverlayViewF>
+                                        );
+                                    }
+                                    return null;
+                                })
+                            }
+                        </>
+                        :
+                        currentZoom < 11 ?
+                            <>
+                                {
+                                    Object.keys(hotelByRegion).map((region) => {
+                                        const hotelInRegion = hotelByRegion[region];
+                                        const hotelCount = hotelInRegion.length;
+                                        const hotelPosition = countryCenterPosition[region]
+
+                                        if (hotelCount > 0) {
+                                            return <OverlayViewF
+                                                key={region}
+                                                position={{ lat: hotelPosition.lat, lng: hotelPosition.lng }}
+                                                mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
+                                                <div className="hotel_overlay">
+                                                    <p>{`${region} ${hotelCount}개 호텔`}</p>
                                                 </div>
-                                                <p>이용자 리뷰 +999개</p>
-                                            </div>
-                                            <div>
-                                                <p>{formatPrice(hotels.price)}원</p>
-                                                <span>1박 당 객실요금 ( 세금 포함 )</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            </OverlayViewF>
+                                        }
+
+                                    })
                                 }
-                                <span className="outer_triangle">
-                                    <span className="triangle"></span>
-                                </span>
-                            </div>
-                        </OverlayViewF>
-                    ))}
-                    {overlayHotels.length === 0 &&
-                        <div>
-                            {hotelCounts.map((count: count, countIndex) => (
-                                <>
-                                    <OverlayViewF
-                                        key={countIndex}
-                                        position={{ lat: count.seoul.lat, lng: count.seoul.lng }}
-                                        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-                                    >
-                                    </OverlayViewF>
-                                </>
-                            ))}
-                        </div>
+                            </>
+                            :
+                            <>
+                                {
+                                    overlayHotels.map((hotels, hotelIndex) => (
+                                        <OverlayViewF
+                                            key={hotelIndex}
+                                            position={{ lat: hotels.lat, lng: hotels.lng }}
+                                            mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+                                        >
+                                            <div className='hotel_marker'
+                                                onMouseEnter={(e) => hotelBoxEnter(hotelIndex, e)}
+                                                onMouseLeave={hotelBoxOut}
+                                                onClick={() => hotelBoxClick(hotelIndex)}
+                                                data-marker-id={hotels.hotelId}
+                                            >
+                                                <p>{formatPrice(hotels.price)}원</p>
+                                                {hotelBoxId === hotelIndex &&
+                                                    <div className="hotel_map_box">
+                                                        <div style={{ backgroundImage: `url(${hotels.img})` }}></div>
+                                                        <div>
+                                                            <div>
+                                                                <p>{hotels.title}</p>
+                                                                <div className="hotel_map_grade">
+                                                                    {hotels.grade === '2'
+                                                                        ?
+                                                                        <>
+                                                                            <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                            <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                        </>
+                                                                        : hotels.grade === '3' ?
+                                                                            <>
+                                                                                <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                            </>
+                                                                            : hotels.grade === '4' ?
+                                                                                <>
+                                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                    <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                </>
+                                                                                : hotels.grade === '5' ?
+                                                                                    <>
+                                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                        <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                                    </>
+                                                                                    : <div style={{ backgroundImage: 'url("https://github.com/user-attachments/assets/17543e67-901c-4023-a3d6-12a0cec324b5")' }}></div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div>
+                                                                    <p>{hotels.review.toFixed(1)}</p>
+                                                                    <span>/ 5.0</span>
+                                                                </div>
+                                                                <p>이용자 리뷰 +999개</p>
+                                                            </div>
+                                                            <div>
+                                                                <p>{formatPrice(hotels.price)}원</p>
+                                                                <span>1박 당 객실요금 ( 세금 포함 )</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <span className="outer_triangle">
+                                                    <span className="triangle"></span>
+                                                </span>
+                                            </div>
+                                        </OverlayViewF>
+                                    ))
+                                }
+                            </>
                     }
                 </>
 

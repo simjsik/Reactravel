@@ -12,7 +12,7 @@
 .hotel_marker {
     width: auto;
     height: 36px;
-    background: #5900ff;
+    background: #3c00ff;
     border: 1px solid #fff;
     box-shadow: 0px 0px 5px #19191924;
     padding: 4px 10px;
@@ -25,11 +25,11 @@
 .hotel_marker:hover {
     cursor: pointer;
     background: #fff;
-    border: 1px solid #5900FF;
+    border: 1px solid #3c00FF;
 }
 
 .hotel_marker:hover>p {
-    color: #5900FF;
+    color: #3c00FF;
 }
 
 .hotel_marker>p {
@@ -53,9 +53,11 @@
     text-align: left;
     z-index: 10;
 }
-.hotel_map_box>div:nth-of-type(2){
+
+.hotel_map_box>div:nth-of-type(2) {
     max-width: 65%;
 }
+
 .hotel_map_box>div:nth-of-type(2)>div {
     display: flex;
     text-align: left;
@@ -109,7 +111,7 @@
     width: auto;
     display: flex;
     border-radius: 10px 0px 10px 10px;
-    background: linear-gradient(90deg, #0b59ff, #5900FF);
+    background: linear-gradient(90deg, #0b59ff, #3c00FF);
     padding: 4px;
     width: 72px;
     margin-top: 10px;
@@ -160,7 +162,7 @@
     height: 0;
     border-left: 3px solid transparent;
     border-right: 3px solid transparent;
-    border-top: 5px solid #5900FF;
+    border-top: 5px solid #3c00FF;
     /* 삼각형 색상 */
     transition: .2s;
 }
@@ -174,7 +176,7 @@
     border-left: 5px solid transparent;
     /* 바깥 삼각형 */
     border-right: 5px solid transparent;
-    border-top: 5px solid #5900FF;
+    border-top: 5px solid #3c00FF;
     /* 외부 테두리 색상 */
     transition: .2s;
 }
@@ -184,16 +186,16 @@
 }
 
 .hotel_marker:hover .outer_triangle {
-    border-top: 5px solid #5900FF;
+    border-top: 5px solid #3c00FF;
 }
 
 .hover_on {
     background: #fff;
-    border: 1px solid #5900FF;
+    border: 1px solid #3c00FF;
 }
 
 .hover_on>p {
-    color: #5900FF;
+    color: #3c00FF;
 }
 
 .hover_on .triangle {
@@ -201,14 +203,28 @@
 }
 
 .hover_on .outer_triangle {
-    border-top: 5px solid #5900FF;
+    border-top: 5px solid #3c00FF;
 }
+
 @media screen and (min-width : 1281px) {
     .map_wrap {
         top: 0;
         height: 100%;
     }
+
+    .zoom_overlay {
+        background: #3c00ff;
+        border-radius: 4px;
+        border: 1px solid #fff;
+    }
+
+    .zoom_overlay p {
+        font-size: 14px;
+        color: #fff;
+        padding: 8px 12px;
+    }
 }
+
 @media screen and (max-width : 1280px) {
     .map_wrap {
         top: 0;
@@ -230,11 +246,11 @@
 
     .mb .hotel_marker:active {
         background: #fff;
-        border: 1px solid #5900FF;
+        border: 1px solid #3c00FF;
     }
 
     .hotel_marker:active>p {
-        color: #5900FF;
+        color: #3c00FF;
     }
 }
 
@@ -248,10 +264,10 @@
 
     .mb .hotel_marker:active {
         background: #fff;
-        border: 1px solid #5900FF;
+        border: 1px solid #3c00FF;
     }
 
     .hotel_marker:active>p {
-        color: #5900FF;
+        color: #3c00FF;
     }
 }

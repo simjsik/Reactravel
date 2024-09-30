@@ -210,8 +210,17 @@
 .region_overlay {
     position: relative;
     width: 48px;
-    height: 48px;
+    height: 28px;
     text-align: center;
+    border-radius: 4px;
+}
+
+
+.outer_triangle {
+    position: relative;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .country_overlay p,
@@ -219,30 +228,8 @@
     position: relative;
     font-size: 14px;
     color: #fff;
-    line-height: 48px;
-}
-
-.country_svg,
-.region_svg {
-    width: 48px;
-    height: 48px;
-    position: absolute;
-    left: 0;
-}
-
-.country_svg .country_svg_wrap_rect,
-.region_svg .region_svg_wrap_rect {
-    fill: none;
-}
-
-.country_svg_rect,
-.region_svg_rect {
-    fill: #3c00ff;
-}
-
-.country_svg path,
-.region_svg path {
-    fill: #3c00ff;
+    line-height: 28px;
+    transition: .2s;
 }
 
 @media screen and (min-width : 1281px) {
@@ -261,12 +248,6 @@
         font-size: 14px;
         color: #fff;
         padding: 8px 12px;
-    }
-    .hotel_marker{
-        scale: .9;
-    }
-    .hotel_marker:hover{
-        scale: 1;
     }
 }
 

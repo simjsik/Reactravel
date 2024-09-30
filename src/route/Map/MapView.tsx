@@ -6,6 +6,8 @@ import { defaultLat, defaultLng, defaultMap, defaultZoom, filterDataState, filte
 import { useNavigate } from "react-router-dom";
 import { mapCenterLatState, mapCenterLngState } from "../../MapState";
 import { debounce, throttle } from "lodash";
+import { motion } from 'framer-motion';
+import { useSpring, animated } from '@react-spring/web';
 
 interface MapViewComponent {
     copyFilteredHotels: Hotel[]; // copyFilteredHotels의 타입을 정의합니다.
@@ -13,10 +15,13 @@ interface MapViewComponent {
 const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const navigate = useNavigate()
 
+
+
     const [hotelBoxId, setHotelBoxId] = useState<number | null>(null)
     const [hotelBoxTime, setHotelBoxTime] = useState<NodeJS.Timeout | null>(null)
     const [maps, setMaps] = useState<google.maps.Map | null>(null)
     const [overlayHotels, setOverlayHotels] = useState<Hotel[]>([])
+    const [hoverd, setHover] = useState<boolean>(false)
 
     const [map, setMap] = useRecoilState<boolean>(defaultMap)
 
@@ -31,11 +36,17 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const [centerLat, setCenterLat] = useRecoilState(mapCenterLatState)
     const [centerLng, setCenterLng] = useRecoilState(mapCenterLngState)
     const [mapCenter, setMapCenter] = useState({ lat: centerLat, lng: centerLng });
-
     const media = useRecoilValue(mediaState)
 
     const centerRef = useRef(center)
     // state
+
+    const [style, api] = useSpring(() => ({
+        background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
+        scale: 1,
+        config: { tension: 300, friction: 10 },
+    }));
+    // react-spring 스타일
 
     const formatPrice = (value: number) => {
         return new Intl.NumberFormat('ko-KR').format(value);
@@ -198,6 +209,9 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         setZoom(14)
     }, [currentZoom, zoom]) // 줌 변경 되었을 때 설정, 처리해줘야 다음 지도에서 보기 눌렀을 때 줌 변경됨
 
+    useEffect(() => {
+        console.log(hoverd)
+    }, [hoverd])
     return (
         <div className="map_wrap">
             <GoogleMap mapContainerStyle={{ height: "100%", width: "100%" }} // 지도의 크기 설정
@@ -227,7 +241,6 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                         const countryCenter = countryCenterPosition[country];
 
                                         if (hotelCount > 0) {
-
                                             // 구글 맵에 마커 추가 (나라 중심에 호텔 수 표시)
                                             return (
                                                 <OverlayViewF
@@ -235,16 +248,24 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                                     position={{ lat: countryCenter.lat, lng: countryCenter.lng }}
                                                     mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
                                                 >
-                                                    <div className="country_overlay">
-                                                        <svg viewBox="0 0 48 48" className="country_svg">
-                                                            <g id="country_svg_g" data-name="country_svg">
-                                                                <rect className="country_svg_wrap_rect" width="48" height="48" />
-                                                                <rect className="country_svg_rect" x="3" y="11" width="42" height="26" rx="4" />
-                                                                <path d="M24.65,44.36l4.1-3.52a1,1,0,0,0-.65-1.76H19.9a1,1,0,0,0-.65,1.76l4.1,3.52A1,1,0,0,0,24.65,44.36Z" />
-                                                            </g>
-                                                        </svg>
+                                                    <animated.div
+                                                        style={{
+                                                            ...style,
+                                                        }}
+                                                        onMouseEnter={() =>
+                                                            api.start({
+                                                                background: 'linear-gradient(45deg, #5900FF, #0b59ff)',
+                                                                scale: 1.1
+                                                            })} // hover 시 변화
+                                                        onMouseLeave={() =>
+                                                            api.start({
+                                                                background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
+                                                                scale: 1
+                                                            })} // hover 종료 시 원래 상태로
+                                                        className="country_overlay"
+                                                    >
                                                         <p>{hotelCount}</p>
-                                                    </div>
+                                                    </animated.div>
                                                 </OverlayViewF>
                                             );
                                         }
@@ -263,21 +284,32 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                             const hotelPosition = countryCenterPosition[region]
 
                                             if (hotelCount > 0) {
-                                                return <OverlayViewF
-                                                    key={region}
-                                                    position={{ lat: hotelPosition.lat, lng: hotelPosition.lng }}
-                                                    mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-                                                    <div className="region_overlay">
-                                                        <svg viewBox="0 0 48 48" className="region_svg">
-                                                            <g id="region_svg_g" data-name="region_svg">
-                                                                <rect className="region_svg_wrap_rect" width="48" height="48" />
-                                                                <rect className="region_svg_rect" x="3" y="11" width="42" height="26" rx="4" />
-                                                                <path d="M24.65,44.36l4.1-3.52a1,1,0,0,0-.65-1.76H19.9a1,1,0,0,0-.65,1.76l4.1,3.52A1,1,0,0,0,24.65,44.36Z" />
-                                                            </g>
-                                                        </svg>
-                                                        <p>{hotelCount}</p>
-                                                    </div>
-                                                </OverlayViewF>
+
+                                                return (
+                                                    <OverlayViewF
+                                                        key={region}
+                                                        position={{ lat: hotelPosition.lat, lng: hotelPosition.lng }}
+                                                        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
+                                                        <animated.div
+                                                            style={{
+                                                                ...style,
+                                                            }}
+                                                            onMouseEnter={() =>
+                                                                api.start({
+                                                                    background: 'linear-gradient(45deg, #5900FF, #0b59ff)',
+                                                                    scale: 1.05
+                                                                })} // hover 시 변화
+                                                            onMouseLeave={() =>
+                                                                api.start({
+                                                                    background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
+                                                                    scale: 1
+                                                                })} // hover 종료 시 원래 상태로
+                                                            className="country_overlay"
+                                                        >
+                                                            <p>{hotelCount}</p>
+                                                        </animated.div>
+                                                    </OverlayViewF>
+                                                )
                                             }
 
                                         })

@@ -144,11 +144,12 @@ const MainSearch: React.FC = () => {
         }
     } // 지도 보기 이동
 
-    const setLocation = (event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>, lat: number, lng: number) => {
+    const setLocation = (event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>, mlat: number, mlng: number) => {
         event.stopPropagation();
-        setLat(lat + -0.005)
-        setLng(lng + 0.0015)
-        setZoom(15)
+        setLat((prev) => (prev === (mlat - 0.005)) ? mlat - 0.00500001 : mlat - 0.005)
+        setLng((prev) => (prev === (mlng + 0.0015)) ? mlng + 0.001500001 : mlng + 0.0015)
+        // 같은 좌표면 이동하지 않기 때문에 미세한 차이 주기
+        setZoom(18)
         if (!map) {
             goMap()
         }

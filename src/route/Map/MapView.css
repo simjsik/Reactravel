@@ -206,6 +206,45 @@
     border-top: 5px solid #3c00FF;
 }
 
+.country_overlay,
+.region_overlay {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+}
+
+.country_overlay p,
+.region_overlay p {
+    position: relative;
+    font-size: 14px;
+    color: #fff;
+    line-height: 48px;
+}
+
+.country_svg,
+.region_svg {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 0;
+}
+
+.country_svg .country_svg_wrap_rect,
+.region_svg .region_svg_wrap_rect {
+    fill: none;
+}
+
+.country_svg_rect,
+.region_svg_rect {
+    fill: #3c00ff;
+}
+
+.country_svg path,
+.region_svg path {
+    fill: #3c00ff;
+}
+
 @media screen and (min-width : 1281px) {
     .map_wrap {
         top: 0;
@@ -222,6 +261,12 @@
         font-size: 14px;
         color: #fff;
         padding: 8px 12px;
+    }
+    .hotel_marker{
+        scale: .9;
+    }
+    .hotel_marker:hover{
+        scale: 1;
     }
 }
 

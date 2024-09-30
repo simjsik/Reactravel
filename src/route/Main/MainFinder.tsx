@@ -93,7 +93,6 @@ const MainFinder: React.FC = () => {
     const [calendarClickCount, setCalendarClickCount] = useState<number>(0);
 
     const months = [
-        { year: 2024, month: 8, name: '8월' },
         { year: 2024, month: 9, name: '9월' },
         { year: 2024, month: 10, name: '10월' },
         { year: 2024, month: 11, name: '11월' },
@@ -102,6 +101,7 @@ const MainFinder: React.FC = () => {
         { year: 2025, month: 2, name: '2월' },
         { year: 2025, month: 3, name: '3월' },
         { year: 2025, month: 4, name: '4월' },
+        { year: 2025, month: 5, name: '5월' },
     ];
 
     // 날짜 타입 설정
@@ -110,7 +110,6 @@ const MainFinder: React.FC = () => {
         if (!date) return '날짜를 선택해 주세요';
         return `${String(date.getMonth() + 1)}월 ${String(date.getDate())}일`;
     }
-
 
     // 캘린더 넘기기
     const setCalenderPrev = (setIndex: React.Dispatch<React.SetStateAction<number>>, min: number) => {
@@ -181,9 +180,14 @@ const MainFinder: React.FC = () => {
 
     const handleHover = (day: number, month: number, year: number) => {
         if (calendarClickCount === 1) {
-            setHoverDate(new Date(year, month - 1, day))
+            if (media < 1) {
+                setHoverDate(new Date(year, month - 1, day))
+            }
+            if (month > today.getMonth() + 1 && day > clickCheckIn.getDate()) {
+                setHoverDate(new Date(year, month - 1, day))
+            }
         }
-    }
+    } // 호버 시 날짜 계산
 
     // 날짜 클릭 기능
     const reSetCheck = (day: number, month: number, year: number) => {

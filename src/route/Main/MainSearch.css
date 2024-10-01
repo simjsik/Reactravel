@@ -103,7 +103,7 @@
 
 .rate_box,
 .grade_box {
-    background-color: rgb(232, 237, 245);
+    background-color: #f4f9fd;
     height: 40px;
     border-radius: 4px;
     line-height: 40px;
@@ -121,21 +121,17 @@
 .rate_box:hover,
 .grade_box:hover {
     cursor: pointer;
-    background: rgb(209, 213, 219);
 }
 
 .rate_box:active,
-.grade_box:active {
-    cursor: pointer;
-    background: rgb(200, 202, 206);
-}
+.grade_box:active {}
 
 .onFilter:hover {
-    background: #6b1cff;
+    background: #501bff;
 }
 
 .onFilter:active {
-    background: #4500c5;
+    background: #3100d3;
 }
 
 .rate_box:last-child,
@@ -151,11 +147,11 @@
 }
 
 .thumb {
-    top: 1px;
-    height: 17px;
-    width: 17px;
+    top: 2px;
+    height: 15px;
+    width: 15px;
     background-color: #fff;
-    border: 2px solid #5900FF;
+    border: 2px solid #3e3d3d;
     border-radius: 50%;
     cursor: pointer;
     transition: .1s;
@@ -164,9 +160,9 @@
 .track {
     position: absolute;
     top: 50%;
-    background: #5900FF;
+    background: #3e3d3d;
     border-radius: 999px;
-    height: 3px;
+    height: 2px;
     border-radius: 10px;
 }
 
@@ -210,7 +206,7 @@
 .price_btn .price_box {
     cursor: pointer;
     padding: 10px;
-    background-color: #EEF1FA;
+    background-color: #f4f9fd;
     margin: 5px;
     border-radius: 5px;
     text-align: center;
@@ -368,7 +364,7 @@
     height: 58%;
     border-radius: 4px;
     margin-top: 14px;
-    background: #EEF1FA;
+    background: #f4f9fd;
     padding: 10px;
     display: flex;
 }
@@ -1498,9 +1494,11 @@
     .mb_filter_map_icon {
         background-image: url("https://github.com/user-attachments/assets/19234e1e-0593-4cdd-83b9-6f62e4ebf956");
     }
-    .mb_filter_icon{
+
+    .mb_filter_icon {
         background-image: url("https://github.com/user-attachments/assets/da86914d-bbab-445f-afa3-d7dfaeff3f54");
     }
+
     .mb_filter_map_icon,
     .mb_filter_icon {
         width: 18px;

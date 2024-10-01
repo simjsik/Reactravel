@@ -183,7 +183,7 @@ const MainFinder: React.FC = () => {
             if (media < 1) {
                 setHoverDate(new Date(year, month - 1, day))
             }
-            if (month > today.getMonth() + 1 && day > clickCheckIn.getDate()) {
+            if (month >= today.getMonth() + 1 && day > clickCheckIn.getDate()) {
                 setHoverDate(new Date(year, month - 1, day))
             }
         }

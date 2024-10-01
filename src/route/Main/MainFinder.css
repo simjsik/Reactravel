@@ -243,7 +243,7 @@ table {}
 }
 
 .calendar td:hover {
-  background-color: rgb(227, 240, 243);
+  background-color: #f4f9fd;
 }
 
 .calendar .past:hover,
@@ -311,7 +311,7 @@ table {}
 }
 
 .hs_check p:nth-of-type(1) {
-  color: #726884;
+  color: #555;
 }
 
 .hs_check>span {
@@ -2004,7 +2004,9 @@ table {}
     margin-top: 40px;
   }
 
-  .calendar_month_view:nth-of-type(2) {}
+  .calendar_month_view:nth-of-type(1) {
+    margin-top: 20px;
+  }
 
   .calendar_month_view:nth-of-type(3) {
     margin-top: 40px;
@@ -2065,6 +2067,7 @@ table {}
     width: 100%;
     padding-bottom: 20px;
     border-bottom: 1px solid rgb(235, 235, 235);
+    margin-top: 10px;
   }
 
   .calendar_week {
@@ -2294,6 +2297,7 @@ table {}
   }
 
   .home_finder .calendar {
+    width: 100%;
     height: calc(100vh - 280px);
   }
 

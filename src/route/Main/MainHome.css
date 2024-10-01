@@ -227,6 +227,41 @@
     margin-right: 0px;
 }
 
+.hotpic_wrap .swiper-button-prev,
+.hotpic_wrap .swiper-button-next,
+.most_wrap .swiper-button-prev,
+.most_wrap .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 48px;
+    height: 72px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .6;
+    transition: .2s;
+}
+
+.hotpic_wrap .swiper-button-prev,
+.most_wrap .swiper-button-prev {
+    background-image: url(https://github.com/user-attachments/assets/07969943-db2a-4af3-96d1-4d66f8d1a604);
+}
+
+.hotpic_wrap .swiper-button-next,
+.most_wrap .swiper-button-next {
+    background-image: url(https://github.com/user-attachments/assets/88bc4b88-e958-4478-9dc1-1579810ec7c2);
+    right: 0;
+}
+
+.hotpic_wrap .swiper-button-prev:hover,
+.hotpic_wrap .swiper-button-next:hover,
+.most_wrap .swiper-button-prev:hover,
+.most_wrap .swiper-button-next:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 /* footer */
 #homeFooter {
     position: relative;

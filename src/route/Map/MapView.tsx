@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { mapCenterLatState, mapCenterLngState } from "../../MapState";
 import { debounce, throttle } from "lodash";
 import { motion } from 'framer-motion';
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated, useSprings } from '@react-spring/web';
 
 interface MapViewComponent {
     copyFilteredHotels: Hotel[]; // copyFilteredHotels의 타입을 정의합니다.
@@ -15,13 +15,12 @@ interface MapViewComponent {
 const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const navigate = useNavigate()
 
-
-
     const [hotelBoxId, setHotelBoxId] = useState<number | null>(null)
     const [hotelBoxTime, setHotelBoxTime] = useState<NodeJS.Timeout | null>(null)
     const [maps, setMaps] = useState<google.maps.Map | null>(null)
     const [overlayHotels, setOverlayHotels] = useState<Hotel[]>([])
-    const [hoverd, setHover] = useState<boolean>(false)
+    const [hoveredCountry, setHoveredCountry] = useState<string | null>(null)
+
 
     const [map, setMap] = useRecoilState<boolean>(defaultMap)
 
@@ -41,12 +40,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const centerRef = useRef(center)
     // state
 
-    const [style, api] = useSpring(() => ({
-        background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
-        scale: 1,
-        config: { tension: 300, friction: 10 },
-    }));
-    // react-spring 스타일
+
 
     const formatPrice = (value: number) => {
         return new Intl.NumberFormat('ko-KR').format(value);
@@ -185,8 +179,25 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         return acc;
     }, {}) // 국가 별 오버레이 객체
 
+    const hotelByObject = currentZoom < 7 ? Object.keys(hotelByCoutry) : Object.keys(hotelByRegion);
+    // 줌 레벨에 따른 데이터 
+
+    const [springs, api] = useSprings(hotelByObject.length, () => ({ // hotelByObject 배열의 길이에 따른 Springs
+        background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
+        scale: 1,
+        config: { tension: 300, friction: 10 },
+    }))
+
+    const handleSpringEnter = (index: number) => {
+        api.start((i) => i === index ? { background: 'linear-gradient(45deg, #5900FF, #0b59ff)', scale: 1.1 } : {})
+    } // 오버레이 마우스 진입
+
+    const handleSpringLeave = (index: number) => {
+        api.start((i) => i === index ? { background: 'linear-gradient(45deg, #0b59ff, #5900FF)', scale: 1 } : {})
+    } // 오버레이 마우스 퇴장
+
     useEffect(() => {
-        // console.log('Zoom Changed', currentZoom)
+        console.log('Zoom Changed', currentZoom)
     }, [currentZoom]) // 줌 레벨 확인
 
     useEffect(() => {
@@ -209,9 +220,6 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         setZoom(14)
     }, [currentZoom, zoom]) // 줌 변경 되었을 때 설정, 처리해줘야 다음 지도에서 보기 눌렀을 때 줌 변경됨
 
-    useEffect(() => {
-        console.log(hoverd)
-    }, [hoverd])
     return (
         <div className="map_wrap">
             <GoogleMap mapContainerStyle={{ height: "100%", width: "100%" }} // 지도의 크기 설정
@@ -235,11 +243,12 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                         currentZoom < 7 ?
                             <>
                                 {
-                                    Object.keys(hotelByCoutry).map((country) => {
+                                    Object.keys(hotelByCoutry).map((country, countryIndex) => {
                                         const hotelInCountry = hotelByCoutry[country];
                                         const hotelCount = hotelInCountry.length;
                                         const countryCenter = countryCenterPosition[country];
 
+                                        // react-spring 스타일
                                         if (hotelCount > 0) {
                                             // 구글 맵에 마커 추가 (나라 중심에 호텔 수 표시)
                                             return (
@@ -249,19 +258,15 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                                     mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
                                                 >
                                                     <animated.div
-                                                        style={{
-                                                            ...style,
-                                                        }}
+                                                        style={
+                                                            springs[countryIndex]
+                                                        }
                                                         onMouseEnter={() =>
-                                                            api.start({
-                                                                background: 'linear-gradient(45deg, #5900FF, #0b59ff)',
-                                                                scale: 1.1
-                                                            })} // hover 시 변화
+                                                            handleSpringEnter(countryIndex)
+                                                        }
                                                         onMouseLeave={() =>
-                                                            api.start({
-                                                                background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
-                                                                scale: 1
-                                                            })} // hover 종료 시 원래 상태로
+                                                            handleSpringLeave(countryIndex)
+                                                        }
                                                         className="country_overlay"
                                                     >
                                                         <p>{hotelCount}</p>
@@ -275,36 +280,31 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                             </>
                             :
                             // 지역 별 오버레이
-                            currentZoom >= 7 && currentZoom < 11 ?
+                            currentZoom >= 7 && currentZoom <= 11 ?
                                 <>
                                     {
-                                        Object.keys(hotelByRegion).map((region) => {
+                                        Object.keys(hotelByRegion).map((region, regionIndex) => {
                                             const hotelInRegion = hotelByRegion[region];
                                             const hotelCount = hotelInRegion.length;
                                             const hotelPosition = countryCenterPosition[region]
-
+                                            // react-spring 스타일
                                             if (hotelCount > 0) {
-
                                                 return (
                                                     <OverlayViewF
                                                         key={region}
                                                         position={{ lat: hotelPosition.lat, lng: hotelPosition.lng }}
                                                         mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
                                                         <animated.div
-                                                            style={{
-                                                                ...style,
-                                                            }}
+                                                            style={
+                                                                springs[regionIndex]
+                                                            }
                                                             onMouseEnter={() =>
-                                                                api.start({
-                                                                    background: 'linear-gradient(45deg, #5900FF, #0b59ff)',
-                                                                    scale: 1.05
-                                                                })} // hover 시 변화
+                                                                handleSpringEnter(regionIndex)
+                                                            }
                                                             onMouseLeave={() =>
-                                                                api.start({
-                                                                    background: 'linear-gradient(45deg, #0b59ff, #5900FF)',
-                                                                    scale: 1
-                                                                })} // hover 종료 시 원래 상태로
-                                                            className="country_overlay"
+                                                                handleSpringLeave(regionIndex)
+                                                            }
+                                                            className="region_overlay"
                                                         >
                                                             <p>{hotelCount}</p>
                                                         </animated.div>

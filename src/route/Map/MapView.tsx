@@ -280,7 +280,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                             </>
                             :
                             // 지역 별 오버레이
-                            currentZoom >= 7 && currentZoom <= 11 ?
+                            currentZoom >= 7 && currentZoom < 12 ?
                                 <>
                                     {
                                         Object.keys(hotelByRegion).map((region, regionIndex) => {

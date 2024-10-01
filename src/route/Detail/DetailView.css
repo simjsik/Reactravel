@@ -50,7 +50,7 @@
 }
 
 .hotel_detail_region span {
-    color: #5900FF;
+    color: #3c00ff;
     font-family: "nanumbarungothic";
 }
 
@@ -105,7 +105,7 @@
     padding: 4px;
     background: none;
     border-radius: 4px;
-    color: #5900FF;
+    color: #3c00ff;
     font-size: 14px;
     text-decoration: underline;
 }
@@ -677,7 +677,7 @@
 .room_popup_wrap::-webkit-scrollbar-thumb,
 .room_popup_info::-webkit-scrollbar-thumb,
 .room_popup_img::-webkit-scrollbar-thumb {
-    background: #5900FF;
+    background: #3c00ff;
     border-radius: 10px;
 }
 
@@ -1710,8 +1710,6 @@
     }
 
     .detail_wrap svg {
-        width: 36px;
-        height: 36px;
         margin: 0 auto;
         display: block;
         border-radius: 50%;

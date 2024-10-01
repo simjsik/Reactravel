@@ -79,6 +79,7 @@
     height: 100%;
     border-radius: 4px;
     position: relative;
+    overflow: hidden;
 }
 
 .hotpic_main {
@@ -823,8 +824,8 @@
         display: flex;
     }
 
-    .hotpic_wrap .swiper-slide>div,
-    .most_wrap .swiper-slide>div {
+    .hotpic_wrap .hotpic_box,
+    .most_wrap .most_box {
         margin-right: 10px;
         border-radius: 6px;
     }
@@ -884,7 +885,7 @@
     #homeVisual {
         position: static;
         margin-top: 0px;
-        padding: 20px 20px 40px;
+        padding: 20px 20px 0px;
     }
 
     .home_cont {
@@ -942,11 +943,11 @@
 
     .hotpic,
     .most_travel {
-        margin-top: 40px;
+        margin-top: 60px;
     }
 
     .most_travel {
-        margin-bottom: 80px;
+        margin-bottom: 40px;
     }
 
     .hotpic_text,
@@ -1057,15 +1058,19 @@
         background-repeat: no-repeat;
     }
 
+    #homeVisual .hotpic_wrap .swiper-button-prev,
+    #homeVisual .hotpic_wrap .swiper-button-next,
+    #homeVisual .most_wrap .swiper-button-prev,
+    #homeVisual .most_wrap .swiper-button-next {
+        top: 50%;
+    }
+
     #homeVisual .swiper-button-prev {
         background-image: url('https://github.com/user-attachments/assets/07969943-db2a-4af3-96d1-4d66f8d1a604');
     }
 
     #homeVisual .swiper-button-next {
         background-image: url('https://github.com/user-attachments/assets/88bc4b88-e958-4478-9dc1-1579810ec7c2');
-    }
-
-    #homeVisual .swiper-button-next {
         right: 0px;
         left: auto;
         background-position: right;
@@ -1099,7 +1104,6 @@
         height: 30px;
         margin-top: 6px;
         margin-right: 8px;
-        background: red;
     }
 
     .mb_finder_btn p {

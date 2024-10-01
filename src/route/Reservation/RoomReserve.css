@@ -1922,10 +1922,6 @@
         border: none;
     }
 
-    .mb .reserve_undo_btn svg {
-        width: 36px;
-        height: 36px;
-    }
 
     .mb .reserve_undo_btn rect {
         fill: none;
@@ -2050,6 +2046,7 @@
     }
 
     .mb .room_location_right span {
+        display: block;
         width: 100%;
         font-size: 12px;
         color: #3c00ff;

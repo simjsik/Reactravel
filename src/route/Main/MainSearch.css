@@ -1445,7 +1445,6 @@
     .map_on_filter_close_btn {
         width: 42px;
         height: 42px;
-        background: red;
     }
 
     .map_on .search_main {
@@ -1578,7 +1577,6 @@
     .mb_filter_close_btn {
         width: 42px;
         height: 42px;
-        background: red;
         border: none;
         margin: 0;
     }
@@ -1617,7 +1615,6 @@
     .mb_filter_icon {
         width: 18px;
         height: 18px;
-        background: red;
     }
 
     .search_wrap .mb_finder_btn_wrap {
@@ -1657,7 +1654,6 @@
     .mb_search_top div {
         width: 18px;
         height: 18px;
-        background: red;
         margin-right: 4px;
     }
 
@@ -1685,7 +1681,6 @@
         width: 18px;
         height: 18px;
         margin-right: 4px;
-        background: red;
     }
 
     .mb_search_bottom>div span {
@@ -1896,7 +1891,6 @@
     .mb_search_filter_btn {
         min-width: 42px;
         height: 42px;
-        background: red;
     }
 
     .map_on_filter_close_btn {
@@ -1956,6 +1950,7 @@
 
     .mb .map_on .hotel_img {
         flex-basis: 100%;
+        max-width: none;
         height: 55%;
         background: rgb(200, 200, 200);
         margin-right: 0px;
@@ -2025,10 +2020,7 @@
     }
 
     .search_wrap svg {
-        width: 36px;
-        height: 36px;
         margin: 0 auto;
-        margin-top: 3px;
         display: block;
         background: none;
         border-radius: 50%;

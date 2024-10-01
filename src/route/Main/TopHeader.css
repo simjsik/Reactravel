@@ -701,9 +701,7 @@
     .nav_close_btn {
         width: 42px;
         height: 42px;
-        background: red;
         border: none;
-        margin-top: 0;
     }
 
     .nav {
@@ -764,8 +762,6 @@
 
     /* 홈  home*/
     .home_header svg {
-        width: 24px;
-        height: 24px;
         margin: 0 auto;
         display: block;
         transition: .2s;

@@ -323,7 +323,7 @@
         flex-wrap: wrap;
         align-content: flex-start;
         padding: 10px;
-        z-index: 51;
+        z-index: 52;
     }
 
     .header_login,
@@ -348,7 +348,7 @@
         display: block;
         width: 100%;
         text-align: center;
-        margin-top: 80px;
+        margin-top: 20px;
     }
 
     .mb_nav_event_wrap {
@@ -366,11 +366,31 @@
         margin-left: 0;
     }
 
-    .mb_nav_icon {
+    .mobile_login_art {
+        width: 100%;
+        height: 240px;
+        margin-top: 40px;
+        background-image: url('https://github.com/user-attachments/assets/a5573371-37d5-4707-9ccd-be079f9eebd2');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .mb_nav_event:nth-of-type(1) .mb_nav_icon {
         width: 18px;
         height: 18px;
         margin-right: 4px;
-        background: red;
+        background-image: url('https://github.com/user-attachments/assets/a9e89e85-8099-4848-a407-0c6ff86aa1cc');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .mb_nav_event:nth-of-type(2) .mb_nav_icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 4px;
+        background-image: url('https://github.com/user-attachments/assets/414034fb-a9d9-4842-b8fb-ba1318452ca1');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .mb_nav_event span {
@@ -636,7 +656,7 @@
         background: #ffffff;
         border-radius: 6px;
         box-shadow: 0px 0px 10px #ffffff4d;
-        z-index: 51;
+        z-index: 52;
         display: flex;
         flex-wrap: wrap;
         align-content: flex-start;
@@ -673,7 +693,7 @@
         display: block;
         width: 100%;
         text-align: center;
-        margin-top: 80px;
+        margin-top: 40px;
     }
 
     .mb_nav_event_wrap {
@@ -689,7 +709,6 @@
     .mb_nav_icon {
         width: 18px;
         height: 18px;
-        background: red;
         margin-right: 4px;
     }
 
@@ -751,6 +770,11 @@
         border: none;
         top: 10px;
         left: 10px;
+    }
+
+    .mobile_login_art {
+        height: 200px;
+        margin-top: 40px;
     }
 
     /* 페이지 별 스타일링 */

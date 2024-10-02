@@ -1293,6 +1293,10 @@
         width: 42px;
         height: 42px;
         margin-top: 0px;
+        background: none;
+        background-image: url(https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6);
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .mb_alert_box {
@@ -1491,11 +1495,19 @@
     }
 
     .mb_filter_map_icon {
-        background-image: url("https://github.com/user-attachments/assets/19234e1e-0593-4cdd-83b9-6f62e4ebf956");
+        background-image: url("https://github.com/user-attachments/assets/d97655de-33a3-49e8-a5ab-3f9d00e86063");
     }
 
     .mb_filter_icon {
-        background-image: url("https://github.com/user-attachments/assets/da86914d-bbab-445f-afa3-d7dfaeff3f54");
+        background-image: url("https://github.com/user-attachments/assets/8d087faf-f194-4f0c-a08c-4887130e66bc");
+    }
+
+    .map_on_wrap .mb_filter_map_icon {
+        background-image: url("https://github.com/user-attachments/assets/d2d6c872-32ca-4c64-a433-13327d5a7c68");
+    }
+
+    .map_on_wrap .mb_filter_icon {
+        background-image: url("https://github.com/user-attachments/assets/29b8ff1d-d9c4-4772-95a8-47b2f78f0a5c");
     }
 
     .mb_filter_map_icon,
@@ -1504,6 +1516,8 @@
         height: 18px;
         margin-right: 4px;
         margin-top: 1px;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .mb_filter_map_icon svg,
@@ -1597,7 +1611,7 @@
         color: #fff;
         margin-left: 4px;
         font-size: 12px;
-        line-height: 18px;
+        line-height: 20px;
     }
 
     .mb_filter_map,

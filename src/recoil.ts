@@ -246,11 +246,11 @@ export const filteredHotelSelector = selector({
 
         return hotelData.filter(hotel =>
             queryArray.every(q =>
-                hotel.country.toLowerCase().includes(q)
+                hotel.country.toLowerCase().replace(/\s+/g, '').includes(q)
                 ||
                 (Array.isArray(hotel.region) && hotel.region.some(region => region.toLowerCase().includes(q)))
                 ||
-                hotel.title.toLowerCase().includes(q)
+                hotel.title.toLowerCase().replace(/\s+/g, '').includes(q)
                 ||
                 (Array.isArray(hotel.searchWord) && hotel.searchWord.some(search => search.toLowerCase().replace(/\s+/g, '').includes(q)))
             )

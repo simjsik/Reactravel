@@ -4,7 +4,7 @@ import { GoogleMap, OverlayView, OverlayViewF, MarkerF } from '@react-google-map
 import { useRecoilState, useRecoilValue } from "recoil";
 import { defaultLat, defaultLng, defaultMap, defaultZoom, filterDataState, filteredHotelSelector, Hotel, hotelDataState, mapSlideIndexState, mediaState, searchResultDataState } from "../../recoil";
 import { useNavigate } from "react-router-dom";
-import { mapCenterLatState, mapCenterLngState } from "../../MapState";
+import { currentZoomState, mapCenterLatState, mapCenterLngState } from "../../MapState";
 import { debounce, throttle } from "lodash";
 import { motion } from 'framer-motion';
 import { useSpring, animated, useSprings } from '@react-spring/web';
@@ -27,7 +27,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const hotels = useRecoilValue(filterDataState)
     const [zoom, setZoom] = useRecoilState(defaultZoom)
 
-    const [currentZoom, setCurrentZoom] = useState(5);
+    const [currentZoom, setCurrentZoom] = useRecoilState<number>(currentZoomState);
     const [lat, setLat] = useRecoilState(defaultLat)
     const [lng, setLng] = useRecoilState(defaultLng)
     const [center, setCenter] = useState({ lat: lat, lng: lng });
@@ -196,6 +196,17 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         api.start((i) => i === index ? { background: 'linear-gradient(45deg, #0b59ff, #5900FF)', scale: 1 } : {})
     } // 오버레이 마우스 퇴장
 
+    const handleOverlayClick = (mlat: number, mlng: number) => {
+        if (currentZoom < 7) {
+            setZoom((prev) => (prev === 9 ? 9.1 : 9))
+            // 조금씩 차이를 주어야 변경됨
+        } else {
+            setZoom((prev) => (prev === 12 ? 12.1 : 12))
+        }
+        setLat((prev) => (prev === mlat - 0.0005) ? mlat - 0.00050001 : mlat - 0.0005)
+        setLng((prev) => (prev === (mlng + 0.0005)) ? mlng + 0.00050001 : mlng + 0.0005)
+        console.log(mlat, mlng)
+    }
     useEffect(() => {
         console.log('Zoom Changed', currentZoom)
     }, [currentZoom]) // 줌 레벨 확인
@@ -216,9 +227,6 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     }, [lat, lng])
     // 구글 화면 이동, 처리해주지 않으면 이동안함.
 
-    useEffect(() => {
-        setZoom(14)
-    }, [currentZoom, zoom]) // 줌 변경 되었을 때 설정, 처리해줘야 다음 지도에서 보기 눌렀을 때 줌 변경됨
 
     return (
         <div className="map_wrap">
@@ -267,6 +275,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                                         onMouseLeave={() =>
                                                             handleSpringLeave(countryIndex)
                                                         }
+                                                        onClick={() => handleOverlayClick(countryCenter.lat, countryCenter.lng)}
                                                         className="country_overlay"
                                                     >
                                                         <p>{hotelCount}</p>
@@ -304,6 +313,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
                                                             onMouseLeave={() =>
                                                                 handleSpringLeave(regionIndex)
                                                             }
+                                                            onClick={() => handleOverlayClick(hotelPosition.lat, hotelPosition.lng)}
                                                             className="region_overlay"
                                                         >
                                                             <p>{hotelCount}</p>

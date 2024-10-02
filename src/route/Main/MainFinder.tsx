@@ -173,6 +173,7 @@ const MainFinder: React.FC = () => {
     // 검색 버튼 클릭
     const searchClick = () => {
         setFilterData(filteredHotels);
+        console.log('필터호텔', filteredHotels)
         navigate(`/search?query=${searchTerm}`);
         setFinderOn(false)
         setModal(false)
@@ -248,20 +249,22 @@ const MainFinder: React.FC = () => {
             setPreview(false);
             return;
         } else {
+            // 공백 제거 후 검색
+            const replaceSearchTerm = searchTerm.toLowerCase().replace(/\s+/g, '');
             // 검색어가 있을 경우, 호텔 데이터를 필터링
             const filteredHotel = hotelData.filter(hotel =>
-                hotel.title.toLowerCase().includes(searchTerm.toLowerCase())
+                hotel.title.toLowerCase().replace(/\s+/g, '').includes(replaceSearchTerm)
                 ||
-                (Array.isArray(hotel.region) && hotel.region.some(region => region.toLowerCase().includes(searchTerm.toLowerCase())))
+                (Array.isArray(hotel.region) && hotel.region.some(region => region.toLowerCase().includes(replaceSearchTerm)))
                 ||
-                hotel.country.toLowerCase().includes(searchTerm.toLowerCase())
+                hotel.country.toLowerCase().replace(/\s+/g, '').includes(replaceSearchTerm)
                 ||
-                (Array.isArray(hotel.searchWord) && hotel.searchWord.some(search => search.toLowerCase().includes(searchTerm.toLowerCase().replace(/\s+/g, ''))))
+                (Array.isArray(hotel.searchWord) && hotel.searchWord.some(search => search.toLowerCase().includes(replaceSearchTerm)))
             );
             //  검색어가 있을 경우, 지역 데이터를 필터링
             const filteredRegion = regionData.filter(region =>
-                region.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                region.subTitle.toLowerCase().includes(searchTerm.toLowerCase())
+                region.title.toLowerCase().replace(/\s+/g, '').includes(replaceSearchTerm) ||
+                region.subTitle.toLowerCase().replace(/\s+/g, '').includes(replaceSearchTerm)
             );
 
             //  필터링 된 데이터를 하나의 배열로 합침.
@@ -273,7 +276,7 @@ const MainFinder: React.FC = () => {
 
             // 필터링된 데이터를 필터 데이터에 설정
             setPreviewData(combinedData);
-
+            console.log(combinedData)
             // 필터링된 데이터의 길이가 0 이상일 때만 true로 설정
             setPreview(combinedData.length > 0);
         }

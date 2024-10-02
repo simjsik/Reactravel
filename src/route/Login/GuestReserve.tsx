@@ -21,7 +21,6 @@ const GuestReserve: React.FC = () => {
 
     const handleLoginToggle = () => {
         setGuestToggle((prev) => !prev)
-        setModal((prev) => !prev)
     }
 
     const handleReserve = async (e: React.FormEvent) => {

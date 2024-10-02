@@ -11,6 +11,7 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import MapView from "../Map/MapView";
 import 'swiper/css';
+import { currentZoomState } from "../../MapState";
 const MainSearch: React.FC = () => {
     const swiperRef = useRef<SwiperClass | null>(null);
     const rightFilterRef = useRef<HTMLDivElement>(null);
@@ -30,6 +31,7 @@ const MainSearch: React.FC = () => {
     const [lat, setLat] = useRecoilState<number>(defaultLat)
     const [lng, setLng] = useRecoilState<number>(defaultLng)
     const [zoom, setZoom] = useRecoilState<number>(defaultZoom)
+    const [currentZoom, setCurrentZoom] = useRecoilState<number>(currentZoomState)
     const [modal, setModal] = useRecoilState<boolean>(modalState)
     const [mapSlideIndex, setSlideIndex] = useRecoilState<number>(mapSlideIndexState)
 
@@ -47,11 +49,6 @@ const MainSearch: React.FC = () => {
     const media = useRecoilValue(mediaState)
     const footerY = useRecoilValue(footerYState)
     // state
-
-    const mapHandle = (thisLat: number, thisLng: number) => {
-        setLat(thisLat);
-        setLng(thisLng);
-    }
 
     const priceSlider = (newRange: number[]) => {
         const minDistance = 10000; // 최소간격
@@ -146,10 +143,11 @@ const MainSearch: React.FC = () => {
 
     const setLocation = (event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>, mlat: number, mlng: number) => {
         event.stopPropagation();
-        setLat((prev) => (prev === (mlat - 0.005)) ? mlat - 0.00500001 : mlat - 0.005)
-        setLng((prev) => (prev === (mlng + 0.0015)) ? mlng + 0.001500001 : mlng + 0.0015)
+        setLat((prev) => (prev === mlat - 0.0005) ? mlat - 0.0005000001 : mlat - 0.0005)
+        setLng((prev) => (prev === (mlng + 0.0005)) ? mlng + 0.0005000001 : mlng + 0.0005)
         // 같은 좌표면 이동하지 않기 때문에 미세한 차이 주기
-        setZoom(18)
+        setZoom((prev) => (prev === 18) ? 17.9 : 18)
+        setCurrentZoom((prev) => (prev === 18) ? 17.9 : 18)
         if (!map) {
             goMap()
         }

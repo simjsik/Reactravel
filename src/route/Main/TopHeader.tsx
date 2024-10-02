@@ -45,7 +45,6 @@ const TopHeader: React.FC = () => {
       await signOut(auth);
       setUser(null);
       alert('로그아웃에 성공했습니다.')
-      setModal((prev) => !prev)
       if (location.pathname === '/reserve_confirm') {
         navigate('/home')
       }
@@ -59,7 +58,6 @@ const TopHeader: React.FC = () => {
     if (media > 1) {
       setModal((prev) => !prev)
     }
-    setNavToggle((prev) => !prev)
   } // 로그인 토글
 
   const handleNav = () => {
@@ -71,7 +69,6 @@ const TopHeader: React.FC = () => {
 
   const handleReserve = () => {
     setReserveToggle((prev) => !prev);
-    setNavToggle((prev) => !prev)
     if (media > 1) {
       setModal((prev) => !prev)
     }
@@ -135,8 +132,6 @@ const TopHeader: React.FC = () => {
                 : location.pathname === '/reserve_confirm' ? 'confirm_header nav'
                   : ''
         }`}>
-        {loginToggle && <Login />}
-        {reserveToggle && <GuestReserve />}
         <div className='header_wrap'>
           <div className='header_logo' onClick={homeClick}>
             {media === 0 ? <>
@@ -199,40 +194,45 @@ const TopHeader: React.FC = () => {
       </header >
       {
         navToggle && media < 2 &&
-        <div className="nav_on_box">
-          <button className="nav_close_btn" onClick={handleNav}>
-            <svg viewBox="-2 -3 24 24" className="login_undo_svg">
-              <g id="prevIcon" data-name="prevIcon"><g id="prev" data-name="prev">
-                <rect className="cls-1" width="18" height="18" />
-                <polyline className="cls-2" points="11.57 3.87 6.43 9 11.56 14.13" />
-              </g></g>
-            </svg>
-          </button>
-          <p>로그인 / 예약 조회</p>
-          <div className="mb_nav_event_wrap">
-            <div className="mb_nav_event">
-              <div className="mb_nav_icon"></div>
-              <span>회원 / 비회원 모두 예약가능</span>
+        <>
+          <div className="nav_on_box">
+            <button className="nav_close_btn" onClick={handleNav}>
+              <svg viewBox="-2 -3 24 24" className="login_undo_svg">
+                <g id="prevIcon" data-name="prevIcon"><g id="prev" data-name="prev">
+                  <rect className="cls-1" width="18" height="18" />
+                  <polyline className="cls-2" points="11.57 3.87 6.43 9 11.56 14.13" />
+                </g></g>
+              </svg>
+            </button>
+            <div className="mobile_login_art"></div>
+            <p>로그인 / 예약 조회</p>
+            <div className="mb_nav_event_wrap">
+              <div className="mb_nav_event">
+                <div className="mb_nav_icon"></div>
+                <span>회원 / 비회원 모두 예약가능</span>
+              </div>
+              <div className="mb_nav_event">
+                <div className="mb_nav_icon"></div>
+                <span>회원 예약 시 다양한 혜택</span>
+              </div>
             </div>
-            <div className="mb_nav_event">
-              <div className="mb_nav_icon"></div>
-              <span>회원 예약 시 다양한 혜택</span>
-            </div>
+            {
+              user ?
+                <button onClick={handleLogout} className="header_logout">
+                  로그아웃
+                </button>
+                :
+                <button className='header_login' onClick={handleLoginToggle}>
+                  로그인
+                </button>
+            }
+            <button className="guest_reserve" onClick={handleReserve}>
+              비회원 예약 조회
+            </button>
           </div>
-          {
-            user ?
-              <button onClick={handleLogout} className="header_logout">
-                로그아웃
-              </button>
-              :
-              <button className='header_login' onClick={handleLoginToggle}>
-                로그인
-              </button>
-          }
-          <button className="guest_reserve" onClick={handleReserve}>
-            비회원 예약 조회
-          </button>
-        </div>
+          {loginToggle && <Login />}
+          {reserveToggle && <GuestReserve />}
+        </>
       }
     </>
   )

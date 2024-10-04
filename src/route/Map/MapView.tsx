@@ -18,13 +18,13 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
     const [hotelBoxId, setHotelBoxId] = useState<number | null>(null)
     const [hotelBoxTime, setHotelBoxTime] = useState<NodeJS.Timeout | null>(null)
     const [maps, setMaps] = useState<google.maps.Map | null>(null)
-    const [overlayHotels, setOverlayHotels] = useState<Hotel[]>([])
-    const [hoveredCountry, setHoveredCountry] = useState<string | null>(null)
+    const [overlayHotels, setOverlayHotels] = useState<Hotel[]>(copyFilteredHotels)
 
 
     const [map, setMap] = useRecoilState<boolean>(defaultMap)
 
-    const hotels = useRecoilValue(filterDataState)
+    const allHotels = useRecoilValue<Hotel[]>(filteredHotelSelector)
+
     const [zoom, setZoom] = useRecoilState(defaultZoom)
 
     const [currentZoom, setCurrentZoom] = useRecoilState<number>(currentZoomState);
@@ -208,7 +208,7 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         console.log(mlat, mlng)
     }
     useEffect(() => {
-        console.log('Zoom Changed', currentZoom)
+        // console.log('Zoom Changed', currentZoom)
     }, [currentZoom]) // 줌 레벨 확인
 
     useEffect(() => {
@@ -219,6 +219,12 @@ const MapView: React.FC<MapViewComponent> = ({ copyFilteredHotels }) => {
         }
     }, [hotelBoxTime])
 
+    useEffect(() => {
+        if (overlayHotels.length === 0) {
+            setOverlayHotels(allHotels)
+            // console.log('호텔비어있음!', allHotels)
+        }
+    }, [overlayHotels])
 
     useEffect(() => {
         if (maps) {

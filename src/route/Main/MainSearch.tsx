@@ -98,6 +98,7 @@ const MainSearch: React.FC = () => {
     useEffect(() => { // 비어있을 호텔 데이터를 채워주기
         if (filteredHotels.length === 0) {
             setFilteredHotels(allHotels);
+            setCopyFilteredHotels(allHotels)
         }
         if (filteredHotels.length > 0) {
             setCopyFilteredHotels(filteredHotels);
@@ -252,7 +253,7 @@ const MainSearch: React.FC = () => {
                             <div className="mb_filter_map" onClick={goMap}>
                                 <div className="mb_filter_map_icon">
                                 </div>
-                                <span>지도 보기</span>
+                                <span>지도 닫기</span>
                             </div>
                             <div className="mb_filter_options" onClick={handleFilter}>
                                 <div className="mb_filter_icon"></div>

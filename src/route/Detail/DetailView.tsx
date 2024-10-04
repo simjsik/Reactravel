@@ -177,7 +177,7 @@ const DetailView: React.FC = () => {
         }
         setMap((prev) => !prev)
         setModal(false)
-        navigate('/search?query=map')
+        navigate(-1)
     }
     return (
         <div className="detail_wrap">

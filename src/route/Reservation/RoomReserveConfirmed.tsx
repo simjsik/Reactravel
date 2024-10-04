@@ -19,7 +19,7 @@ const RoomReserveConfirmed: React.FC = () => {
         const saved = sessionStorage.getItem("reservation");
         return saved ? JSON.parse(saved) : [];
     });
-    
+
     const user = useRecoilValue(userState)
     const media = useRecoilValue(mediaState)
 
@@ -85,9 +85,9 @@ const RoomReserveConfirmed: React.FC = () => {
                     <div className="reserve_confirm_box">
                         <div className="reserve_id">
                             <p>예약 ID</p>
-                            <div className="reserve_id_text">
+                            <div className="reserve_id_text" onClick={() => idCopyHandle(reservedId)}>
                                 <span>{reservedId}</span>
-                                <div className="mb_id_copy" onClick={() => idCopyHandle(reservedId)}></div>
+                                <div className="mb_id_copy"></div>
                             </div>
                             <div className="alert_box">
                                 <span>* 비회원 고객님들께서는 반드시 예약 ID를 저장해주세요.</span>

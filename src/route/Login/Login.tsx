@@ -49,6 +49,9 @@ const Login: React.FC = () => {
 
     const handleLoginToggle = () => {
         setLoginToggle((prev) => !prev);
+        if (media > 1) {
+            setModal((prev) => !prev)
+        }
     } // 로그인 창 토글
     return (
         <>

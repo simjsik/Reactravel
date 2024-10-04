@@ -143,7 +143,6 @@
     .pc .reserve_confirm_box .reserve_id .mb_id_copy {
         width: 18px;
         height: 18px;
-        background: red;
         margin-left: 4px;
     }
 
@@ -276,6 +275,10 @@
         margin-top: 36px;
     }
 
+    .mb .reserve_confirm_box .reserve_id .mb_id_copy {
+        background-image: url('https://github.com/user-attachments/assets/a120708e-9a14-4fd7-85b5-e1dcbc3185a1');
+    }
+
     .reserve_progress_circle {
         position: absolute;
         top: -7px;
@@ -284,7 +287,9 @@
         background: #3c00ff;
         width: 14px;
         height: 14px;
-
+        background-image: url("https://github.com/user-attachments/assets/9bf7f21d-532c-43a0-b886-dc614180c4f9");
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .reserve_progress p {
@@ -407,11 +412,15 @@
         background: linear-gradient(to bottom, transparent 50%, #efe9ff 51%);
     }
 
+    .mb .reserve_confirm_box .reserve_id .mb_id_copy {
+        background-image: url('https://github.com/user-attachments/assets/a120708e-9a14-4fd7-85b5-e1dcbc3185a1');
+    }
+
     .pc .reserve_confirm_box .reserve_id .mb_id_copy {
         width: 18px;
         height: 18px;
-        background: red;
         margin-left: 4px;
+        background-image: url('https://github.com/user-attachments/assets/a120708e-9a14-4fd7-85b5-e1dcbc3185a1');
     }
 
     .pc .reserve_id>span {
@@ -603,7 +612,6 @@
     .tb .reserve_confirm_box .reserve_id .mb_id_copy {
         width: 18px;
         height: 18px;
-        background: red;
         margin-left: 4px;
     }
 
@@ -746,7 +754,7 @@
 @media screen and (max-width : 480px) {
     .mb .reserve_confirm_wrap {
         margin-top: 40px;
-        padding: 10px 10px 200px;
+        padding: 10px 10px 20px;
     }
 
     .mb .reserve_confirm_wrap>p {
@@ -814,7 +822,6 @@
     .mb .reserve_confirm_box .reserve_id .mb_id_copy {
         width: 18px;
         height: 18px;
-        background: red;
         margin-left: 4px;
     }
 

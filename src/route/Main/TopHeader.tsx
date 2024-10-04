@@ -234,6 +234,26 @@ const TopHeader: React.FC = () => {
           {reserveToggle && <GuestReserve />}
         </>
       }
+      {
+        media >= 2 &&
+        <>
+          {
+            user ?
+              <button onClick={handleLogout} className="header_logout">
+                로그아웃
+              </button>
+              :
+              <button className='header_login' onClick={handleLoginToggle}>
+                로그인
+              </button>
+          }
+          <button className="guest_reserve" onClick={handleReserve}>
+            비회원 예약 조회
+          </button>
+          {loginToggle && <Login />}
+          {reserveToggle && <GuestReserve />}
+        </>
+      }
     </>
   )
 }

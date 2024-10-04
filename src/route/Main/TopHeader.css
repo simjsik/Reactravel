@@ -872,6 +872,7 @@
 
     .confirm_header .header_right {
         position: static;
+        margin-top: 0;
         padding: 4px 0px 0px;
         flex: 1 0 50%;
         display: block;

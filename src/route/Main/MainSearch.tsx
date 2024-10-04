@@ -245,6 +245,7 @@ const MainSearch: React.FC = () => {
                                     <div>
                                         <div></div>
                                         <span>{adult + child}</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +254,7 @@ const MainSearch: React.FC = () => {
                             <div className="mb_filter_map" onClick={goMap}>
                                 <div className="mb_filter_map_icon">
                                 </div>
-                                <span>지도 닫기</span>
+                                {map ? <span>지도 닫기</span> : <span>지도 열기</span>}
                             </div>
                             <div className="mb_filter_options" onClick={handleFilter}>
                                 <div className="mb_filter_icon"></div>

@@ -246,6 +246,11 @@ const MainFinder: React.FC = () => {
             setOnCalender(false)
             setMbCalender(false)
             setTemporaryNight(night)
+            if (location.pathname === '/detail') {
+                if (media < 2) {
+                    setModal((prev) => !prev)
+                }
+            }
         } else {
             alert('날짜를 전부 선택 해주세요')
             return

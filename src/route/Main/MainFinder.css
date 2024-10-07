@@ -1408,7 +1408,6 @@ table {}
 
   .mb_calendar_date>p:nth-of-type(1) {
     font-size: 14px;
-    font-family: 'nanumbarungothicbold';
   }
 
   .mb_calendar_close {
@@ -2052,7 +2051,6 @@ table {}
 
   .mb_calendar_date>p:nth-of-type(1) {
     font-size: 14px;
-    font-family: 'nanumbarungothicbold';
   }
 
   .mb_calendar_close {

@@ -195,7 +195,7 @@ const RoomReserve: React.FC = () => {
         setModal((prev) => !prev)
     }, [reservedId])
     // 예약 성공 시 이동
-    
+
     const showRoomHandle = () => {
         setShowAllRoom((prev) => !prev)
         setModal((prev) => !prev)
@@ -565,6 +565,8 @@ const RoomReserve: React.FC = () => {
                                                 zoom={reserveZoom} // 초기 줌 레벨 설정
                                                 center={reserveCenter}
                                                 options={{
+                                                    minZoom: 5,
+                                                    maxZoom: 18,
                                                     gestureHandling: "none", // 사용자가 의도한 제스처에만 반응하도록 설정
                                                     disableDefaultUI: true, // 기본 UI 비활성화
                                                     keyboardShortcuts: false, // 키보드 단축키 비활성화
@@ -759,6 +761,8 @@ const RoomReserve: React.FC = () => {
                                             zoom={reserveZoom} // 초기 줌 레벨 설정
                                             center={reserveCenter}
                                             options={{
+                                                minZoom: 5,
+                                                maxZoom: 18,
                                                 gestureHandling: "greedy", // 사용자가 의도한 제스처에만 반응하도록 설정
                                                 disableDefaultUI: true, // 기본 UI 비활성화
                                                 keyboardShortcuts: false, // 키보드 단축키 비활성화

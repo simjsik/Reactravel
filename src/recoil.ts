@@ -107,6 +107,10 @@ export const calenderState = atom<boolean>({
     key: 'calenderState',
     default: false
 })
+export const calenderIndexState = atom<number>({
+    key: 'calenderIndexState',
+    default: 0
+})
 export const setterState = atom({
     key: 'setterState',
     default: false,
@@ -139,6 +143,15 @@ export const defaultCheckInState = atom<Date | null>({
 
 export const defaultCheckOutState = atom<Date | string | null>({
     key: 'defaultCheckOutState',
+    default: nextDay,
+})
+export const clickCheckInState = atom<Date | null>({
+    key: 'clickCheckInState',
+    default: today,
+})
+
+export const clickCheckOutState = atom<Date | string | null>({
+    key: 'clickCheckOutState',
     default: nextDay,
 })
 

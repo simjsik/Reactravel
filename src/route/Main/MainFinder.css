@@ -540,12 +540,12 @@ table {}
     padding: 20px;
   }
 
-  .mb_claendar_date span {
+  .mb_calendar_date span {
     margin-top: 8px;
     display: block;
   }
 
-  .mb_claendar_date p:nth-of-type(2) {
+  .mb_calendar_date p:nth-of-type(2) {
     margin-top: 4px;
   }
 
@@ -1400,13 +1400,13 @@ table {}
     font-size: 16px;
   }
 
-  .mb_claendar_date {
+  .mb_calendar_date {
     width: 100%;
     justify-content: space-between;
     padding: 0px 10px;
   }
 
-  .mb_claendar_date>p:nth-of-type(1) {
+  .mb_calendar_date>p:nth-of-type(1) {
     font-size: 14px;
     font-family: 'nanumbarungothicbold';
   }
@@ -1478,12 +1478,12 @@ table {}
     background: #555;
   }
 
-  .mb_claendar_date span {
+  .mb_calendar_date span {
     font-family: 'nanumbarungothicbold';
     line-height: 24px;
   }
 
-  .mb_claendar_date p:nth-of-type(2) {
+  .mb_calendar_date p:nth-of-type(2) {
     color: rgb(141, 161, 184);
     margin-top: 8px;
   }
@@ -2044,13 +2044,13 @@ table {}
     color: #fff;
   }
 
-  .mb_claendar_date {
+  .mb_calendar_date {
     width: 100%;
     justify-content: space-between;
     padding: 10px 20px;
   }
 
-  .mb_claendar_date>p:nth-of-type(1) {
+  .mb_calendar_date>p:nth-of-type(1) {
     font-size: 14px;
     font-family: 'nanumbarungothicbold';
   }
@@ -2103,12 +2103,12 @@ table {}
     margin-top: 4px;
   }
 
-  .mb_claendar_date span {
+  .mb_calendar_date span {
     font-family: 'nanumbarungothicbold';
     line-height: 24px;
   }
 
-  .mb_claendar_date p:nth-of-type(2) {
+  .mb_calendar_date p:nth-of-type(2) {
     color: rgb(141, 161, 184);
     margin-top: 8px;
   }
@@ -2352,7 +2352,7 @@ table {}
     top: auto;
   }
 
-  .search_wrap .hs_search_preview{
+  .search_wrap .hs_search_preview {
     width: 100%;
   }
 

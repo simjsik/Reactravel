@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import './MainFinder.css'
 import { useRecoilState, useRecoilValue } from "recoil";
-import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState, calenderState, mbSetterState } from "../../recoil";
+import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState, calenderState, mbSetterState, calenderIndexState, clickCheckOutState, clickCheckInState } from "../../recoil";
 import { useLocation, useNavigate } from "react-router-dom";
 import useHotelDetail from "../Hook/useHotelDetail";
 
@@ -27,8 +27,8 @@ const MainFinder: React.FC = () => {
     const [capacity, setCapacity] = useState<number>(room * 4)
     const [onCalender, setOnCalender] = useState<boolean>(false);
 
-    const [clickCheckIn, setClickCheckIn] = useState<Date>(new Date())
-    const [clickCheckOut, setClickCheckOut] = useState<Date | string>(new Date(clickCheckIn.getTime() + 86400000))
+    const [clickCheckIn, setClickCheckIn] = useRecoilState<Date | null>(clickCheckInState)
+    const [clickCheckOut, setClickCheckOut] = useRecoilState<Date | string | null>(clickCheckOutState)
     // state
 
     const reviewInputRef = useRef<HTMLInputElement>(null);
@@ -81,13 +81,14 @@ const MainFinder: React.FC = () => {
         }
     } // 객실 인원 수
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useRecoilState<number>(calenderIndexState);
 
     // 날짜 가져오기
     const [defaultCheckIn, setDefaultCheckIn] = useRecoilState<Date | null>(defaultCheckInState);
     const [defaultCheckOut, setDefaultCheckOut] = useRecoilState<Date | null | string>(defaultCheckOutState);
 
     // 몇박 며칠 표시하기
+    const [temporaryNight, setTemporaryNight] = useState<number>(0)
     const [night, setNight] = useRecoilState<number>(nightState)
 
     const [calendarClickCount, setCalendarClickCount] = useState<number>(0);
@@ -127,11 +128,15 @@ const MainFinder: React.FC = () => {
         setMbCalender((prev) => !prev);
         setSetter(false);
         setPreview(false);
-        setCurrentIndex(0);
         if (location.pathname === '/detail') {
             if (media < 2) {
                 setModal((prev) => !prev)
             }
+        }
+        if (media < 1) {
+            setClickCheckIn(defaultCheckIn)
+            setClickCheckOut(defaultCheckOut)
+            setNight(temporaryNight)
         }
     }
 
@@ -181,11 +186,16 @@ const MainFinder: React.FC = () => {
 
     const handleHover = (day: number, month: number, year: number) => {
         if (calendarClickCount === 1) {
-            if (media < 1) {
-                setHoverDate(new Date(year, month - 1, day))
-            }
-            if (month >= today.getMonth() + 1 && day > clickCheckIn.getDate()) {
-                setHoverDate(new Date(year, month - 1, day))
+            if (clickCheckIn) {
+                const hoverDate = new Date(year, month - 1, day)
+
+                if (media <= 1) {
+                    setHoverDate(new Date(year, month - 1, day))
+                }
+                if (clickCheckIn < hoverDate) {
+                    setHoverDate(new Date(year, month - 1, day))
+                    setClickCheckOut(new Date(year, month - 1, day))
+                }
             }
         }
     } // 호버 시 날짜 계산
@@ -235,12 +245,16 @@ const MainFinder: React.FC = () => {
 
             setOnCalender(false)
             setMbCalender(false)
+            setTemporaryNight(night)
         } else {
             alert('날짜를 전부 선택 해주세요')
             return
         }
     }
 
+    useEffect(() => {
+        setTemporaryNight(night)
+    }, [])
     useEffect(() => { // 검색창 기능.
 
         // 검색어가 비었을 경우 필터링된 호텔, 지역 데이터를 빈 배열로 설정
@@ -592,7 +606,7 @@ const MainFinder: React.FC = () => {
                                         <button className='calendarNext' onClick={() => setCalenderNext(setCurrentIndex, months.length - 2)}><img src='https://github.com/simjsik/savefile/assets/39624384/3ed517cf-52af-4c78-be11-b7a28e2f2f58' alt="다음"></img></button>
                                     </div>
                                     <footer className="calendar_footer">
-                                        <div className="mb_claendar_date">
+                                        <div className="mb_calendar_date">
                                             <p>{clickCheckIn === null ? formatDate(new Date()) : formatDate(clickCheckIn)} - {formatDate(clickCheckOut)}</p>
                                             <span>{night}박</span>
                                             <p>모든 날짜는 현지 시간 기준입니다.</p>
@@ -618,7 +632,7 @@ const MainFinder: React.FC = () => {
                                         <button className='calendarPrev' onClick={() => setCalenderPrev(setCurrentIndex, 0)}><img src='https://github.com/simjsik/savefile/assets/39624384/d99b0090-cf55-4f4d-ad23-59f124992614' alt="이전"></img></button>
                                         <button className='calendarNext' onClick={() => setCalenderNext(setCurrentIndex, months.length - 2)}><img src='https://github.com/simjsik/savefile/assets/39624384/3ed517cf-52af-4c78-be11-b7a28e2f2f58' alt="다음"></img></button>
                                         <footer className="calendar_footer">
-                                            <div className="mb_claendar_date">
+                                            <div className="mb_calendar_date">
                                                 <p>{clickCheckIn === null ? formatDate(new Date()) : formatDate(clickCheckIn)} - {formatDate(clickCheckOut)}</p>
                                                 <span>{night}박</span>
                                                 <p>모든 날짜는 현지 시간 기준입니다.</p>
@@ -741,7 +755,7 @@ const MainFinder: React.FC = () => {
                         <button className='calendarNext' onClick={() => setCalenderNext(setCurrentIndex, months.length - 2)}><img src='https://github.com/simjsik/savefile/assets/39624384/3ed517cf-52af-4c78-be11-b7a28e2f2f58' alt="다음"></img></button>
                     </div>
                     <footer className="calendar_footer">
-                        <div className="mb_claendar_date">
+                        <div className="mb_calendar_date">
                             <p>{clickCheckIn === null ? formatDate(new Date()) : formatDate(clickCheckIn)} - {formatDate(clickCheckOut)}</p>
                             <span>{night}박</span>
                             <p>모든 날짜는 현지 시간 기준입니다.</p>

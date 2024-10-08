@@ -2356,12 +2356,15 @@ table {}
 
   /* 디테일 */
   .detail_finder {
-    position: fixed;
+    position: absolute;
+    top: 400px;
     width: 100%;
+    height: auto;
     padding: 10px;
     margin-top: 0;
     box-shadow: none;
     min-height: auto;
+    background: #fff;
   }
 
   .detail_finder .hs_title {
@@ -2375,10 +2378,12 @@ table {}
   .detail_finder .hs_check {
     margin-top: 0px;
     border-bottom: 1px solid rgb(235, 235, 235);
+    display: flex;
   }
 
   .detail_finder .hs_person {
     margin-top: 10px;
+    display: block;
   }
 
   .detail_finder .search_box {

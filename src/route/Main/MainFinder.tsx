@@ -189,12 +189,19 @@ const MainFinder: React.FC = () => {
             if (clickCheckIn) {
                 const hoverDate = new Date(year, month - 1, day)
 
-                if (media <= 1) {
-                    setHoverDate(new Date(year, month - 1, day))
-                }
-                if (clickCheckIn < hoverDate) {
-                    setHoverDate(new Date(year, month - 1, day))
-                    setClickCheckOut(new Date(year, month - 1, day))
+                if (clickCheckIn) {
+                    // 클릭한 날짜가 체크인 날짜보다 이전일 경우 초기화
+                    if (clickCheckIn > hoverDate) {
+                        setHoverDate(null);  // 호버 날짜 초기화
+                        setClickCheckOut(null); // 체크아웃 초기화
+                        setCalendarClickCount(1); // 다시 체크인 대기 상태로
+                    } else {
+                        if (media <= 1) {
+                            setHoverDate(hoverDate);
+                        }
+                        setHoverDate(hoverDate);
+                        setClickCheckOut(hoverDate); // 체크아웃 날짜 업데이트
+                    }
                 }
             }
         }
@@ -208,10 +215,12 @@ const MainFinder: React.FC = () => {
         const currentDay = document.querySelector(
             `.calender_month_view td[data-day='${day}'][data-month='${month}'][data-year='${year}']`
         )
+        //  현재 날짜보다 이 전날 클릭 시 무시
         if (clickedDay < toDate) {
             setCalendarClickCount((prev) => prev)
             return
         }
+        // 체크인 클릭
         if (calendarClickCount === 0) {
             if (currentDay && currentDay.classList.contains('check')) {
                 allDays.forEach(day => day.classList.remove('check'));
@@ -220,10 +229,12 @@ const MainFinder: React.FC = () => {
             setClickCheckIn(clickedDate)
             setClickCheckOut('날짜를 선택해 주세요')
             setNight(0)
+            setHoverDate(null);
             setCalendarClickCount(1);
-        } else if (calendarClickCount === 1) {
+        } else if (calendarClickCount === 1) { // 체크아웃 클릭
             if (clickCheckIn && clickedDate <= clickCheckIn) {
                 setClickCheckIn(clickedDate)
+                setHoverDate(null);
                 setCalendarClickCount(1);
             } else {
                 setClickCheckOut(clickedDate);
@@ -440,7 +451,7 @@ const MainFinder: React.FC = () => {
             const isPastday = new Date(month.year, month.month - 1, day + 1) < today;
 
             const inRangeClass =
-                onCalender
+                (onCalender || mbCalender)
                 &&
                 (
                     (clickCheckIn &&
@@ -463,7 +474,7 @@ const MainFinder: React.FC = () => {
                     ${isCheckIn ? 'checkIn' : ''}
                     ${isCheckOut ? 'checkOut' : ''}
                     ${isPastday ? 'past' : ''}
-                    ${onCalender && ((!isToday && !isNextDay) && inRangeClass)}
+                    ${(onCalender || mbCalender) && ((!isToday && !isNextDay) && inRangeClass)}
                     `}
                     onClick={() => reSetCheck(day, month.month, month.year)}
                     onMouseEnter={() => handleHover(day, month.month, month.year)}

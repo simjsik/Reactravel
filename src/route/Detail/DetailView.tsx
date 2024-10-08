@@ -162,6 +162,7 @@ const DetailView: React.FC = () => {
         setCalender((prev) => !prev)
         setModal((prev) => !prev)
     }
+
     const toggleSetter = () => {
         setSetter((prev) => !prev)
         setModal((prev) => !prev)
@@ -181,6 +182,7 @@ const DetailView: React.FC = () => {
     }
     return (
         <div className="detail_wrap">
+            {media < 2 && (calender || setter) && < MainFinder />}
             {media < 2 &&
                 <div className={`mb_detail_top_nav ${fixed && 'onFixed'}`}>
                     {hotel && <>
@@ -864,7 +866,6 @@ const DetailView: React.FC = () => {
                 )
                 }
             </div >
-            {media < 2 && (calender || setter) && <MainFinder />}
             {/* Detail Cont */}
         </div >
     );

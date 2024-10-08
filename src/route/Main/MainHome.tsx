@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'; // 추가
+import 'react-loading-skeleton/dist/skeleton.css';
 // import { Swiper as SwiperClass } from 'swiper/types';
 import 'swiper/css';
 import './MainHome.css'

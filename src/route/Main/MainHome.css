@@ -40,6 +40,18 @@
     position: relative;
 }
 
+.hotpic_skeleton,
+.most_skeleton,
+.event_skeleton {
+    margin-right: 10px;
+}
+
+.hotpic_skeleton:last-child,
+.most_skeleton:last-child,
+.event_skeleton:last-child {
+    margin-right: 0;
+}
+
 .event_box img {
     object-fit: cover;
     transition: .2s;
@@ -68,7 +80,9 @@
 
 
 /* swiper */
-#homeVisual .swiper {}
+#homeVisual .event_wrap .swiper {
+    width: 100%;
+}
 
 #homeVisual .swiper-slide {
     border-radius: 4px;

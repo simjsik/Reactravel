@@ -1514,7 +1514,7 @@ table {}
   .setting_box_bg {
     position: absolute;
     background: rgba(0, 0, 0, 0.6);
-    top: -60px;
+    top: 0px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -1611,6 +1611,9 @@ table {}
     margin-top: 8px;
     width: 42px;
     height: 42px;
+    background: none;
+    border: none;
+    background: url('https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6');
   }
 
   .home_finder {
@@ -1758,6 +1761,7 @@ table {}
 
   .search_finder .calendar {
     top: 120px;
+    width: 100%;
     height: calc(100% - 270px);
   }
 
@@ -1787,6 +1791,8 @@ table {}
 
   .search_finder .setting_box {
     height: 35%;
+    top: auto;
+    bottom: 0;
   }
 
   /* 디테일 */
@@ -2234,7 +2240,6 @@ table {}
     margin-top: 0px;
     margin-left: 10px;
     border: none;
-    background: url('https://github.com/user-attachments/assets/136ee635-423c-4c4b-8c89-505ea885fee6');
     background-size: cover;
     background-repeat: no-repeat;
   }

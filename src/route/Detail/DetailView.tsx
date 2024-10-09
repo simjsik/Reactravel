@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import { adultState, calenderState, childState, defaultCheckInState, defaultCheckOutState, defaultLat, defaultLng, defaultMap, defaultZoom, finderState, hotelDataState, mapSlideIndexState, mbSetterState, mediaState, modalState, roomState } from "../../recoil";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import useHotelDetail from "../Hook/useHotelDetail";
@@ -11,7 +13,7 @@ const DetailView: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-
+    const [loading, setLoading] = useState<boolean>(true); // 로딩 상태
     const [handleVisible, setHandleVisible] = useState<string[]>(['01', '02', '03']);
     const [pMore, setPMore] = useState<boolean>(false)
     const [popupId, setPopupId] = useState<string | null>(null)
@@ -157,6 +159,15 @@ const DetailView: React.FC = () => {
     }, [])
     // 스크롤 스타일
 
+    useEffect(() => {
+        const detailSkeleton = setInterval(() => {
+            setLoading(false)
+        }, 300000);
+
+        return () => {
+            clearTimeout(detailSkeleton); // 타이머 초기화
+        };
+    }, [])
 
     const toggleCalender = () => {
         setCalender((prev) => !prev)
@@ -413,20 +424,57 @@ const DetailView: React.FC = () => {
                                 <p className={`${pMore ? 'p_more' : ''}`}>{hotelDetails && hotelDetails.hotelDetail.join(',')}</p>
                                 <button className='detail_more_btn' onClick={pMoreToggle}>{!pMore ? '더 보기' : '숨기기'}</button>
                             </div>
-                            {media > 1 ? <div className="hotel_detail_img">
-                                {hotelDetails && (
+                            {media > 1 && loading ?
+                                <div className="detail_img_skeleton">
                                     <div className="detail_img">
-                                        <img src={hotelDetails.hotelImg[0]} alt={`Hotel_${hotel.hotelId}_Image 0`} />
+                                        <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
                                     </div>
-                                )}
-                                <div className="detail_img_right">
-                                    {hotelDetails && hotelDetails.hotelImg.slice(1).map((imgUrl, index) => (
-                                        <div className="detail_img" key={index}>
-                                            <img src={imgUrl} alt={`Hotel ${hotel.hotelId} Image ${index}`} />
+                                    <div className="detail_img_right">
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
                                         </div>
-                                    ))}
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="detail_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div> : null}
+                                :
+                                <div className="hotel_detail_img">
+                                    {hotelDetails && (
+                                        <div className="detail_img">
+                                            <img src={hotelDetails.hotelImg[0]} alt={`Hotel_${hotel.hotelId}_Image 0`} />
+                                        </div>
+                                    )}
+                                    <div className="detail_img_right">
+                                        {hotelDetails && hotelDetails.hotelImg.slice(1).map((imgUrl, index) => (
+                                            <div className="detail_img" key={index}>
+                                                <img src={imgUrl} alt={`Hotel ${hotel.hotelId} Image ${index}`} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            }
                         </div>
                         {/* top */}
 
@@ -480,375 +528,410 @@ const DetailView: React.FC = () => {
                         </div>
                         {/* center */}
                         <div ref={roomSection} className="hotel_detail_bottom">
-                            {hotelDetails && hotelDetails.hotelRoom.map((room, index) => (
-                                <div key={index} className="hotel_detail_room">
+                            {loading ?
+                                <div className="hotel_detail_room detail_room_skeleton">
                                     <div className="hotel_room">
                                         <div className="room_box">
                                             <div className="room_box_left">
-                                                <p>{room.roomTitle}</p>
-                                                <div className="room_box_cont" popup-id={room.roomId} onClick={() => popupHandle(room.roomId)}>
-                                                    <img src={room.roomImg[0]} alt={room.roomTitle}></img>
-                                                    <img src={room.roomImg[1]} alt={room.roomTitle}></img>
-                                                    <div className="room_length_box">
-                                                        <div className="room_length_icon"></div>
-                                                        <span>{room.roomImg.length}</span>
+                                                <p>
+                                                    <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                                </p>
+                                                <div className="room_box_cont">
+                                                    <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                                    <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                                </div>
+
+                                                <div className="room_detail_main">
+                                                    <div className="detail_main_box">
+                                                        <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                                        <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                                        <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
                                                     </div>
                                                 </div>
-                                                {room.roomDetail && room.roomDetail.map((roomD, detailIndex) => (
-                                                    <div key={detailIndex} className="room_detail_main">
-                                                        {room.roomDetail && roomD.roomDetailMain.map((detailMain, detailImgIndex) => (
-                                                            <div className="detail_main_box">
-                                                                <div className="detail_icon" style={{ backgroundImage: `url(${detailMain.imgUrl})` }}></div>
-                                                                <p key={detailImgIndex}>{detailMain.title}</p>
-                                                            </div>
-                                                        ))}
-                                                        <button className="detail_main_btn" onClick={() => popupHandle(room.roomId)}>객실 정보</button>
-                                                    </div>
-                                                ))}
                                             </div>
-
                                             {media < 2 ?
                                                 <div className="room_box_right">
-                                                    <div className="room_list_wrap">
-                                                        <div data-room-id={room.roomId} className="room_list">
-                                                            <div>
-                                                                <div className="room_capacity">
-                                                                    <p>성인 {room.roomCapacity}명 요금</p>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {!room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber((room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.4)))}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber(room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.35))}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber(room.roomPrice * hotel.price)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className='room_reservation_btn' data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div data-room-id={room.roomId} className="room_list">
-                                                            <div>
-                                                                <div className="room_capacity">
-                                                                    <p>성인 {room.roomCapacity}명 요금</p>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber(((room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.4) + 22000)))}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.35) + 22000))}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber(room.roomPrice * hotel.price + 22000)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className='room_reservation_btn' data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className={`room_list room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
-                                                            data-room-id={room.roomId}>
-                                                            <div>
-                                                                <div className="room_capacity">
-                                                                    <p>성인 {room.roomCapacity}명 요금</p>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {!room.roomBreakfast ? <p className="breck_yes">조식 2인 포함</p> : <p className="breck_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35))}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35))}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className="room_reservation_btn" data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className={`room_list room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
-                                                            data-room-id={room.roomId}>
-                                                            <div>
-                                                                <div className="room_capacity">
-                                                                    <p>성인 {room.roomCapacity}명 요금</p>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35) + 22000))}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35) + 22000))}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20 + 22000)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className="room_reservation_btn" data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button className="room_reservation_more_btn" onClick={() => toggleVisible(room?.roomId || '')}>{
-                                                        !handleVisible.includes(room.roomId) ? '숨기기' : '객실 2개 더 보기'
-                                                    }</button>
+                                                    <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
                                                 </div>
                                                 :
                                                 <div className="room_box_right">
-                                                    <table>
-                                                        <thead>
-                                                            <th>
-                                                                <p>객실 옵션 상세</p>
-                                                            </th>
-                                                            <th>
-                                                                <p>정원</p>
-                                                            </th>
-                                                            <th>
-                                                                <p>객실 요금</p>
-                                                            </th>
-                                                        </thead>
-                                                        <tbody data-room-id={room.roomId}>
-                                                            <td>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {!room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_capacity">
-                                                                    <p>{room.roomCapacity}</p>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber((room.roomPrice * hotel.price))}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber(room.roomPrice * hotel.price)}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber(room.roomPrice * hotel.price)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className='room_reservation_btn' data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </td>
-                                                        </tbody>
-                                                        <tbody data-room-id={room.roomId}>
-                                                            <td>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_capacity">
-                                                                    <p>{room.roomCapacity}</p>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber((room.roomPrice * hotel.price) + 22000)}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) + 22000)}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) + 22000)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className="room_reservation_btn" data-room-id={room.roomId} data-break={room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </td>
-                                                        </tbody>
-                                                        <tbody className={`room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
-                                                            data-room-id={room.roomId}>
-                                                            <td>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {!room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_capacity">
-                                                                    <p>{room.roomCapacity}</p>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className="room_reservation_btn" data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </td>
-                                                        </tbody>
-                                                        <tbody className={`room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
-                                                            data-room-id={room.roomId}>
-                                                            <td>
-                                                                <div className="room_options">
-                                                                    <div className="room_repund">
-                                                                        {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
-                                                                    </div>
-                                                                    <div className="room_breakfast">
-                                                                        {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
-                                                                    </div>
-                                                                    <div className="room_onlinepay">
-                                                                        {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_capacity">
-                                                                    <p>{room.roomCapacity}</p>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div className="room_reservation">
-                                                                    <div>
-                                                                        {
-                                                                            room.roomId === '02' ? (
-                                                                                <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20) + 22000)}원</p>
-                                                                            )
-                                                                                : room.roomId === '03' ? (
-                                                                                    <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20) + 22000)}원</p>
-                                                                                ) : (
-                                                                                    <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20) + 22000)}원</p>
-                                                                                )
-                                                                        }
-                                                                        <span>세금 포함</span>
-                                                                    </div>
-                                                                    <button className="room_reservation_btn" data-room-id={room.roomId} data-break={room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
-                                                                </div>
-                                                            </td>
-                                                        </tbody>
-                                                    </table>
-                                                    <button className="room_reservation_more_btn" onClick={() => toggleVisible(room?.roomId || '')}>{
-                                                        !handleVisible.includes(room.roomId) ? '숨기기' : '객실 2개 더 보기'
-                                                    }</button>
+                                                    <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                                    <div className="room_list_wrap"></div>
                                                 </div>
                                             }
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                                :
+                                hotelDetails && hotelDetails.hotelRoom.map((room, index) => (
+                                    <div key={index} className="hotel_detail_room">
+                                        <div className="hotel_room">
+                                            <div className="room_box">
+                                                <div className="room_box_left">
+                                                    <p>{room.roomTitle}</p>
+                                                    <div className="room_box_cont" popup-id={room.roomId} onClick={() => popupHandle(room.roomId)}>
+                                                        <img src={room.roomImg[0]} alt={room.roomTitle}></img>
+                                                        <img src={room.roomImg[1]} alt={room.roomTitle}></img>
+                                                        <div className="room_length_box">
+                                                            <div className="room_length_icon"></div>
+                                                            <span>{room.roomImg.length}</span>
+                                                        </div>
+                                                    </div>
+                                                    {room.roomDetail && room.roomDetail.map((roomD, detailIndex) => (
+                                                        <div key={detailIndex} className="room_detail_main">
+                                                            {room.roomDetail && roomD.roomDetailMain.map((detailMain, detailImgIndex) => (
+                                                                <div className="detail_main_box">
+                                                                    <div className="detail_icon" style={{ backgroundImage: `url(${detailMain.imgUrl})` }}></div>
+                                                                    <p key={detailImgIndex}>{detailMain.title}</p>
+                                                                </div>
+                                                            ))}
+                                                            <button className="detail_main_btn" onClick={() => popupHandle(room.roomId)}>객실 정보</button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+
+                                                {media < 2 ?
+                                                    <div className="room_box_right">
+                                                        <div className="room_list_wrap">
+                                                            <div data-room-id={room.roomId} className="room_list">
+                                                                <div>
+                                                                    <div className="room_capacity">
+                                                                        <p>성인 {room.roomCapacity}명 요금</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {!room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber((room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.4)))}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber(room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.35))}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber(room.roomPrice * hotel.price)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className='room_reservation_btn' data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div data-room-id={room.roomId} className="room_list">
+                                                                <div>
+                                                                    <div className="room_capacity">
+                                                                        <p>성인 {room.roomCapacity}명 요금</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber(((room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.4) + 22000)))}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price * (parseInt(room.roomCapacity, 10) * 0.35) + 22000))}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber(room.roomPrice * hotel.price + 22000)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className='room_reservation_btn' data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className={`room_list room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
+                                                                data-room-id={room.roomId}>
+                                                                <div>
+                                                                    <div className="room_capacity">
+                                                                        <p>성인 {room.roomCapacity}명 요금</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {!room.roomBreakfast ? <p className="breck_yes">조식 2인 포함</p> : <p className="breck_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35))}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35))}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className="room_reservation_btn" data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className={`room_list room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
+                                                                data-room-id={room.roomId}>
+                                                                <div>
+                                                                    <div className="room_capacity">
+                                                                        <p>성인 {room.roomCapacity}명 요금</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35) + 22000))}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20 * (parseInt(room.roomCapacity, 10) * 0.35) + 22000))}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) * 1.20 + 22000)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className="room_reservation_btn" data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button className="room_reservation_more_btn" onClick={() => toggleVisible(room?.roomId || '')}>{
+                                                            !handleVisible.includes(room.roomId) ? '숨기기' : '객실 2개 더 보기'
+                                                        }</button>
+                                                    </div>
+                                                    :
+                                                    <div className="room_box_right">
+                                                        <table>
+                                                            <thead>
+                                                                <th>
+                                                                    <p>객실 옵션 상세</p>
+                                                                </th>
+                                                                <th>
+                                                                    <p>정원</p>
+                                                                </th>
+                                                                <th>
+                                                                    <p>객실 요금</p>
+                                                                </th>
+                                                            </thead>
+                                                            <tbody data-room-id={room.roomId}>
+                                                                <td>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {!room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_capacity">
+                                                                        <p>{room.roomCapacity}</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber((room.roomPrice * hotel.price))}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber(room.roomPrice * hotel.price)}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber(room.roomPrice * hotel.price)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className='room_reservation_btn' data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </td>
+                                                            </tbody>
+                                                            <tbody data-room-id={room.roomId}>
+                                                                <td>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_capacity">
+                                                                        <p>{room.roomCapacity}</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) + 22000)}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) + 22000)}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) + 22000)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className="room_reservation_btn" data-room-id={room.roomId} data-break={room.roomBreakfast} data-onlinepay={room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </td>
+                                                            </tbody>
+                                                            <tbody className={`room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
+                                                                data-room-id={room.roomId}>
+                                                                <td>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {!room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_capacity">
+                                                                        <p>{room.roomCapacity}</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber((room.roomPrice * hotel.price) * 1.20)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className="room_reservation_btn" data-room-id={room.roomId} data-break={!room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </td>
+                                                            </tbody>
+                                                            <tbody className={`room_reservation_more ${handleVisible.includes(room.roomId) ? 'invisible' : ''}`}
+                                                                data-room-id={room.roomId}>
+                                                                <td>
+                                                                    <div className="room_options">
+                                                                        <div className="room_repund">
+                                                                            {room.roomRepund ? <p>환불 가능</p> : <p>환불 불가</p>}
+                                                                        </div>
+                                                                        <div className="room_breakfast">
+                                                                            {room.roomBreakfast ? <p className="break_yes">조식 2인 포함</p> : <p className="break_no">조식 22,000원 (선택 사항)</p>}
+                                                                        </div>
+                                                                        <div className="room_onlinepay">
+                                                                            {!room.roomOnlinePay ? <p>온라인 사전 결제</p> : <p>호텔 결제</p>}
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_capacity">
+                                                                        <p>{room.roomCapacity}</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div className="room_reservation">
+                                                                        <div>
+                                                                            {
+                                                                                room.roomId === '02' ? (
+                                                                                    <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20) + 22000)}원</p>
+                                                                                )
+                                                                                    : room.roomId === '03' ? (
+                                                                                        <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20) + 22000)}원</p>
+                                                                                    ) : (
+                                                                                        <p>{priceNumber(((room.roomPrice * hotel.price) * 1.20) + 22000)}원</p>
+                                                                                    )
+                                                                            }
+                                                                            <span>세금 포함</span>
+                                                                        </div>
+                                                                        <button className="room_reservation_btn" data-room-id={room.roomId} data-break={room.roomBreakfast} data-onlinepay={!room.roomOnlinePay} onClick={reserveClick}>예약</button>
+                                                                    </div>
+                                                                </td>
+                                                            </tbody>
+                                                        </table>
+                                                        <button className="room_reservation_more_btn" onClick={() => toggleVisible(room?.roomId || '')}>{
+                                                            !handleVisible.includes(room.roomId) ? '숨기기' : '객실 2개 더 보기'
+                                                        }</button>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                         </div>
                         {/* bottom */}
                         {media === 0 &&

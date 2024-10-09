@@ -661,7 +661,9 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+.result_skeleton .hotel_img{
+    background: none;
+}
 .result_skeleton .hotel_title,
 .result_skeleton .hotel_rating,
 .result_skeleton .hotel_location {

@@ -378,6 +378,27 @@ table {}
   color: rgb(159, 159, 159);
 }
 
+.detail_room_skeleton .room_box_cont {
+  height: 100px;
+}
+
+.detail_room_skeleton .room_box_cont span {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.detail_room_skeleton .room_box_cont span:last-child {
+  margin-right: 0;
+}
+
+.detail_room_skeleton .detail_main_box {
+  width: 50%;
+  flex-direction: column;
+}
+.detail_room_skeleton .detail_main_box span{
+  margin-top: 4px;
+}
+
 @media screen and (min-width: 1281px) {
   .hotel_search_wrap {
     left: 50%;
@@ -423,7 +444,7 @@ table {}
 
   .check_in,
   .check_out {
-    flex: 0 0 45%;
+    flex: 1 0 45%;
   }
 
   .hs_check_in,
@@ -780,6 +801,7 @@ table {}
   .detail_finder .calendar {
     top: 83px;
     width: 100%;
+    max-width: 800px;
   }
 
   /* 예약 Reserve */

@@ -117,15 +117,19 @@ const MainSearch: React.FC = () => {
 
                 return priceFilter && rateFilter && gradeFilter
             });
-
             setCopyFilteredHotels(filtered)
-
-
         };
-        setTimeout(() => {
+        setLoading(true)
+
+        const skeletonTimer = setTimeout(() => {
             setLoading(false)
             hotelFilter();
         }, 2000);
+
+        // 타이머 정리 및 갱신 (cleanup 함수)
+        return () => {
+            clearTimeout(skeletonTimer); // 타이머 초기화
+        };
     }, [priceRange, grade, rate, filteredHotels]);
     // 필터링
 
@@ -192,26 +196,6 @@ const MainSearch: React.FC = () => {
         handleSwiper(mapSlideIndex)
     }, [mapSlideIndex]) // 슬라이더 이동
 
-    // useEffect(() => {
-    //     const scrolledTop = () => {
-    //         const currentY = window.scrollY
-    //         const mainY = 200
-    //         const rightFilter = rightFilterRef.current?.getBoundingClientRect().bottom;
-    //         const right = document.querySelector('.search_right') as HTMLElement
-    //         const main = document.querySelector('.search_main') as HTMLElement
-    //         const footer = footerY
-
-    //         if (media > 1 && rightFilter) {
-    //             if (copyFilteredHotels.length > 2) {
-    //             }
-    //         }
-    //     }
-    //     document.addEventListener('scroll', scrolledTop)
-    //     return () => {
-    //         document.removeEventListener('scroll', scrolledTop)
-    //     }
-    // }, [footerY])
-    // 스크롤 스타일
     return (
         <>
             <div className={`search_wrap ${map && 'map_on_wrap'}`}>
@@ -709,22 +693,40 @@ const MainSearch: React.FC = () => {
                         </div>
                         <div>
                             {loading && copyFilteredHotels.length > 0 ?
-                                <div className="result_box result_skeleton">
-                                    <div className="hotel_img">
-                                        <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                <>
+                                    <div className="result_box result_skeleton">
+                                        <div className="hotel_img">
+                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        </div>
+                                        <div className="hotel_info">
+                                            <div className="hotel_title">
+                                                <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                            </div>
+                                            <div className="hotel_rating">
+                                                <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                            </div>
+                                            <div className="hotel_bottom">
+                                                <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="hotel_info">
-                                        <div className="hotel_title">
+                                    <div className="result_box result_skeleton">
+                                        <div className="hotel_img">
                                             <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
                                         </div>
-                                        <div className="hotel_rating">
-                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
-                                        </div>
-                                        <div className="hotel_bottom">
-                                            <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                        <div className="hotel_info">
+                                            <div className="hotel_title">
+                                                <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                            </div>
+                                            <div className="hotel_rating">
+                                                <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                            </div>
+                                            <div className="hotel_bottom">
+                                                <Skeleton style={{ width: '100%', height: '100%' }}></Skeleton>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </>
                                 :
                                 copyFilteredHotels.map((hotel: Hotel, index: number) => (
                                     <div key={index} className="result_box">

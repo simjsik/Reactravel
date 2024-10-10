@@ -23,6 +23,7 @@ const MainFinder: React.FC = () => {
 
     const media = useRecoilValue(mediaState)
 
+    const [onFocus, setOnFocus] = useState<boolean>(false)
     const [hoverDate, setHoverDate] = useState<Date | null>(null)
     const [capacity, setCapacity] = useState<number>(room * 4)
     const [onCalender, setOnCalender] = useState<boolean>(false);
@@ -81,7 +82,8 @@ const MainFinder: React.FC = () => {
         }
     } // 객실 인원 수
 
-    const [currentIndex, setCurrentIndex] = useRecoilState<number>(calenderIndexState);
+    const [currentIndex, setCurrentIndex] = useRecoilState<number>(calenderIndexState); // 캘린더 인덱스
+    const [calenderIndex, setCalenderIndex] = useState<number>(0); // 캘린더 인덱스
 
     // 날짜 가져오기
     const [defaultCheckIn, setDefaultCheckIn] = useRecoilState<Date | null>(defaultCheckInState);
@@ -94,7 +96,6 @@ const MainFinder: React.FC = () => {
     const [calendarClickCount, setCalendarClickCount] = useState<number>(0);
 
     const months = [
-        { year: 2024, month: 9, name: '9월' },
         { year: 2024, month: 10, name: '10월' },
         { year: 2024, month: 11, name: '11월' },
         { year: 2024, month: 12, name: '12월' },
@@ -103,6 +104,8 @@ const MainFinder: React.FC = () => {
         { year: 2025, month: 3, name: '3월' },
         { year: 2025, month: 4, name: '4월' },
         { year: 2025, month: 5, name: '5월' },
+        { year: 2025, month: 6, name: '6월' },
+        { year: 2025, month: 7, name: '7월' },
     ];
 
     // 날짜 타입 설정
@@ -208,10 +211,9 @@ const MainFinder: React.FC = () => {
     } // 호버 시 날짜 계산
 
     // 날짜 클릭 기능
-    const reSetCheck = (day: number, month: number, year: number) => {
+    const reSetCheck = (day: number, month: number, year: number, calendarId: 'first' | 'second') => {
         const clickedDate = new Date(year, month - 1, day);
         const clickedDay = `${clickedDate.getFullYear()}.${clickedDate.getMonth().toString().padStart(2, '0')}.${clickedDate.getDate().toString().padStart(2, '0')}`
-
 
         if (clickedDay < toDate) { //  현재 날짜보다 이 전날 클릭 시 무시
             setCalendarClickCount((prev) => prev)
@@ -229,6 +231,13 @@ const MainFinder: React.FC = () => {
 
             setCalendarClickCount(1);
 
+            if (calendarId === 'first') {
+                setCalenderIndex(currentIndex) // 체크인 캘린더 인덱스 저장
+            } else {
+                setCalenderIndex(currentIndex + 1) // 다음 인덱스로 저장
+            }
+
+
         } else if (calendarClickCount === 1) { // 체크아웃 클릭
             if (clickCheckIn && clickedDate <= clickCheckIn) {
                 setClickCheckIn(clickedDate)
@@ -243,6 +252,7 @@ const MainFinder: React.FC = () => {
                     setDefaultCheckIn(clickCheckIn);
 
                     setDefaultCheckOut(clickedDate);
+
 
                     setOnCalender(false)
 
@@ -272,6 +282,11 @@ const MainFinder: React.FC = () => {
             return
         }
     }
+
+    useEffect(() => { // 캘린더 인덱스 저장
+        setCurrentIndex(calenderIndex)
+    }, [onCalender])
+
 
     useEffect(() => {
         setTemporaryNight(night)
@@ -417,7 +432,7 @@ const MainFinder: React.FC = () => {
         }
     }, [hoverDate, defaultCheckIn])
 
-    const renderMonth = (month: { year: number, month: number, name: string }) => {
+    const renderMonth = (month: { year: number, month: number, name: string }, calenderId: 'first' | 'second') => {
         // 주(week)와 일(day)를 저장할 변수 선언
         // typeScrit에서 변수 타입을 명시적으로 지정. = JSX.Element[]
         let weeks: JSX.Element[] = [];
@@ -481,7 +496,7 @@ const MainFinder: React.FC = () => {
                     ${isPastday ? 'past' : ''}
                     ${(onCalender || mbCalender) && ((!isToday && !isNextDay) && inRangeClass)}
                     `}
-                    onClick={() => reSetCheck(day, month.month, month.year)}
+                    onClick={() => reSetCheck(day, month.month, month.year, calenderId)}
                     onMouseEnter={() => handleHover(day, month.month, month.year)}
                 >
                     <div>
@@ -541,15 +556,17 @@ const MainFinder: React.FC = () => {
                     ref={reviewInputRef}
                     placeholder='도시, 호텔, 공항 또는 랜드마크'
                     value={searchTerm}
+                    onFocus={() => setOnFocus(true)}
+                    onBlur={() => setOnFocus(false)}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    onClick={() => setPreview(!!searchTerm)}
+                    onClick={() => setPreview(!!searchTerm)} // 빈문자열 = false
                 />
                 <div className="alert">
                     <p>대한민국, 일본, 필리핀, 태국이 구현되어 있습니다!</p>
                 </div>
                 {/* 검색어가 바뀔 때마다 호텔 목록 필터링 */}
                 {
-                    preview &&
+                    (onFocus && preview) &&
                     <div className="hs_search_preview">
                         <ul>
                             {
@@ -614,12 +631,12 @@ const MainFinder: React.FC = () => {
                                         <header className="calendar_header">
                                             {media > 1 ?
                                                 <>
-                                                    {renderMonth(months[currentIndex])}
-                                                    {renderMonth(months[(currentIndex + 1) % months.length])}
+                                                    {renderMonth(months[currentIndex], 'first')}
+                                                    {renderMonth(months[(currentIndex + 1) % months.length], 'second')}
                                                 </>
                                                 :
                                                 <>
-                                                    {months.map(renderMonth)}
+                                                    {months.map((month, index) => renderMonth(month, index === 0 ? 'first' : 'second'))}
                                                 </>
                                             }
                                         </header>
@@ -641,12 +658,12 @@ const MainFinder: React.FC = () => {
                                         <header className="calendar_header">
                                             {media > 1 ?
                                                 <>
-                                                    {renderMonth(months[currentIndex])}
-                                                    {renderMonth(months[(currentIndex + 1) % months.length])}
+                                                    {renderMonth(months[currentIndex], 'first')}
+                                                    {renderMonth(months[(currentIndex + 1) % months.length], 'second')}
                                                 </>
                                                 :
                                                 <>
-                                                    {months.map(renderMonth)}
+                                                    {months.map((month, index) => renderMonth(month, index === 0 ? 'first' : 'second'))}
                                                 </>
                                             }
                                         </header>
@@ -763,12 +780,12 @@ const MainFinder: React.FC = () => {
 
                             {media > 1 ?
                                 <>
-                                    {renderMonth(months[currentIndex])}
-                                    {renderMonth(months[(currentIndex + 1) % months.length])}
+                                    {renderMonth(months[currentIndex], 'first')}
+                                    {renderMonth(months[(currentIndex + 1) % months.length], 'second')}
                                 </>
                                 :
                                 <>
-                                    {months.map(renderMonth)}
+                                    {months.map((month, index) => renderMonth(month, index === 0 ? 'first' : 'second'))}
                                 </>
                             }
                         </header>

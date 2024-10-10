@@ -8,6 +8,7 @@ import MainFinder from './route/Main/MainFinder';
 import DetailView from './route/Detail/DetailView';
 import RoomReserve from './route/Reservation/RoomReserve';
 import RoomReserveConfirmed from './route/Reservation/RoomReserveConfirmed';
+import { debounce, throttle } from "lodash";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { defaultMap, footerYState, Hotel, hotelDataState, mediaState, modalState, searchResultDataState } from './recoil';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -75,7 +76,7 @@ function App() {
 
   useEffect(() => {
     console.log(media)
-  }, [window.innerWidth])
+  }, [media, handleMedia])
 
 
   useEffect(() => {

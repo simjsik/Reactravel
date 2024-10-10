@@ -75,16 +75,16 @@ const TopHeader: React.FC = () => {
   } // 예약 조회
 
   useEffect(() => { // 요소 외 클릭 시 닫기 기능.
-    const clickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setNavToggle(false);
-      }
-    };
     if (media > 1) {
+      const clickOutside = (event: MouseEvent) => {
+        if (navRef.current && !navRef.current.contains(event.target as Node)) {
+          setNavToggle(false);
+        }
+      };
       document.addEventListener('click', clickOutside);
-    }
-    return () => {
-      document.removeEventListener('click', clickOutside);
+      return () => {
+        document.removeEventListener('click', clickOutside);
+      }
     }
   }, [navRef])
 

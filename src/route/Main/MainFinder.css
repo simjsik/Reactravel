@@ -1676,6 +1676,7 @@ table {}
 
   .home_finder .calendar {
     top: 120px;
+    width: 100%;
     height: calc(100vh - 270px);
   }
 

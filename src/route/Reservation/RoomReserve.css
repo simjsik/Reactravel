@@ -199,7 +199,7 @@
     height: 48px;
     border: none;
     border-radius: 0px 0px 6px 6px;
-    background: #5900FF;
+    background: #3c00FF;
     color: #fff;
     font-size: 16px;
 }
@@ -607,7 +607,7 @@
 }
 
 .reserve_confirm_btn button:nth-of-type(1) {
-    background: #5900FF;
+    background: #3c00FF;
     color: #fff;
 }
 

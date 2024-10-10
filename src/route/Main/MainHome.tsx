@@ -196,20 +196,44 @@ const MainHome: React.FC = () => {
                                         ?
                                         Array.from({ length: 1 }).map((_, idx) => (
                                             <SwiperSlide key={`loading_skeleton_${idx}`}>
-                                                <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                                                    <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                        <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                {media === 0 ?
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                        <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                            <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                        </div>
+                                                        <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                            <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                        </div>
                                                     </div>
-                                                    <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                        <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                    </div>
-                                                    <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                        <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                    </div>
-                                                    <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                        <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                    </div>
-                                                </div>
+                                                    : media === 1 ?
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                        </div>
+                                                        :
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="hotpic_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                        </div>
+                                                }
+
                                             </SwiperSlide>
                                         )) :
                                         hotpicHotels.map((hotpic: Hotel[], hotpicIndex) => (
@@ -275,116 +299,142 @@ const MainHome: React.FC = () => {
                         <div className="most_travel">
                             <p>최근 많이 찾는 여행지</p>
                             <div className="most_wrap">
-                                {loading
 
-                                    ?
-                                    Array.from({ length: 1 }).map((_, idx) => (
-                                        <SwiperSlide key={`loading_skeleton_${idx}`}>
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                                                <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                    <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                </div>
-                                                <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                    <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                </div>
-                                                <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                    <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                </div>
-                                                <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
-                                                    <Skeleton style={{ width: '100%', height: '100%' }} />
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                    )) :
-                                    <Swiper
-                                        breakpoints={{
-                                            480: {
-                                                slidesPerView: 1,
-                                                spaceBetween: 20
-                                            },
-                                        }}
-                                        loop={true}
-                                        navigation={true}
-                                        modules={[Navigation]}
-                                    >
-                                        {koreaSlice.map((korea, koreaIndex) => (
-                                            <SwiperSlide key={`korea_${koreaIndex}`}>
-                                                {hotelRegion && <div className="most_main korea">
-                                                    <div className="most_bg"></div>
-                                                    <div className="main_text_box">
-                                                        <p>{hotelRegion[0]}</p>
-                                                        <button onClick={() => goSearch('대한민국')}>호텔 보러가기</button>
-                                                    </div>
-                                                </div>}
-                                                {korea.map((koreaBox, koreaBoxIndex) => (
-                                                    <div key={`koreaBox_${koreaBoxIndex}`} className="most_box">
-                                                        <div style={{ backgroundImage: `url(${koreaBox.img})` }}>
-                                                            <div className="most_bg"></div>
+                                <Swiper
+                                    breakpoints={{
+                                        480: {
+                                            slidesPerView: 1,
+                                            spaceBetween: 20
+                                        },
+                                    }}
+                                    loop={true}
+                                    navigation={true}
+                                    modules={[Navigation]}
+                                >
+                                    {loading
+                                        ?
+                                        Array.from({ length: 1 }).map((_, idx) => (
+                                            <SwiperSlide key={`loading_skeleton_${idx}`}>
+                                                {media === 0 ?
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                        <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                            <Skeleton style={{ width: '100%', height: '100%' }} />
                                                         </div>
-                                                        <p>{koreaBox.region[0]} · {koreaBox.region[1]}</p>
-                                                    </div>
-                                                ))}
-                                            </SwiperSlide>
-                                        ))}
-                                        {japanSlice.map((japan, japanIndex) => (
-                                            <SwiperSlide key={`japan_${japanIndex}`}>
-                                                {hotelRegion && <div className="most_main japan">
-                                                    <div className="most_bg"></div>
-                                                    <div className="main_text_box">
-                                                        <p>{hotelRegion[1]}</p>
-                                                        <button onClick={() => goSearch('일본')}>호텔 보러가기</button>
-                                                    </div>
-                                                </div>}
-                                                {japan.map((japanBox, japanBoxIndex) => (
-                                                    <div key={`japanBox_${japanBoxIndex}`} className="most_box">
-                                                        <div style={{ backgroundImage: `url(${japanBox.img})` }}>
-                                                            <div className="most_bg"></div>
+                                                        <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                            <Skeleton style={{ width: '100%', height: '100%' }} />
                                                         </div>
-                                                        <p>{japanBox.region[0]} · {japanBox.region[1]}</p>
                                                     </div>
-                                                ))}
-                                            </SwiperSlide>
-                                        ))}
-                                        {thaiSlice.map((thai, thaiIndex) => (
-                                            <SwiperSlide key={`thai_${thaiIndex}`}>
-                                                {hotelRegion && <div className="most_main thai">
-                                                    <div className="most_bg"></div>
-                                                    <div className="main_text_box">
-                                                        <p>{hotelRegion[2]}</p>
-                                                        <button onClick={() => goSearch('태국')}>호텔 보러가기</button>
-                                                    </div>
-                                                </div>}
-                                                {thai.map((thaiBox, thaiBoxIndex) => (
-                                                    <div key={`thaiBox_${thaiBoxIndex}`} className="most_box">
-                                                        <div style={{ backgroundImage: `url(${thaiBox.img})` }}>
-                                                            <div className="most_bg"></div>
+                                                    : media === 1 ?
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
                                                         </div>
-                                                        <p>{thaiBox.region[0]} · {thaiBox.region[1]}</p>
-                                                    </div>
-                                                ))}
-                                            </SwiperSlide>
-                                        ))}
-                                        {philSlice.map((phil, philIndex) => (
-                                            <SwiperSlide key={`phil_${philIndex}`}>
-                                                {hotelRegion && <div className="most_main phil">
-                                                    <div className="most_bg"></div>
-                                                    <div className="main_text_box">
-                                                        <p>{hotelRegion[3]}</p>
-                                                        <button onClick={() => goSearch('필리핀')}>호텔 보러가기</button>
-                                                    </div>
-                                                </div>}
-                                                {phil.map((philBox, philBoxIndex) => (
-                                                    <div key={`philBox_${philBoxIndex}`} className="most_box">
-                                                        <div style={{ backgroundImage: `url(${philBox.img})` }}>
-                                                            <div className="most_bg"></div>
+                                                        :
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
+                                                            <div className="most_skeleton" style={{ flex: '1 0 24%', display: 'block', height: '100%' }}>
+                                                                <Skeleton style={{ width: '100%', height: '100%' }} />
+                                                            </div>
                                                         </div>
-                                                        <p>{philBox.region[0]} · {philBox.region[1]}</p>
-                                                    </div>
-                                                ))}
+                                                }
                                             </SwiperSlide>
-                                        ))}
-                                    </Swiper>
-                                }
+                                        )) :
+                                        <>
+                                            {koreaSlice.map((korea, koreaIndex) => (
+                                                <SwiperSlide key={`korea_${koreaIndex}`}>
+                                                    {hotelRegion && <div className="most_main korea">
+                                                        <div className="most_bg"></div>
+                                                        <div className="main_text_box">
+                                                            <p>{hotelRegion[0]}</p>
+                                                            <button onClick={() => goSearch('대한민국')}>호텔 보러가기</button>
+                                                        </div>
+                                                    </div>}
+                                                    {korea.map((koreaBox, koreaBoxIndex) => (
+                                                        <div key={`koreaBox_${koreaBoxIndex}`} className="most_box">
+                                                            <div style={{ backgroundImage: `url(${koreaBox.img})` }}>
+                                                                <div className="most_bg"></div>
+                                                            </div>
+                                                            <p>{koreaBox.region[0]} · {koreaBox.region[1]}</p>
+                                                        </div>
+                                                    ))}
+                                                </SwiperSlide>
+                                            ))}
+                                            {japanSlice.map((japan, japanIndex) => (
+                                                <SwiperSlide key={`japan_${japanIndex}`}>
+                                                    {hotelRegion && <div className="most_main japan">
+                                                        <div className="most_bg"></div>
+                                                        <div className="main_text_box">
+                                                            <p>{hotelRegion[1]}</p>
+                                                            <button onClick={() => goSearch('일본')}>호텔 보러가기</button>
+                                                        </div>
+                                                    </div>}
+                                                    {japan.map((japanBox, japanBoxIndex) => (
+                                                        <div key={`japanBox_${japanBoxIndex}`} className="most_box">
+                                                            <div style={{ backgroundImage: `url(${japanBox.img})` }}>
+                                                                <div className="most_bg"></div>
+                                                            </div>
+                                                            <p>{japanBox.region[0]} · {japanBox.region[1]}</p>
+                                                        </div>
+                                                    ))}
+                                                </SwiperSlide>
+                                            ))}
+                                            {thaiSlice.map((thai, thaiIndex) => (
+                                                <SwiperSlide key={`thai_${thaiIndex}`}>
+                                                    {hotelRegion && <div className="most_main thai">
+                                                        <div className="most_bg"></div>
+                                                        <div className="main_text_box">
+                                                            <p>{hotelRegion[2]}</p>
+                                                            <button onClick={() => goSearch('태국')}>호텔 보러가기</button>
+                                                        </div>
+                                                    </div>}
+                                                    {thai.map((thaiBox, thaiBoxIndex) => (
+                                                        <div key={`thaiBox_${thaiBoxIndex}`} className="most_box">
+                                                            <div style={{ backgroundImage: `url(${thaiBox.img})` }}>
+                                                                <div className="most_bg"></div>
+                                                            </div>
+                                                            <p>{thaiBox.region[0]} · {thaiBox.region[1]}</p>
+                                                        </div>
+                                                    ))}
+                                                </SwiperSlide>
+                                            ))}
+                                            {philSlice.map((phil, philIndex) => (
+                                                <SwiperSlide key={`phil_${philIndex}`}>
+                                                    {hotelRegion && <div className="most_main phil">
+                                                        <div className="most_bg"></div>
+                                                        <div className="main_text_box">
+                                                            <p>{hotelRegion[3]}</p>
+                                                            <button onClick={() => goSearch('필리핀')}>호텔 보러가기</button>
+                                                        </div>
+                                                    </div>}
+                                                    {phil.map((philBox, philBoxIndex) => (
+                                                        <div key={`philBox_${philBoxIndex}`} className="most_box">
+                                                            <div style={{ backgroundImage: `url(${philBox.img})` }}>
+                                                                <div className="most_bg"></div>
+                                                            </div>
+                                                            <p>{philBox.region[0]} · {philBox.region[1]}</p>
+                                                        </div>
+                                                    ))}
+                                                </SwiperSlide>
+                                            ))}
+                                        </>
+                                    }
+                                </Swiper>
+
                             </div>
                         </div>
                     </div>

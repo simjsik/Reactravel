@@ -228,7 +228,7 @@ function App() {
         </footer>
       }
       {
-        !map && location.pathname !== '/' && media === 2 && < button className='top_view_btn' onClick={topHandle}></button >
+        !map && location.pathname !== '/' && media > 1 && < button className='top_view_btn' onClick={topHandle}></button >
       }
     </>
   );

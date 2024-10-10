@@ -339,7 +339,7 @@
 }
 
 .hotel_location button {
-    color: #5900FF;
+    color: #3c00FF;
     border: none;
     background: none;
     font-size: 16px;
@@ -622,7 +622,7 @@
 }
 
 .map_on .search_main::-webkit-scrollbar-thumb {
-    background: #5900FF;
+    background: #3c00FF;
     border-radius: 10px;
 }
 
@@ -661,9 +661,11 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
-.result_skeleton .hotel_img{
+
+.result_skeleton .hotel_img {
     background: none;
 }
+
 .result_skeleton .hotel_title,
 .result_skeleton .hotel_rating,
 .result_skeleton .hotel_location {
@@ -1773,6 +1775,10 @@
         background-size: cover;
         background-repeat: no-repeat;
         overflow: hidden;
+    }
+
+    .mb .result_skeleton .hotel_img {
+        background: none;
     }
 
     .mb .hotel_img img {

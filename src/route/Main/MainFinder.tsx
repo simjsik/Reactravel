@@ -211,39 +211,44 @@ const MainFinder: React.FC = () => {
     const reSetCheck = (day: number, month: number, year: number) => {
         const clickedDate = new Date(year, month - 1, day);
         const clickedDay = `${clickedDate.getFullYear()}.${clickedDate.getMonth().toString().padStart(2, '0')}.${clickedDate.getDate().toString().padStart(2, '0')}`
-        const allDays = document.querySelectorAll('.check')
-        const currentDay = document.querySelector(
-            `.calender_month_view td[data-day='${day}'][data-month='${month}'][data-year='${year}']`
-        )
-        //  현재 날짜보다 이 전날 클릭 시 무시
-        if (clickedDay < toDate) {
+
+
+        if (clickedDay < toDate) { //  현재 날짜보다 이 전날 클릭 시 무시
             setCalendarClickCount((prev) => prev)
             return
         }
-        // 체크인 클릭
-        if (calendarClickCount === 0) {
-            if (currentDay && currentDay.classList.contains('check')) {
-                allDays.forEach(day => day.classList.remove('check'));
-            }
 
+        if (calendarClickCount === 0) {// 체크인 클릭
             setClickCheckIn(clickedDate)
+
             setClickCheckOut('날짜를 선택해 주세요')
-            setNight(0)
-            setHoverDate(null);
+
+            setNight(0) // 몇박 초기화
+
+            setHoverDate(null); // 클릭 시 inRange 클래스 초기화
+
             setCalendarClickCount(1);
+
         } else if (calendarClickCount === 1) { // 체크아웃 클릭
             if (clickCheckIn && clickedDate <= clickCheckIn) {
                 setClickCheckIn(clickedDate)
+
                 setHoverDate(null);
+
                 setCalendarClickCount(1);
+
             } else {
                 setClickCheckOut(clickedDate);
                 if (media > 1) {
                     setDefaultCheckIn(clickCheckIn);
+
                     setDefaultCheckOut(clickedDate);
+
                     setOnCalender(false)
+
                 }
                 setCalendarClickCount(0);
+
             }
         }
     }

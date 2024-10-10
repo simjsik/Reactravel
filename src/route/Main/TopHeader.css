@@ -85,7 +85,7 @@
     height: 40px;
     float: right;
     border-radius: 4px;
-    background: #191919;
+    background: #3c00ff;
     border: none;
     color: #fff;
     transition: .2s;
@@ -93,12 +93,12 @@
 
 .header_login:hover,
 .header_logout:hover {
-    background: #383838;
+    background: #5826ff;
 }
 
 .header_login:active,
 .header_logout:active {
-    background: #000000;
+    background: #3300da;
 
 }
 
@@ -114,11 +114,11 @@
 }
 
 .guest_reserve:hover {
-    background: #d5d5d5;
+    background: rgb(250, 250, 250);
 }
 
 .guest_reserve:active {
-    background: #d1d1d1;
+    background: rgb(235, 235, 235);
 }
 
 .header_logout {
@@ -773,7 +773,7 @@
     }
 
     .mobile_login_art {
-        height: 200px;
+        height: 180px;
         margin-top: 40px;
     }
 

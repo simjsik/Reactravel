@@ -99,7 +99,7 @@ const GuestReserve: React.FC = () => {
                     <div className="guest_wrap">
                         <div>
                             <button className="login_close_btn" onClick={handleLoginToggle}>
-                                <svg viewBox="-3 -3 24 24" className="login_undo_svg">
+                                <svg viewBox="-2 -3 24 24" className="login_undo_svg">
                                     <g id="prevIcon" data-name="prevIcon"><g id="prev" data-name="prev">
                                         <rect className="cls-1" width="18" height="18" />
                                         <polyline className="cls-2" points="11.57 3.87 6.43 9 11.56 14.13" />

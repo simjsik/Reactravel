@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import './MainFinder.css'
 import { useRecoilState, useRecoilValue } from "recoil";
-import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState, calenderState, mbSetterState, calenderIndexState, clickCheckOutState, clickCheckInState } from "../../recoil";
+import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState, calenderState, mbSetterState, calenderIndexState, clickCheckOutState, clickCheckInState, navToggleState } from "../../recoil";
 import { useLocation, useNavigate } from "react-router-dom";
 import useHotelDetail from "../Hook/useHotelDetail";
 
@@ -20,6 +20,8 @@ const MainFinder: React.FC = () => {
     const [previewData, setPreviewData] = useRecoilState<any[]>(filterDataState);
     const [modal, setModal] = useRecoilState<boolean>(modalState)
     const [finderOn, setFinderOn] = useRecoilState<boolean>(finderState)
+    const [navToggle, setNavToggle] = useRecoilState<boolean>(navToggleState)
+
 
     const media = useRecoilValue(mediaState)
 
@@ -131,6 +133,7 @@ const MainFinder: React.FC = () => {
         setMbCalender((prev) => !prev);
         setSetter(false);
         setPreview(false);
+        setNavToggle(false);
         if (location.pathname === '/detail') {
             if (media < 2) {
                 setModal((prev) => !prev)
@@ -167,6 +170,8 @@ const MainFinder: React.FC = () => {
         setSetter((prev) => !prev);
         setPreview(false);
         setOnCalender(false)
+        setNavToggle(false);
+
         if (media < 2 && (location.pathname === '/detail' || location.pathname === '/reserve')) {
             setMbSetter((prev) => !prev)
             setModal((prev) => !prev)
@@ -286,7 +291,6 @@ const MainFinder: React.FC = () => {
     useEffect(() => { // 캘린더 인덱스 저장
         setCurrentIndex(calenderIndex)
     }, [onCalender])
-
 
     useEffect(() => {
         setTemporaryNight(night)
@@ -556,7 +560,7 @@ const MainFinder: React.FC = () => {
                     ref={reviewInputRef}
                     placeholder='도시, 호텔, 공항 또는 랜드마크'
                     value={searchTerm}
-                    onFocus={() => setOnFocus(true)}
+                    onFocus={() => { setOnFocus(true); setNavToggle(false); }}
                     onBlur={() => setOnFocus(false)}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onClick={() => setPreview(!!searchTerm)} // 빈문자열 = false

@@ -250,6 +250,11 @@ export const reserveDataState = atom<Reservation[]>({
     key: 'reserveDataState',
     default: [],
 })
+
+export const navToggleState = atom<boolean>({
+    key: 'navToggleState',
+    default: false
+})
 export const filteredHotelSelector = selector({
     key: 'filteredHotelSelector',
     get: ({ get }) => {

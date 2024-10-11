@@ -63,7 +63,6 @@ function App() {
   useEffect(() => {
     handleMedia()
     const handleResize = () => handleMedia();
-
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
@@ -73,11 +72,6 @@ function App() {
   useEffect(() => {
     setModal(false)
   }, [location])
-
-  useEffect(() => {
-    console.log(media)
-  }, [media, handleMedia])
-
 
   useEffect(() => {
     window.scrollTo(0, 0)

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import './TopHeader.css'
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
-import { defaultMap, loginToggleState, mediaState, modalState, reserveIdState, reserveToggleState, searchTermState, userState } from "../../recoil"
+import { defaultMap, loginToggleState, mediaState, modalState, navToggleState, reserveIdState, reserveToggleState, searchTermState, userState } from "../../recoil"
 import { getAuth, signOut } from "firebase/auth"
 import { useLocation, useNavigate } from "react-router-dom"
 import Login from "../Login/Login"
@@ -15,7 +15,7 @@ const TopHeader: React.FC = () => {
   const navRef = useRef<HTMLDivElement>(null);
   // data
 
-  const [navToggle, setNavToggle] = useState<boolean>(false)
+  const [navToggle, setNavToggle] = useRecoilState<boolean>(navToggleState)
   const [fixed, setFixed] = useState<boolean>(false)
 
   const media = useRecoilValue<number>(mediaState)
@@ -74,19 +74,9 @@ const TopHeader: React.FC = () => {
     }
   } // 예약 조회
 
-  useEffect(() => { // 요소 외 클릭 시 닫기 기능.
-    if (media > 1) {
-      const clickOutside = (event: MouseEvent) => {
-        if (navRef.current && !navRef.current.contains(event.target as Node)) {
-          setNavToggle(false);
-        }
-      };
-      document.addEventListener('click', clickOutside);
-      return () => {
-        document.removeEventListener('click', clickOutside);
-      }
-    }
-  }, [navRef])
+  useEffect(() => {
+    setNavToggle(false)
+  }, [location])
 
   useEffect(() => {
     const scrolledTop = () => {

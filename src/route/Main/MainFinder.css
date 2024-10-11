@@ -378,27 +378,6 @@ table {}
   color: rgb(159, 159, 159);
 }
 
-.detail_room_skeleton .room_box_cont {
-  height: 100px;
-}
-
-.detail_room_skeleton .room_box_cont span {
-  width: 100%;
-  margin-right: 10px;
-}
-
-.detail_room_skeleton .room_box_cont span:last-child {
-  margin-right: 0;
-}
-
-.detail_room_skeleton .detail_main_box {
-  width: 50%;
-  flex-direction: column;
-}
-.detail_room_skeleton .detail_main_box span{
-  margin-top: 4px;
-}
-
 @media screen and (min-width: 1281px) {
   .hotel_search_wrap {
     left: 50%;
@@ -1288,7 +1267,7 @@ table {}
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .hotel_search_wrap {
     position: static;
     transform: none;

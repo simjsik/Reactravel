@@ -371,6 +371,28 @@
     font-family: 'pretendard-regular';
 }
 
+.detail_room_skeleton .room_box_cont {
+    height: 100px;
+}
+
+.detail_room_skeleton .room_box_cont span {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.detail_room_skeleton .room_box_cont span:last-child {
+    margin-right: 0;
+}
+
+.detail_room_skeleton .detail_main_box {
+    width: 50%;
+    flex-direction: column;
+}
+
+.detail_room_skeleton .detail_main_box span {
+    margin-top: 4px;
+}
+
 /* base */
 @media screen and (min-width: 1281px) {
     .home_wrap {
@@ -399,9 +421,23 @@
     }
 
     .event_wrap {
+        position: relative;
         aspect-ratio: 15 / 3;
-        object-fit: cover;
         margin-top: 8px;
+
+        @supports not (aspect-ratio: 15 / 3) {
+            &::before {
+                float: left;
+                padding-top: 20%;
+                content: "";
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
     }
 
     .event_box {
@@ -410,6 +446,7 @@
     }
 
     .event_box img {
+        object-fit: cover;
         height: 100%;
     }
 
@@ -422,6 +459,22 @@
     .most_wrap {
         aspect-ratio: 16 / 4.5;
         margin-top: 8px;
+
+        @supports not (aspect-ratio: 16 / 4.5) {
+            &::before {
+                float: left;
+                padding-top: 28.125%;
+                content: "";
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
+
+
     }
 
     .hotpic_box,
@@ -549,7 +602,21 @@
 
     .event_wrap {
         aspect-ratio: 15 / 3;
-        object-fit: cover;
+
+        @supports not (aspect-ratio: 15 / 3) {
+            &::before {
+                float: left;
+                padding-top: 20%;
+                content: "";
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
+
         margin-top: 8px;
     }
 
@@ -571,6 +638,21 @@
     .most_wrap {
         aspect-ratio: 16 / 4.5;
         margin-top: 8px;
+
+        @supports not (aspect-ratio: 16 / 4.5) {
+            &::before {
+                float: left;
+                padding-top: 28.125%;
+                content: "";
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
+
     }
 
     .hotpic_box,
@@ -669,7 +751,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
     /** 모바일 가로, 타블렛 세로 */
     .home_wrap {
@@ -741,8 +823,21 @@
     .most_wrap {
         display: block;
         aspect-ratio: 16 / 9;
-        object-fit: cover;
         margin-top: 10px;
+
+        @supports not (aspect-ratio: 16 / 9) {
+            &::before {
+                float: left;
+                padding-top: 56.25%;
+                content: "";
+            }
+
+            &::after {
+                display: block;
+                content: "";
+                clear: both;
+            }
+        }
     }
 
     .event_box {
@@ -866,6 +961,16 @@
 
     .home_cont .swiper-button-next {
         right: 0;
+    }
+
+    /* 스켈레톤 */
+    .detail_room_skeleton .room_box_left>p {
+        width: 120px;
+    }
+
+    .detail_room_skeleton .room_box_right {
+        height: 180px;
+        margin-top: 10px;
     }
 }
 

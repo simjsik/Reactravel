@@ -541,7 +541,7 @@
     }
 }
 
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 767px) {
     .tb .reserve_confirm_wrap {
         margin-top: 0px;
         padding: 0px 10px 40px;

@@ -1173,7 +1173,7 @@
     }
 }
 
-@media (max-width :768px) {
+@media (max-width :767px) {
     .hotel_detail_top_right {
         display: none;
     }

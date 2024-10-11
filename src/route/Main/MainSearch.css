@@ -1108,7 +1108,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
     /** 모바일 가로, 타블렛 세로 */
     .search_wrap .mb_finder_btn_wrap {

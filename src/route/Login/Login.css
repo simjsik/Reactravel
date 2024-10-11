@@ -149,7 +149,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     /** 모바일 가로, 타블렛 세로 */
 
     .login_wrap,

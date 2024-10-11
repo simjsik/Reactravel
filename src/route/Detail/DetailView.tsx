@@ -162,7 +162,7 @@ const DetailView: React.FC = () => {
     useEffect(() => {
         const detailSkeleton = setInterval(() => {
             setLoading(false)
-        }, 300000);
+        }, 2000);
 
         return () => {
             clearTimeout(detailSkeleton); // 타이머 초기화

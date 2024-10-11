@@ -29,7 +29,6 @@ const Login: React.FC = () => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             setLoginToggle((prev) => !prev);
-            setModal(false)
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setError('로그인에 실패했습니다.' + error.message);
@@ -42,6 +41,9 @@ const Login: React.FC = () => {
     const handleGuestLogin = async () => {
         const guestUser = await loginGuest();
         setLoginToggle(false);
+        if (media > 1) {
+            setModal(false)
+        }
         if (!guestUser) {
             setError('게스트 로그인에 실패했습니다.');
         }

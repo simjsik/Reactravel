@@ -75,7 +75,14 @@ const RoomReserveConfirmed: React.FC = () => {
             <div className="reserve_progress">
                 <div className="reserve_progress_circle"></div>
                 <div className="reserve_progress_circle"></div>
-                <div className="reserve_progress_circle"></div>
+                <div className="reserve_progress_circle">
+                    <svg viewBox="0 0 28 28">
+                        <g id="progress_check_svg" data-name="progress_check_svg">
+                            <circle cx="14" cy="14" r="14" />
+                            <polyline points="7.75 14.44 11.62 18.32 20.25 9.69" />
+                        </g>
+                    </svg>
+                </div>
                 <p>예약 신청</p>
                 <p>확인 중</p>
                 <p>예약 완료</p>

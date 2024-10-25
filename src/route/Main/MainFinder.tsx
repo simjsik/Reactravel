@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import './MainFinder.css'
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { roomState, adultState, childState, setterState, previewState, searchTermState, filterDataState, hotelDataState, regionDataState, filteredHotelSelector, searchResultDataState, defaultCheckInState, defaultCheckOutState, nightState, modalState, finderState, mediaState, calenderState, mbSetterState, calenderIndexState, clickCheckOutState, clickCheckInState, navToggleState } from "../../recoil";
 import { useLocation, useNavigate } from "react-router-dom";
 import useHotelDetail from "../Hook/useHotelDetail";
@@ -16,11 +16,11 @@ const MainFinder: React.FC = () => {
     const [mbCalender, setMbCalender] = useRecoilState<boolean>(calenderState);
     const [preview, setPreview] = useRecoilState(previewState);
     const [searchTerm, setSearchTerm] = useRecoilState(searchTermState);
-    const [filterData, setFilterData] = useRecoilState<any[]>(searchResultDataState);
     const [previewData, setPreviewData] = useRecoilState<any[]>(filterDataState);
-    const [modal, setModal] = useRecoilState<boolean>(modalState)
-    const [finderOn, setFinderOn] = useRecoilState<boolean>(finderState)
-    const [navToggle, setNavToggle] = useRecoilState<boolean>(navToggleState)
+    const setFilterData = useSetRecoilState<any[]>(searchResultDataState);
+    const setModal = useSetRecoilState<boolean>(modalState)
+    const setFinderOn = useSetRecoilState<boolean>(finderState)
+    const setNavToggle = useSetRecoilState<boolean>(navToggleState)
 
 
     const media = useRecoilValue(mediaState)
@@ -48,7 +48,7 @@ const MainFinder: React.FC = () => {
 
     const param = new URLSearchParams(location.search)
     const query = param.get('query')
-    const { hotelDetail, error } = useHotelDetail();
+    const { hotelDetail } = useHotelDetail();
 
     if (query) {
         const parts = query.split('_');
@@ -186,7 +186,6 @@ const MainFinder: React.FC = () => {
     // 검색 버튼 클릭
     const searchClick = () => {
         setFilterData(filteredHotels);
-        console.log('필터호텔', filteredHotels)
         navigate(`/search?query=${searchTerm}`);
         setFinderOn(false)
         setModal(false)

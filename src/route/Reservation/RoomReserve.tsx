@@ -192,7 +192,7 @@ const RoomReserve: React.FC = () => {
         if (reservedId !== '') {
             navigate(`/reserve_confirm?query=${reservedId}`)
         }
-        setModal((prev) => !prev)
+        setModal(false)
     }, [reservedId])
     // 예약 성공 시 이동
 
@@ -200,6 +200,7 @@ const RoomReserve: React.FC = () => {
         setShowAllRoom((prev) => !prev)
         setModal((prev) => !prev)
     }
+
     useEffect(() => {
         const fixedHandle = () => {
             const currentY = window.scrollY; // 스크롤 이벤트 발생 시마다 최신 값 계산

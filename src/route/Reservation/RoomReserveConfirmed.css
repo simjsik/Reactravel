@@ -1,3 +1,18 @@
+.reserve_progress_circle svg {
+    fill: none;
+}
+
+.reserve_progress_circle circle {
+    fill: none;
+}
+
+.reserve_progress_circle polyline {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
 @media screen and (min-width : 1281px) {
     .reserve_progress {
         position: relative;

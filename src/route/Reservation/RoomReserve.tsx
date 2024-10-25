@@ -226,7 +226,7 @@ const RoomReserve: React.FC = () => {
 
     return (
         <>
-            {showAllRoom && reserveRoom &&
+            {(showAllRoom && reserveRoom && media > 1) &&
                 <div className="reserve_room_photo_wrap">
                     <div className="reserve_room_photo_bg" onClick={showRoomHandle}>
                     </div>

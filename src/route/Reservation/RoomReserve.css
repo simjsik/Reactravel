@@ -1066,11 +1066,13 @@
     }
 
     .reserve_room_photo_close_btn {
-        width: 52px;
-        height: 52px;
-        background: red;
         position: absolute;
         top: 0;
+        width: 52px;
+        height: 52px;
+        background: none;
+        border: none;
+        background-image: url(https://github.com/user-attachments/assets/bdc11b7c-1801-45da-8939-f1ae58eb3342);
     }
 }
 
@@ -1455,11 +1457,13 @@
     }
 
     .reserve_room_photo_close_btn {
-        width: 52px;
-        height: 52px;
-        background: red;
         position: absolute;
         top: 0;
+        width: 52px;
+        height: 52px;
+        background: none;
+        border: none;
+        background-image: url(https://github.com/user-attachments/assets/bdc11b7c-1801-45da-8939-f1ae58eb3342);
     }
 }
 

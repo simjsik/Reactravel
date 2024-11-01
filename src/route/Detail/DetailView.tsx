@@ -187,10 +187,11 @@ const DetailView: React.FC = () => {
             setZoom(15)
             setSlideIndex(parseInt(hotel?.hotelId, 10) - 1)
         }
-        setMap((prev) => !prev)
+        setMap(true)
         setModal(false)
-        navigate(-1)
+        navigate('/search?query=')
     }
+
     return (
         <div className="detail_wrap">
             {media < 2 && (calender || setter) && < MainFinder />}

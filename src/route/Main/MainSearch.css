@@ -1158,8 +1158,9 @@
     .search_wrap .mb_finder_btn {
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
+        width: calc(100% - 128px);
         height: 100%;
+        margin: 0 auto;
         padding: 18px 0px;
         border-radius: 0px;
         line-height: 18px;
@@ -1664,8 +1665,9 @@
     .search_wrap .mb_finder_btn {
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
+        width: calc(100% - 128px);
         height: 100%;
+        margin: 0 auto;
         padding: 19px 0px 10px;
         border-radius: 0px;
         line-height: 42px;
